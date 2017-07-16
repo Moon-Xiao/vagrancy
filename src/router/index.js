@@ -1,18 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Destinations from '@/components/Destinations.vue'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Blog from '@/components/Blog.vue'
 import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
-
 Vue.use(Router)
 let routes = [
   {
     path: '/home',
     name: '主页',
     component: Home
+  },
+  {
+    path: '/destinations',
+    name: '目的地',
+    component: Destinations
   },
   {
     path: '/blog',

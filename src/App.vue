@@ -61,6 +61,12 @@ export default {
 }
 </script>
 <style>
+  #app{
+    min-width: 800px;
+  }
+  .section {
+    padding: 2.5em 0 0 0;
+  }
   #app ul{
     list-style: none;
     padding: 0;
@@ -85,10 +91,15 @@ export default {
     padding: 0;
     outline: none;
   }
+  .box-shadow-container{
+    padding: 2em 2em 0 2em;
+    background-color: #fff;
+    box-shadow: 0px 1px 12px 0px rgba(50, 50, 50, 0.18);
+  }
 </style>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Hiragino Sans GB,Microsoft YaHei,SimHei,SimSun,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -139,8 +150,8 @@ export default {
     top: 0;
     background: #ec971f;
     height: 4px;
-    -webkit-transition-property: 'left, right';
-    transition-property: 'left, right';
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
     -webkit-transition-timing-function: ease-out;
