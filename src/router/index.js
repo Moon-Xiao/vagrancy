@@ -4,8 +4,13 @@ import Home from '@/components/Home'
 import Destinations from '@/components/Destinations.vue'
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
+import Person from '@/components/person/Person.vue'
+import MySave from '@/components/person/MySave'
+import Mytravels from '@/components/person/MyTravels'
+import MyConcern from '@/components/person/MyConcern'
+import MyAlbum from '@/components/person/MyAlbum'
+import MyBag from '@/components/person/MyBag'
 import Blog from '@/components/Blog.vue'
-import Contact from '@/components/Contact'
 import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
 Vue.use(Router)
@@ -51,9 +56,35 @@ let routes = [
     ]
   },
   {
-    path: '/contact',
-    name: '联系我们',
-    component: Contact
+    path: '/person',
+    component: Person,
+    children: [
+      {
+        path: '/person/my-travels',
+        name: '我的游记',
+        component: Mytravels
+      },
+      {
+        path: '/person/my-album',
+        name: '我的相册',
+        component: MyAlbum
+      },
+      {
+        path: '/person/my-concern',
+        name: '我的关注',
+        component: MyConcern
+      },
+      {
+        path: '/person/my-save',
+        name: '我的收藏',
+        component: MySave
+      },
+      {
+        path: '/person/my-bag',
+        name: '我的背包',
+        component: MyBag
+      }
+    ]
   },
   {
     path: '/about',

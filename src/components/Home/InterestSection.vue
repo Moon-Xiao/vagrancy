@@ -137,7 +137,7 @@
   .interest ul li .interest-item p.ellipsis {
     color: #222222;
     font-size: 16px;
-    font-weight: 550;
+    font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

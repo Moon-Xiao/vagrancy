@@ -1,5 +1,7 @@
 <template>
-  <div>contact</div>
+  <div>
+    my bag
+  </div>
 </template>
 
 <script>

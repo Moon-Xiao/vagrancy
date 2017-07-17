@@ -1,64 +1,63 @@
 <template>
   <div id="app" style="padding-top: 60px">
-  	<b-navbar fixed="top" toggleable type="inverse">
+    <b-navbar fixed="top" toggleable type="inverse">
 
-    <b-nav-toggle target="nav_collapse"></b-nav-toggle>
+      <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
-    <b-link class="navbar-brand" to="#">
-    	<img src="../static/images/logo.png" alt="datas logo" class="navbar-logo">
-    </b-link>
+      <b-link class="navbar-brand" to="#">
+        <img src="../static/images/logo.png" alt="datas logo" class="navbar-logo">
+      </b-link>
 
-    <b-collapse is-nav id="nav_collapse">
-      <b-nav is-nav-bar>
-      	<template v-for="link in links">
-      		<b-nav-item v-if="!link.dropdown" :to="link.path">{{link.name}}</b-nav-item>
-      		<b-nav-item-dropdown v-else :text="link.name" :to="link.path">
-      			<b-dropdown-item v-for="item in link.dropdown" :to="item.path">{{item.name}}</b-dropdown-item>
-      		</b-nav-item-dropdown>
-      	</template>
-      </b-nav>
-
-      <b-nav is-nav-bar class="ml-auto">
-
-        <!-- Navbar dropdowns -->
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item to="#">EN</b-dropdown-item>
-          <b-dropdown-item to="#">ES</b-dropdown-item>
-          <b-dropdown-item to="#">RU</b-dropdown-item>
-          <b-dropdown-item to="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-
-          <!-- Using button-content slot -->
-          <template slot="button-content">
-            <span style="font-weight: bold;">User</span>
+      <b-collapse is-nav id="nav_collapse">
+        <b-nav is-nav-bar>
+          <template v-for="link in links" v-if="link.name">
+            <b-nav-item v-if="!link.dropdown" :to="link.path">{{link.name}}</b-nav-item>
+            <b-nav-item-dropdown v-else :text="link.name" :to="link.path">
+              <b-dropdown-item v-for="item in link.dropdown" :to="item.path">{{item.name}}</b-dropdown-item>
+            </b-nav-item-dropdown>
           </template>
+        </b-nav>
 
-          <b-dropdown-item to="#">Profile</b-dropdown-item>
-          <b-dropdown-item to="#">Signout</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav is-nav-bar class="ml-auto">
 
-      </b-nav>
-    </b-collapse>
-</b-navbar>
+          <!-- Navbar dropdowns -->
+          <b-nav-item-dropdown text="Lang" right>
+            <b-dropdown-item to="#">EN</b-dropdown-item>
+            <b-dropdown-item to="#">ES</b-dropdown-item>
+            <b-dropdown-item to="#">RU</b-dropdown-item>
+            <b-dropdown-item to="#">FA</b-dropdown-item>
+          </b-nav-item-dropdown>
 
-<!-- navbar.vue -->
+          <b-nav-item-dropdown right>
+
+            <!-- Using button-content slot -->
+            <template slot="button-content">
+              <span style="font-weight: bold;">User</span>
+            </template>
+
+            <b-dropdown-item to="#">Profile</b-dropdown-item>
+            <b-dropdown-item to="#">Signout</b-dropdown-item>
+          </b-nav-item-dropdown>
+
+        </b-nav>
+      </b-collapse>
+    </b-navbar>
+
+    <!-- navbar.vue -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { links } from './router/index.js'
-
-export default {
-  name: 'app',
-  data () {
-    return {
-      links: links
+  import {links} from './router/index.js'
+  export default {
+    name: 'app',
+    data () {
+      return {
+        links: links
+      }
     }
   }
-}
 </script>
 <style>
   #app{
@@ -67,25 +66,33 @@ export default {
   .section {
     padding: 2.5em 0 0 0;
   }
-  #app ul{
+  #app .navbar {
+    z-index: 50;
+  }
+
+  #app ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  #app ul.inline-ul>li{
+
+  #app ul.inline-ul > li {
     display: inline-block;
     margin: 10px;
   }
-  #app a{
+
+  #app a {
     text-decoration: none;
   }
+
   #app .subtitle {
     margin-top: 14px;
     height: 48px;
     font-size: 16px;
-    font-family: Hiragino Sans GB,Microsoft YaHei,SimHei,SimSun,sans-serif;
+    font-family: Hiragino Sans GB, Microsoft YaHei, SimHei, SimSun, sans-serif;
     overflow: hidden;
   }
+
   article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
     margin: 0;
     padding: 0;
