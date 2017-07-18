@@ -74,6 +74,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    color: dimgray;
   }
 
   #app ul.inline-ul > li {

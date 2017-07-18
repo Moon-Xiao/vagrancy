@@ -39,7 +39,6 @@
     data () {
       return {
         scenics: [
-
           {
             title: '蒂卡普湖',
             city: '新西兰城市',

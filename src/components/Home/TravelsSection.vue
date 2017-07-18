@@ -100,17 +100,6 @@
     margin-right: 10px;
   }
 
-  .kd-divider span:before, .kd-divider span:after {
-    content: '';
-    width: 9999px;
-    height: 4px;
-    border-top: 1px solid #cccccc;
-    position: absolute;
-    top: 23px;
-    left: 100%;
-    margin-left: 10px;
-  }
-
   figure {
     margin-bottom: 6px;
     position: relative;
@@ -130,16 +119,6 @@
   .kd-package-list figure img {
     width: 100%;
     border-radius: 6px;
-  }
-
-  .kd-package-list figure .package-price:before {
-    content: '';
-    position: absolute;
-    left: 1px;
-    bottom: -15px;
-    border-top: 16px solid #0d486b;
-    border-right: 14px solid transparent;
-    transform: scale(-1) rotate(-90deg);
   }
 
   .kd-package-list figure .kd-bottomelement {

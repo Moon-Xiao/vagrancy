@@ -5,7 +5,7 @@
     <interest-section></interest-section>
     <counter></counter>
     <travels-section></travels-section>
-    <!--<store-section></store-section>-->
+    <store-section></store-section>
     <cooperator></cooperator>
 
   </div>
@@ -17,7 +17,7 @@
   import InterestSection from './Home/InterestSection.vue'
   import TravelsSection from './Home/TravelsSection.vue'
   import Cooperator from './Home/Cooperator.vue'
-  //  import StoreSection from './Home/StoreSection.vue'
+  import StoreSection from './Home/StoreSection.vue'
   import Counter from './Home/Counter.vue'
   export default{
     components: {
@@ -26,7 +26,7 @@
       InterestSection,
       Counter,
       TravelsSection,
-      //      StoreSection,
+      StoreSection,
       Cooperator
     }
   }

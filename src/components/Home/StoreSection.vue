@@ -6,18 +6,18 @@
           <h2>商店</h2><span> </span>
         </div>
         <ul id="filters" class="clearfix">
-          <li><span class="filter" data-filter="`${lables[0]} ${lables[1]} ${lables[2] ${lables[3]}}`">全部</span></li>
-          <li><span class="filter" :data-filter="label[0]">旅店</span></li>
-          <li><span class="filter" :data-filter="label[3]">装备</span></li>
-          <li><span class="filter" :data-filter="label[2]">团购</span></li>
-          <li><span class="filter" :data-filter="label[1]">特产</span></li>
+          <li><span class="filter" :data-filter="`${labels[0]} ${labels[1]} ${labels[2]} ${labels[3]}`">全部</span></li>
+          <li><span class="filter" :data-filter="labels[0]">旅店</span></li>
+          <li><span class="filter" :data-filter="labels[3]">装备</span></li>
+          <li><span class="filter" :data-filter="labels[2]">团购</span></li>
+          <li><span class="filter" :data-filter="labels[1]">特产</span></li>
         </ul>
-        <div id="store-list" class="clearfix">
-          <div v-for="(store,index) in stores" class="`portfolio ${lables[0]} ${lables[1]} ${lables[2] ${lables[3]}}`"
-               data-wow-delay="0.4s" :data-cat="store.lable" style="display: inline-block; opacity: 1;">
+        <div id="portfoliolist" class="clearfix">
+          <div v-for="(store,index) in stores" :class="`portfolio ${labels[0]} ${labels[1]} ${labels[2]} ${labels[3]}`"
+               data-wow-delay="0.4s" :data-cat="store.label" style="display: inline-block; opacity: 1">
             <div class="portfolio-wrapper grid_box">
-              <a href="`/static/images/temp/pic-${index}.jpg`" :class="store.lable" title="Image Title">
-                <img src="`/static/images/temp/pic-${index}.jpg`" class="img-responsive" alt="">
+              <a :href="`/static/images/temp/pic-${index}.jpg`" :class="store.label" title="Image Title">
+                <img :src="`/static/images/temp/pic-${index}.jpg`" class="img-responsive" alt="">
                 <span class="zoom-icon"> </span> </a>
             </div>
           </div>
@@ -28,13 +28,12 @@
 </template>
 
 <script>
-  import $ from 'jquery'
-  import Mixitup from '../../../static/js/jquery.mixitup.min'
+  import '../../../static/js/jquery.mixitup.min'
   export default {
-    comonents: {Mixitup},
+    //    components: {Mixitup},
     data () {
       return {
-        lables: [
+        labels: [
           'inn',
           'local-product',
           'equip',
@@ -45,106 +44,129 @@
             name: '旅店1',
             img: '',
             intro: '深圳观澜湖硬石酒店开业了,预订可享受低至8折优惠,还有6项开业特别优惠.',
-            lable: 'inn'
+            label: 'inn'
           },
           {
             name: '旅店2',
             img: '',
             intro: '去TripAdvisor看1500万旅友对酒店介绍首尔的真实评论,超过4000万条',
-            lable: 'inn'
+            label: 'inn'
           },
           {
             name: '旅店3',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择!',
-            lable: 'inn'
+            label: 'inn'
           },
           {
             name: '旅店4',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择!',
-            lable: 'inn'
+            label: 'inn'
           },
           {
             name: '团购1',
             img: '',
             intro: '营口仙人岛宾馆位于辽宁省营口仙人岛国家森林公园之中,是一座集度假、会议、住宿、餐饮、娱乐、温泉洗浴等多功能为一体的园林别墅',
-            lable: 'tour-group'
+            label: 'tour-group'
           },
           {
             name: '特产1',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择',
-            lable: 'local-product'
+            label: 'local-product'
           },
           {
             name: '特产2',
             img: '',
             intro: '营口仙人岛宾馆位于辽宁省营口仙人岛国家森林公园之中,是一座集度假、会议、住宿、餐饮、娱乐、温泉洗浴等多功能为一体的园林别墅',
-            lable: 'local-product'
+            label: 'local-product'
           },
           {
             name: '特产3',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择!',
-            lable: 'local-product'
+            label: 'local-product'
           },
           {
             name: '特产4',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择!',
-            lable: 'local-product'
+            label: 'local-product'
           },
           {
             name: '装备1',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择',
-            lable: 'equip'
+            label: 'equip'
           },
           {
             name: '装备2',
             img: '',
             intro: '营口仙人岛宾馆位于辽宁省营口仙人岛国家森林公园之中,是一座集度假、会议、住宿、餐饮、娱乐、温泉洗浴等多功能为一体的园林别墅',
-            lable: 'equip'
+            label: 'equip'
           },
           {
             name: '装备3',
             img: '',
             intro: '10年良好稳健发展,覆盖400多座城市,2500多家酒店,5000多万商旅客人选择!',
-            lable: 'equip'
+            label: 'equip'
           }
         ]
       }
     },
     mounted () {
-      var filterList = {
-        init: function () {
-          // MixItUp plugin
-          $('#portfoliolist').mixitup({
-            targetSelector: '.portfolio',
-            filterSelector: '.filter',
-            effects: ['fade'],
-            easing: 'snap',
-            // call the hover effect
-            onMixEnd: filterList.hoverEffect()
-          })
-        },
-        hoverEffect: function () {
-          // Simple parallax effect
-          $('#portfoliolist .portfolio').hover(
-            function () {
-              $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad')
-              $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad')
-            },
-            function () {
-              $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad')
-              $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad')
-            }
-          )
-        }
-      }
-      // Run the show!
-      filterList.init()
     }
   }
 </script>
+<style>
+  #filters {
+    margin: 3% 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  #filters li span{
+    display: block;
+    padding: 6px 25px;
+    text-decoration: none;
+    color: #f97474;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 400;
+    margin:0 0.3em;
+    border:1px solid #f97474;
+  }
+  #filters li span.active {
+    background: #f97474;
+    color: #fff;
+    font-weight: 400;
+  }
+  #filters li span.filter:hover{
+    background: #f97474;
+    color: #fff;
+    font-weight: 400;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+  }
+  .portfolio-wrapper {
+    overflow: hidden;
+    position: relative !important;
+    cursor: pointer;
+  }
+  #portfoliolist .portfolio {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width: 25%;
+    display: none;
+    float: left;
+    overflow: hidden;
+    margin: 0;
+  }
+
+</style>
+
