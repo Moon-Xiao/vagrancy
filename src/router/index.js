@@ -23,6 +23,8 @@ import ManageSetting from '@/components/Person/ManageInfo/ManageSetting'
 import Blog from '@/components/Blog.vue'
 import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
+import FlightAndHotel from '@/components/StoresSet/FlightAndHotel.vue'
+import StoreHome from '@/components/StoresSet/StoreHome.vue'
 Vue.use(Router)
 let routes = [
   {
@@ -38,7 +40,39 @@ let routes = [
   {
     path: '/stores',
     name: '商城',
-    component: Stores
+    component: Stores,
+    children: [
+      {
+        path: '/stores',
+        name: '首页',
+        component: StoreHome
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '机酒自由行',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '当地玩乐',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '特价机票',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight',
+        name: '签证',
+        component: StoreHome
+      },
+      {
+        path: '/stores/flight',
+        name: '游轮',
+        component: StoreHome
+      }
+    ]
   },
   {
     path: '/blog',
