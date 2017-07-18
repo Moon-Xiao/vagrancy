@@ -2,7 +2,7 @@
   <div id="destinations">
     <!--<destinations-banner></destinations-banner>-->
     <des-banner></des-banner>
-    <des-hot-des :tabs="allDesTabs" class="des-tabs all-des-tabs">
+    <des-hot-des :tab_title="'热门目的地'" :tabs="allDesTabs" class="des-tabs all-des-tabs">
       <ul v-for="(all,i) in allDesTabs" :slot="`content-${i}`" class="row" >
         <li v-for="sub in all.subtabs" class="all-sub-li row col-6">
           <div class="sub-title col-4">{{sub.subtitle}}</div>
@@ -12,11 +12,18 @@
         </li>
       </ul>
     </des-hot-des>
-
-    <des-hot-des :tabs="monthsTabs" class="des-tabs all-des-tabs">
-      <ul v-for="(all,i) in monthsTabs" :slot="`content-${i}`" class="inline-ul">
-        <li v-for="sub in all.subtabs" class="all-sub-li">
-          <span class="sub-title">{{sub.subtitle}}</span>
+    <des-hot-des :tab_title="'当季推荐'" :tabs="monthsTabs" class="des-tabs months-des-tabs">
+      <ul v-for="(all,i) in monthsTabs" :slot="`content-${i}`" class="row">
+        <li v-for="sub in all.subtabs" class="all-sub-li row col-3">
+          <div class="sub-title">{{sub.subtitle}}</div>
+          <img :src="sub.img"/>
+        </li>
+      </ul>
+    </des-hot-des>
+    <des-hot-des :tab_title="'主题精选'" :tabs="themesTabs" class="des-tabs months-des-tabs">
+      <ul v-for="(all,i) in themesTabs" :slot="`content-${i}`" class="row">
+        <li v-for="sub in all.subtabs" class="all-sub-li row col-3">
+          <div class="sub-title">{{sub.subtitle}}</div>
           <img :src="sub.img"/>
         </li>
       </ul>
@@ -303,7 +310,7 @@
             ]
           }
         ],
-        theme: [
+        themesTabs: [
           {
             title: '摄影',
             subtabs: [
@@ -404,4 +411,26 @@
     margin: 2px 2px;
   }
 
+</style>
+<style>
+  .months-des-tabs img{
+    width: 100%;
+    height: 100%;
+  }
+  .months-des-tabs .all-sub-li {
+    display: inline-block;
+  }
+  .months-des-tabs .sub-title{
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 10px;
+  }
+  .months-des-tabs .nav-list-li .row{
+    margin: 0 auto 10px auto;
+    width: 100%;
+  }
+  .months-des-tabs .all-sub-li {
+
+  }
 </style>

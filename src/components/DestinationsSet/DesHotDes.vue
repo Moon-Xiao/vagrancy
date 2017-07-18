@@ -1,8 +1,8 @@
 <template>
   <div class="des-hot">
-    <div class="wrapper container">
+    <div class="wrapper" style="width: 90%;margin: 0 auto" >
       <div class="title">
-        <h2>热门目的地</h2>
+        <h2>{{tab_title}}</h2>
       </div>
       <ul class="tab-nav inline-ul">
         <li v-for="(item,index) in tabs" v-on:mouseenter="nowIndex = index" :class="{active: index === nowIndex}">{{item.title}}</li>
@@ -25,7 +25,8 @@
       }
     },
     props: {
-      tabs: Array
+      tabs: Array,
+      tab_title: String
     }
   }
 </script>
