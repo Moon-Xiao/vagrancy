@@ -1,22 +1,17 @@
 <template>
   <div id="group">
     <h3>我的“团”</h3>
-    <div class="items">
-      <div class="item">
+    <div class="row">
+      <template v-for="item in imgList"></template>
+      <div class="col-md-4">
         <a>
-          <img src="/static/images/person/group2.jpg">
-          <p>旅行指南</p>
-        </a>
-      </div>
-      <div class="item">
-        <a>
-          <img src="/static/images/person/group1.png">
+          <div class="back-img" :style="'background-image: url('+item.link+')'"></div>
           <p>驴友小组</p>
         </a>
       </div>
-      <div class="item">
+      <div class="col-md-4">
         <a>
-          <img src="/static/images/person/group.jpg">
+          <div class="back-img"></div>
           <p>蜂窝广场</p>
         </a>
       </div>
@@ -30,10 +25,12 @@
     data () {
       return {
         imgList: [
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/0', title: 'Skulls are nice1', detail: '1'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/1', title: 'Skulls are nice2', detail: '2'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: 'Skulls are nice3', detail: '3'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'Skulls are nice4', detail: '4'}
+          {img: '/static/images/person/weixin.png', name: '微信'},
+          {img: '/static/images/person/sina.png', name: '新浪'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间'}
         ]
       }
     },
@@ -48,27 +45,20 @@
     border: 1px solid lightgray;
   }
 
-  h3 {
+  #group h3 {
     font-size: 24px;
   }
 
-  .items {
-    margin-top: 1rem;
-    width: 100%;
+  #group .row{
+    padding:0;
+    margin: 0;
   }
 
-  .item {
-    width: 32%;
-    display: inline-block;
-  }
-
-  .item img {
-    width: 100%;
+  #group .row .back-img{
     height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+    width: 100%;
   }
-
-  .item p {
-    margin-top: .5rem;
-  }
-
 </style>

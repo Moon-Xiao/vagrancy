@@ -2,18 +2,18 @@
   <div id="per">
     <div id="personImg">
       <img src="/static/images/person/person.jpeg">
-      <a href="#/person/manage-info/manage-photo" class="moveUp">
+      <router-link to="/manage-info/manage-photo" class="moveUp">
         <i class="fa fa-camera moveIcon"></i>
-      </a>
+      </router-link>
     </div>
     <div class="per-nav">
-      <a href="#/person/manage-info/manage-detail">{{name}}
+      <router-link to="manage-info">{{name}}
         <i class="fa fa-edit"></i>
-      </a>
+      </router-link>
       <div class="tip">
         <b-badge pill v-for="character in characterList">{{character}}</b-badge>
       </div>
-      <div>
+      <div class="rate">
         <span>等级：</span>
         <span style="color: red">{{rank}}</span>
       </div>
@@ -21,7 +21,7 @@
       <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn">简单介绍下自己吧</button>
       <!--write input-->
       <div id="write-sign" class="sign-write" v-show="isWriteShow">
-        <textarea v-model="signature" placeholder="你想说点啥~~~"></textarea>
+        <textarea v-model="signature" placeholder="介绍介绍寄几吧(￣▽￣)"></textarea>
         <button class="btn btn-primary" @click="signShow">保存</button>
       </div>
       <!--show input-->
@@ -30,27 +30,27 @@
       </div>
       <!---->
 
-      <div class="bottom-bar">
+      <div class="bottom-bar row">
         <!--<span v-for="(item, index) in bottomList">-->
         <!--<div>{{item.num}}</div>-->
         <!--<i :class="'fa fa-'+item.icon" @click="index==2　&& (item.num+=1)"></i>-->
         <!--{{item.name}}-->
         <!--</span>-->
-        <span class="bottom-item">
+        <div class="bottom-item col-md-4">
             <div>{{concernNum}}</div>
-            <i class="fa fa-eye"></i>
+            <i class="fa fa-eye" style="color: cornflowerblue"></i>
             <span>关注</span>
-        </span>
-        <span class="bottom-item">
+        </div>
+        <div class="bottom-item col-md-4">
             <div>{{fansNum}}</div>
-            <i class="fa fa-heart-o"></i>
+            <i class="fa fa-heart" style="color: #ff6942"></i>
             <span>粉丝</span>
-        </span>
-        <span class="bottom-item">
+        </div>
+        <div class="bottom-item col-md-4">
             <div>{{saveNum}}</div>
-            <i class="fa fa-star-o" @click="saveNum+=1"></i>
+            <i class="fa fa-star save" @click="saveNum+=1"></i>
             <span>收藏</span>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -102,6 +102,7 @@
     position: relative;
     width: 15rem;
     min-height: 20rem;
+    color: black;
     /*border: 1px solid lightgray;*/
   }
 
@@ -122,7 +123,7 @@
     display: block;
   }
 
-  .moveUp {
+  #per .moveUp {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -134,15 +135,15 @@
     left: 0;
   }
 
-  .moveUp .moveIcon {
+  #per .moveUp .moveIcon {
     display: none
   }
 
-  .moveUp:hover .moveIcon {
+  #per .moveUp:hover .moveIcon {
     display: inline-block;
   }
 
-  .moveUp:before, .moveUp:after {
+  #per .moveUp:before, .moveUp:after {
     content: '';
     position: absolute;
     left: 0;
@@ -153,28 +154,28 @@
     border-radius: 50%
   }
 
-  .moveUp:before {
+  #per .moveUp:before {
     transform: scale(0);
     transition: transform .3s ease-out 0s;
     -webkit-transform: scale(0);
     -webkit-transition: -webkit-transform .3s ease-out 0s
   }
 
-  .moveUp:after {
+  #per .moveUp:after {
     background-color: #dbdbdb;
     transform: scale(1);
     -webkit-transform: scale(1);
     display: none
   }
 
-  .moveUp:hover:before {
+  #per .moveUp:hover:before {
     transform: scale(1);
     transition: none;
     -webkit-transform: scale(1);
     -webkit-transition: none
   }
 
-  .moveUp:hover:after {
+  #per .moveUp:hover:after {
     display: block;
     -webkit-animation: scaledown .3s ease-out 0s 1 forwards;
     -moz-animation: scaledown .3s ease-out 0s 1 forwards;
@@ -221,7 +222,9 @@
   /*per-nav*/
   .per-nav {
     margin-top: 1rem;
-    border: 1px solid lightgray;
+    border: 1px dotted #5f9afa;
+    box-shadow: 0 0 0.3rem #eee;
+    border-radius: 0.3rem;
   }
 
   .per-nav > a {
@@ -229,15 +232,15 @@
   }
 
   /*tip*/
-  .tip span:first-child, .tip span:nth-child(2) {
+  #per .tip span:first-child, .tip span:nth-child(2) {
     margin-right: 0.6rem;
   }
 
-  .tip span {
+  #per .tip span {
     background-color: cornflowerblue;
   }
 
-  .sign-btn {
+  #per .sign-btn {
     width: 90%;
     margin: 0.5rem auto;
     color: white;
@@ -248,40 +251,63 @@
     /*border: 1px solid lightgrey;*/
   }
 
-  .sign-write {
+  #per .sign-write {
     width: 100%;
     margin: 0.5rem auto;
-    border: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;*/
     border-radius: 0.3rem;
   }
 
-  .sign-write > textarea {
+  #per .sign-write > textarea {
     width: 95%;
     border-radius: 0.2rem;
-    background-color: lightyellow;
+    /*background-color: lightyellow;*/
   }
 
-  .sign-write > button {
+  #per .sign-write > button {
     width: 95%;
     background-color: cornflowerblue;
     border-color: honeydew;
   }
 
-  .sign {
+  #per .sign {
     width: 95%;
     margin: 0.5rem auto;
     border: 1px solid honeydew;
     border-radius: 0.3rem;
-    font-size: 18px;
-    background-color: lightyellow;
+    font-size: 20px;
+    color: white;
+    background-color: #ffbe59;
+    height: 2.2rem;
+    line-height: 2.2rem;
+  }
+/*rate*/
+  #per .rate{
+    margin: 0.8rem 0 0;
+  }
+  /*bottom-bar*/
+  #per .bottom-bar{
+    margin: .5rem 0;
+    height: 4rem;
+    color: #666;
+    border: none;
+  }
+  #per .bottom-bar .bottom-item {
+    display: inline-block;
+    height: 100%;
+    padding: 0;
+    margin: .05rem 0 0;
+  }
+  #per .bottom-bar .bottom-item > div{
+    margin-bottom: 0.2rem;
+    font-size: 22px;
+  }
+  #per .bottom-bar .bottom-item .save{
+    color: #ffff00;
+  }
+  #per .bottom-bar .bottom-item .save:hover {
+    box-shadow: 0 0 .2rem #ffff00;
+    border-radius: 0.5rem;
   }
 
-  /*bottom-bar*/
-  .bottom-bar .bottom-item {
-    width: 32%;
-    display: inline-block;
-    height: 4rem;
-    border: 1px solid lightgray;
-    padding-top: .5rem;
-  }
 </style>

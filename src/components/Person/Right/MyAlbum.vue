@@ -290,6 +290,7 @@
   @import '/static/css/default.css';
   @import '/static/css/bookblock.css';
   @import '/static/css/demo1.css';
+
   .album-top {
     height: 4rem;
     border: 1px solid lightgrey;

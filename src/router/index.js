@@ -4,12 +4,22 @@ import Home from '@/components/Home'
 import Destinations from '@/components/Destinations.vue'
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
-import Person from '@/components/person/Person.vue'
-import MySave from '@/components/person/MySave'
-import Mytravels from '@/components/person/MyTravels'
-import MyConcern from '@/components/person/MyConcern'
-import MyAlbum from '@/components/person/MyAlbum'
-import MyBag from '@/components/person/MyBag'
+
+import Person from '@/components/Person/Person.vue'
+
+import MySave from '@/components/Person/Right/MySave'
+import Mytravels from '@/components/Person/Right/MyTravels'
+import MyConcern from '@/components/Person/Right/MyConcern'
+import MyAlbum from '@/components/Person/Right/MyAlbum'
+import MyBag from '@/components/Person/Right/MyBag'
+
+import ManageInfo from '@/components/Person/ManageInfo'
+import ManageDetail from '@/components/Person/ManageInfo/ManageDetail'
+import ManagePhoto from '@/components/Person/ManageInfo/ManagePhoto'
+import ManagePurse from '@/components/Person/ManageInfo/ManagePurse'
+import ManageSafe from '@/components/Person/ManageInfo/ManageSafe'
+import ManageSetting from '@/components/Person/ManageInfo/ManageSetting'
+
 import Blog from '@/components/Blog.vue'
 import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
@@ -60,7 +70,7 @@ let routes = [
     component: Person,
     children: [
       {
-        path: '/person/my-travels',
+        path: '/person',
         name: '我的游记',
         component: Mytravels
       },
@@ -85,6 +95,41 @@ let routes = [
         component: MyBag
       }
     ]
+  },
+  {
+    path: '/manage-info',
+    component: ManageInfo,
+    children: [
+      {
+        path: 'manage-info',
+        name: '我的信息',
+        icon: 'user-circle-o',
+        component: ManageDetail
+      },
+      {
+        path: '/manage-info/manage-photo',
+        name: '我的头像',
+        icon: 'file-photo-o',
+        component: ManagePhoto
+      },
+      {
+        path: '/manage-info/manage-setting',
+        name: '绑定设置',
+        icon: 'magnet',
+        component: ManageSetting
+      },
+      {
+        path: '/manage-info/manage-safe',
+        name: '账号安全',
+        icon: 'user-secret',
+        component: ManageSafe
+      },
+      {
+        path: '/manage-info/manage-purse',
+        name: '我的钱包',
+        icon: 'credit-card-alt',
+        component: ManagePurse
+      }]
   },
   {
     path: '/about',
