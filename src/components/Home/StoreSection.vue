@@ -5,19 +5,18 @@
         <div class="head-section text-center">
           <h2>商店</h2><span> </span>
         </div>
-        <ul id="filters" class="clearfix">
-          <li><span class="filter" :data-filter="`${labels[0]} ${labels[1]} ${labels[2]} ${labels[3]}`">全部</span></li>
-          <li><span class="filter" :data-filter="labels[0]">旅店</span></li>
-          <li><span class="filter" :data-filter="labels[3]">装备</span></li>
-          <li><span class="filter" :data-filter="labels[2]">团购</span></li>
-          <li><span class="filter" :data-filter="labels[1]">特产</span></li>
+        <ul id="filters" class="clearfix inline-ul">
+          <li><span class="filter" >全部</span></li>
+          <li><span class="filter" >旅店</span></li>
+          <li><span class="filter" >装备</span></li>
+          <li><span class="filter" >团购</span></li>
+          <li><span class="filter" >特产</span></li>
         </ul>
-        <div id="portfoliolist" class="clearfix">
-          <div v-for="(store,index) in stores" :class="`portfolio ${labels[0]} ${labels[1]} ${labels[2]} ${labels[3]}`"
-               data-wow-delay="0.4s" :data-cat="store.label" style="display: inline-block; opacity: 1">
+        <div id="portfoliolist" class="clearfix row">
+          <div v-for="(store,index) in stores" class="col-3" style="display: inline-block; opacity: 1;height: 180px">
             <div class="portfolio-wrapper grid_box">
-              <a :href="`/static/images/temp/pic-${index}.jpg`" :class="store.label" title="Image Title">
-                <img :src="`/static/images/temp/pic-${index}.jpg`" class="img-responsive" alt="">
+              <a :href="`/static/images/temp/des-${index+1}.jpg`" :class="store.label" title="Image Title">
+                <div :style="`width: 100%; height: 100%; background-image: url('/static/images/temp/des-${index+1}.jpg')`" class="img-responsive" alt=""></div>
                 <span class="zoom-icon"> </span> </a>
             </div>
           </div>
@@ -28,9 +27,7 @@
 </template>
 
 <script>
-  import '../../../static/js/jquery.mixitup.min'
   export default {
-    //    components: {Mixitup},
     data () {
       return {
         labels: [
@@ -114,8 +111,6 @@
           }
         ]
       }
-    },
-    mounted () {
     }
   }
 </script>
@@ -130,20 +125,20 @@
     display: block;
     padding: 6px 25px;
     text-decoration: none;
-    color: #f97474;
+    color: #008ABC;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 400;
     margin:0 0.3em;
-    border:1px solid #f97474;
+    border:1px solid #008ABC;
   }
   #filters li span.active {
-    background: #f97474;
+    background: #008ABC;
     color: #fff;
     font-weight: 400;
   }
   #filters li span.filter:hover{
-    background: #f97474;
+    background: #008ABC;
     color: #fff;
     font-weight: 400;
     transition:0.5s all;
@@ -167,6 +162,17 @@
     overflow: hidden;
     margin: 0;
   }
-
-</style>
+  .portfolio-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .store-section .portfolio-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .portfolio-wrapper>a{
+    width: 100%;
+    height: 100%;
+  }
+ </style>
 

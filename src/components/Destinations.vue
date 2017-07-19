@@ -4,7 +4,7 @@
     <des-banner></des-banner>
     <des-hot-des :tab_title="'热门目的地'" :tabs="allDesTabs" class="des-tabs all-des-tabs">
       <ul v-for="(all,i) in allDesTabs" :slot="`content-${i}`" class="row" >
-        <li v-for="sub in all.subtabs" class="all-sub-li row col-6">
+        <li v-for="sub in all.subtabs" class="all-sub-li row">
           <div class="sub-title col-4">{{sub.subtitle}}</div>
           <ul class="sub-list-ul col-8">
             <li v-for="list in sub.deslist">{{list}}</li>
@@ -382,10 +382,17 @@
   }
 </script>
 <style>
+  ul.nav-list-ul {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
   .all-des-tabs  li.all-sub-li {
-    width: 48%;
-    margin: 0;
+    width: 45%;
+    margin-right: 10px;
+    padding: 10px 0;
     text-align: left;
+    border-bottom: 1px dashed #eee;;
   }
 
   .all-des-tabs .sub-title {

@@ -7,23 +7,23 @@
           <!--// Count Section //-->
           <div class="kd-Count">
             <ul class="row">
-              <li class="col-md-3">
-                <i class="fa fa-plane fa-3x"></i>
+              <li class="col-md-3" style="color:#fff;">
+                <i class="fa fa-plane fa-3x" ></i>
                 <span class="word-count" ref="count">{{travelerCount}}</span>
                 <small>旅客</small>
               </li>
-              <li class="col-md-3">
-                <i class="fa fa-plane fa-3x"></i>
+              <li class="col-md-3"style="color:#fff;">
+                <i class="fa fa-plane fa-3x" ></i>
                 <span class="word-count" ref="count">{{travelCount}}</span>
                 <small>游记/攻略</small>
               </li>
-              <li class="col-md-3">
-                <i class="fa fa-plane fa-3x"></i>
+              <li class="col-md-3" style="color:#fff;">
+                <i class="fa fa-plane fa-3x" ></i>
                 <span class="word-count" ref="count">{{flightCount}}</span>
                 <small>航班</small>
               </li>
-              <li class="col-md-3">
-                <i class="fa fa-plane fa-3x"></i>
+              <li class="col-md-3"style="color:#fff;">
+                <i class="fa fa-plane fa-3x" ></i>
                 <span class="word-count">{{storeCount}}</span>
                 <small>商店</small>
               </li>

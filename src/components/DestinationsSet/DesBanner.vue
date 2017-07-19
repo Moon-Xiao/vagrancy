@@ -29,7 +29,7 @@
           </li>
           <span>&gt;</span>
           <li>
-            <a href="">拉迈海滩</a>
+            <router-link to="desitinations/science">拉迈海滩</router-link>
           </li>
         </ul>
       </div>

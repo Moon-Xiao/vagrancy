@@ -48,12 +48,13 @@
       <div class="container row">
         <div class="col-md-3">
           <h5>中国领先的自由行服务平台</h5>
-          <div>覆盖全球200多个国家和地区<br/>
-            100,000,000 位旅行者<br/>
-            920,000 家国际酒店<br/>
-            21,000,000 条真实点评<br/>
-            382,000,000 次攻略下载<br/>
-            中国旅游行业第一部“玩法”
+          <div>
+            覆盖全球200多个国家和地区<br/>
+            <strong>100,000,000</strong> 位旅行者<br/>
+            <strong>920,000</strong> 家国际酒店<br/>
+            <strong>21,000,000</strong> 条真实点评<br/>
+            <strong>382,000,000</strong> 次攻略下载<br/>
+            <a><strong>中国旅游行业第一部“玩法”</strong></a>
           </div>
         </div>
         <div class="col-md-3">
@@ -64,19 +65,19 @@
             隐私政策<br/>
             服务协议<br/>
             联系我们<br/>
-            加入蚂蜂窝
+            <a><strong>加入蚂蜂窝</strong></a>
           </div>
         </div>
 
         <div class="col-md-3">
           <h5>旅行服务</h5>
-          <div>旅游攻略
+          <div>
+            旅游攻略 旅店推荐<br/>
             酒店预订 旅游特价<br/>
             国际租车 旅游问答<br/>
             旅游保险 旅游指南<br/>
             订火车票 旅游资讯<br/>
-            A全球供应商入驻<br/>
-            关注我们
+            <a><strong>A全球供应商入驻</strong></a><br/>
           </div>
         </div>
       </div>
@@ -98,6 +99,7 @@
 <style>
   #app {
     min-width: 800px;
+    font-size: 14px;
   }
 
   .section {
@@ -249,6 +251,13 @@
   }
 
   .footer h5 {
-    font-size: 18px;
+    height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+  }
+
+  .footer strong {
+    color: #ff9d00;
+    font-weight: normal;
   }
 </style>
