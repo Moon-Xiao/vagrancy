@@ -89,17 +89,18 @@
 
         </div>
       </div>
-      <div class="plcTopBar clearfix"  style="padding-top: 20px;">
+      <div class="plcTopBar clearfix" style="padding-top: 20px;">
         <!-- 国家 区域 城市 头部信息 公共 -->
-        <div class="plcTopBarL" style=" float: left;">
+        <a href="#/destinations/scenic" class="plcTopBarL" style=" float: left;">
           <p class="plcTopBarNameEn"> {{scenic.ename}}</p>
           <p class="plcTopBarNameCn fontYaHei"> {{scenic.name}}</p>
-        </div>
+        </a>
         <div class="plcTopBarR" style=" float: right;">
           <div class="plcTopBarWeather">
-            <a class="weatherLink" href="//place.qyer.com/varanasi/weather/">
+            <a class="weatherLink" href="#">
               <span class="cityName">{{scenic.ename}}天气</span>
-              <img src="//static.qyer.com/images/place5/weather/weatherIcon-g-02.png" width="28" height="26" alt="" class="icon">夜间晴　26℃~32℃
+              <img src="/static/images/des/weatherIcon-g-02.png" width="28" height="26" alt=""
+                   class="icon">夜间晴　26℃~32℃
             </a>
           </div>
           <div class="plcTopBarStat fontYaHei">
@@ -109,10 +110,14 @@
         </div>
       </div>
     </div>
+    <scenic-nav :scenic="scenic"></scenic-nav>
+
   </div>
 </template>
 <script>
+  import ScenicNav from '@/components/DestinationsSet/Scenic/ScenicNav.vue'
   export default {
+    components: {ScenicNav},
     data () {
       return {
         scenic: {
@@ -154,24 +159,30 @@
     text-align: left;
     padding: 10px 120px;
   }
+
   .qyer_head_crumb .current {
     display: inline;
     font-size: 14px;
     font-weight: 400;
   }
-  .plcTopBarL p{
+
+  .plcTopBarL p {
     font-size: 36px;
     line-height: 1.055555;
     color: #147850;
     word-break: break-all;
   }
+
   .plcTopBarStat {
     margin-top: 15px;
     font-size: 16px;
     line-height: 1.125;
     color: #959595;
   }
-  .plcTopBarStat em{
-    color: #ec971f;font-style: normal;
+
+  .plcTopBarStat em {
+    color: #ec971f;
+    font-style: normal;
   }
 </style>
+

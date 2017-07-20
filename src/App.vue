@@ -44,6 +44,7 @@
     </b-navbar>
     <!-- navbar.vue -->
     <router-view></router-view>
+
     <div class="footer">
       <div class="container row">
         <div class="col-md-3">
@@ -109,7 +110,9 @@
   #app .navbar {
     z-index: 50;
   }
-
+  #app em{
+    font-style: normal;
+  }
   #app ul {
     list-style: none;
     padding: 0;
@@ -124,6 +127,7 @@
 
   #app a {
     text-decoration: none;
+    color: #555555;
   }
 
   #app .subtitle {

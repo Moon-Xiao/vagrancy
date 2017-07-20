@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import Destination from '@/components/Destination.vue'
 import Destinations from '@/components/Destinations.vue'
 import Scenic from '@/components/DestinationsSet/Scenic/Scenic.vue'
-
+import ScenicIndex from '@/components/DestinationsSet/Scenic/ScenicIndex.vue'
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
@@ -41,12 +41,18 @@ let routes = [
     component: Destination,
     children: [
       {
-        path: '/destinations',
+        path: '/',
         component: Destinations
       },
       {
-        path: '/destinations/scenic',
-        component: Scenic
+        path: 'scenic',
+        component: Scenic,
+        children: [
+          {
+            path: 'index',
+            component: ScenicIndex
+          }
+        ]
       }
     ]
   },

@@ -1,22 +1,15 @@
 <template>
 
-  <div id="mainbanner">
-    <b-carousel controls indicators :interval="3000" background="#ABABAB">
-
-      <!-- Text slides -->
-      <b-carousel-slide caption="First slide" text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                        img="./static/images/banner3.jpg">
-      </b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img="./static/images/banner2.jpg">
-        Hello world
-      </b-carousel-slide>
-      <!-- Slides with image -->
-      <b-carousel-slide img="./static/images/banner4.jpg">
-      </b-carousel-slide>
-
-    </b-carousel>
+  <div id="mainbanner" class="row">
+    <swiper ref="horizontalSwiper" :options="horizontalOptions" class="banner-horizontal col-10">
+      <swiper-slide v-for="banner in banners">
+        <img :src="banner.image">
+      </swiper-slide>
+    </swiper>
+    <swiper ref="verticalSwiper" :options="verticalOptions" class="banner-vertical col-2">
+      <swiper-slide class="slider" style="background-size: cover; background-position: center;" :style="`background-image: url('${banner.image}')`" v-for="banner in banners">
+      </swiper-slide>
+    </swiper>
     <!-- carousel.vue -->
     <div id="search" class="kd-tourform" style="transform: translateY(0px);">
       <div class="search-wrapper">
@@ -29,7 +22,7 @@
         </div>
         <div class="panel">
           <!-- <em class="arrow"></em> -->
-          <div class="panel-inner" style="position: relative;overflow: hidden;">
+          <div class="panel-inner" style="position: relative;">
             <div class="panel-cont">
               <div v-if="selectedIndex==1" class="place place_search_box">
                 <div class="input-control">
@@ -66,11 +59,8 @@
                   <form class="hotel_search_form" action="/" target="_blank">
                     <input class="txt focus hotelsearch_txt" type="text" placeholder="请输入目的地/酒店名" @focus="focused=1"
                            @blur="focused=0">
-                    <input class="txt date_txt date_in js-datepicker hasDatepicker" data-type="checkin"
-                           readonly="readonly" type="text" name="checkin" placeholder="入住时间">
-                    <input class="txt date_txt date_out js-datepicker hasDatepicker" data-type="checkout"
-                           readonly="readonly" type="text" name="checkout" placeholder="退房时间">
                     <button target="_blank" class="btn hotel_btn" type="submit">搜索酒店</button>
+                    <Date-picker class="date-picker" :value="value1" format="yyyy年MM月dd日" type="daterange" placeholder="选择日期"></Date-picker>
                   </form>
                 </div>
               </div>
@@ -168,7 +158,15 @@
 </template>
 
 <script>
+  import {swiper, swiperSlide} from 'vue-awesome-swiper'
+  import DatePicker from 'iview/src/components/date-picker'
+
   export default {
+    components: {
+      swiper,
+      swiperSlide,
+      DatePicker
+    },
     data () {
       return {
         searchItems: [
@@ -193,13 +191,94 @@
             tab: 'hotel'
           }
         ],
+        banners: [
+          {
+            image: './static/images/banner3.jpg'
+          },
+          {
+            image: './static/images/banner2.jpg'
+          },
+          {
+            image: './static/images/banner4.jpg'
+          }
+        ],
         selectedIndex: 1,
         focused: 0
+      }
+    },
+    computed: {
+      horizontalOptions () {
+        return {
+          loop: true
+        }
+      },
+      verticalOptions () {
+        return {
+          direction: 'vertical',
+          slidesPerView: 2,
+          autoplay: 3500,
+          loop: true,
+          onSlideChangeStart: (swiper) => {
+            this.horizontalSwiper.slideTo(swiper.activeIndex)
+          }
+        }
+      },
+      horizontalSwiper () {
+        return this.$refs.horizontalSwiper.swiper
+      },
+      verticalSwiper () {
+        return this.$refs.verticalSwiper.swiper
       }
     }
   }
 </script>
 
+<style type="less" scoped="">
+  @import './style.less';
+
+  .row {
+    margin: 0;
+  }
+
+  .banner-horizontal {
+    z-index: 0;
+    height: 420px;
+    padding: 0;
+  }
+
+  .banner-vertical {
+    z-index: 0;
+    height: 420px;
+    padding: 0;
+  }
+
+  .banner-horizontal img {
+    width: 100%;
+  }
+
+  .banner-vertical img {
+    height: 100%;
+  }
+
+  .banner-vertical .slider {
+    height: 33%;
+  }
+
+  .place_search_form, .z_search_form {
+    height: 40px;
+  }
+
+</style>
+<style>
+  .date-picker .ivu-input{
+    height: 38px;
+    width: 200px
+  }
+  .date-picker .ivu-icon {
+    width: 38px;
+    height: 38px;
+  }
+</style>
 <style>
 
   #mainbanner {
@@ -225,7 +304,6 @@
     /*padding-top: 10px;*/
     border-radius: 4px;
     background: rgba(0, 0, 0, .5);
-    overflow: hidden;
   }
 
   .search-wrapper .tab {
@@ -263,6 +341,7 @@
 
   .search-wrapper .panel {
     padding: 10px;
+    transition: height 200ms;
   }
 
   .search-wrapper .panel {
