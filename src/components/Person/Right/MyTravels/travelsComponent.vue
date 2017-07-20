@@ -1,56 +1,28 @@
 <template>
-  <div id="travels">
-    <div>
-      <div class="travel-top" style="width: 100%;position: relative">
-        <div class="top-nav">
-          <div class="top-item">
-            <span>{{travlesNum}}</span>
-            </br>
-            <span>游记</span>
-          </div>
-          <div class="top-item">
-            <span>{{readPeopleNum}}</span></br>
-            <span>总阅读人数</span>
-          </div>
-          <div class="top-item">
-            <button class="btn top-btn btn-warning"><i class="fa fa-edit"></i>写游记</button>
+  <div class="travels-nav">
+    <div class="row" v-for="item in articleList">
+      <a :href="item.link" class="row">
+        <div class="col-md-3">
+          <div class="article-img" :style="'background-image: url('+item.img+')'"></div>
+        </div>
+        <div class="col-md-9">
+          <h3 class="article-title">{{item.title}}</h3>
+          <p class="article-nav">{{item.id}}{{item.info}} </p>
+          <div class="article-bottom">
+            <span><i class="fa fa-map-marker"></i>{{item.place}}</span>
+            <span><i class="fa fa-eye"></i>{{item.saveNum}}</span>
+            <span><i class="fa fa-thumbs-up"></i>{{item.heartNum}}</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
-
-
-    <div class="travels-nav" style="clear: both">
-
-        <div class="row" v-for="item in articleList">
-          <a :href="item.link" class="row">
-          <div class="col-md-3">
-            <div class="article-img" :style="'background-image: url('+item.img+')'"></div>
-          </div>
-          <div class="col-md-9">
-            <h3 class="article-title">{{item.title}}</h3>
-            <p class="article-nav">{{item.id}}{{item.info}} </p>
-            <div class="article-bottom">
-              <span><i class="fa fa-map-marker"></i>{{item.place}}</span>
-              <span><i class="fa fa-eye"></i>{{item.saveNum}}</span>
-              <span><i class="fa fa-thumbs-up"></i>{{item.heartNum}}</span>
-            </div>
-          </div>
-          </a>
-        </div>
-
-    </div>
-
   </div>
-
 </template>
 
 <script>
   export default {
     data () {
       return {
-        travlesNum: 10,
-        readPeopleNum: 666,
         articleList: [
           {
             link: '/manage-info',
@@ -139,40 +111,9 @@
 </script>
 
 <style>
-  /*top*/
-  #travels .top-nav {
-    display: flex;
-    width: 40%;
-    height: 4.2rem;
-    padding: .3rem;
-    float: right;
-    /*border: 1px solid grey;*/
-    margin-bottom: 1rem;
-  }
-
-  #travels .top-item {
-    height: 100%;
-    font-size: 18px;
-    color: #717171;
-    border-right: 1px inset #eee;
-  }
-
-  #travels .top-item:first-child {
-    flex: 1;
-  }
-
-  #travels .top-item:nth-child(2) {
-    flex: 2;
-  }
-
-  #travels .top-item:last-child {
-    line-height: 3.6rem;
-    border: none;
-    flex: 2;
-  }
 
   /*travel-nav*/
-  #travels .row {
+  .row {
     box-shadow: 0 0 0.2rem #eee;
     border-radius: 0.2rem;
     margin: 0 0 0.8rem;
@@ -180,17 +121,17 @@
     height: 13rem;
   }
 
-  #travels .row .col-md-3 {
+  .row .col-md-3 {
     padding: 0;
     margin: 0;
   }
 
-  #travels .row .col-md-9 {
+  .row .col-md-9 {
     padding: 0 1rem;
     margin: 0;
   }
 
-  #travels .article-img {
+  .article-img {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -200,14 +141,14 @@
     padding: 1.2rem;
   }
 
-  #travels .travels-nav .article-title {
+  .travels-nav .article-title {
     font-size: 28px;
     color: #717171;
     text-align: left;
     margin: 1.2rem auto;
   }
 
-  #travels .travels-nav .article-nav {
+  .travels-nav .article-nav {
     font-size: 16px;
     color: rgba(51, 51, 51, 0.72);
     text-align: left;
@@ -223,7 +164,7 @@
   }
 
   /*nav-bottom*/
-  #travels .article-bottom {
+  .article-bottom {
     display: flex;
     width: 40%;
     right: 2%;
@@ -231,25 +172,25 @@
     position: absolute;
   }
 
-  #travels .article-bottom span {
+  .article-bottom span {
     font-size: 14px;
     color: #999999;
     margin-right: 0.5rem;
   }
 
-  #travels .article-bottom span:first-child {
+  .article-bottom span:first-child {
     flex: 2;
   }
 
-  #travels .article-bottom span:nth-child(2) {
+  .article-bottom span:nth-child(2) {
     flex: 1;
   }
 
-  #travels .article-bottom span:last-child {
+  .article-bottom span:last-child {
     flex: 1;
   }
 
-  #travels .article-bottom span i {
+  .article-bottom span i {
     margin-right: .5rem;
     font-size: 14px;
     color: cornflowerblue;

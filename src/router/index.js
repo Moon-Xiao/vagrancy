@@ -9,7 +9,7 @@ import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
 import Person from '@/components/Person/Person.vue'
-
+import ShowAlbum from '@/components/Person/Right/Album/showAlbum.vue'
 import MySave from '@/components/Person/Right/MySave'
 import Mytravels from '@/components/Person/Right/MyTravels'
 import MyConcern from '@/components/Person/Right/MyConcern'
@@ -142,6 +142,14 @@ let routes = [
         component: MyBag
       }
     ]
+  },
+  {
+    path: '/persons/:id',
+    component: Person
+  },
+  {
+    path: '/show-album',
+    component: ShowAlbum
   },
   {
     path: '/manage-info',
