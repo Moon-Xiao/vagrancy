@@ -29,7 +29,7 @@
           </li>
           <span>&gt;</span>
           <li>
-            <router-link to="desitinations/science">拉迈海滩</router-link>
+            <router-link to="destinations/scenic">拉迈海滩</router-link>
           </li>
         </ul>
       </div>
@@ -84,6 +84,6 @@
   }
 
   .header-crumbs-wrapper a {
-    color: white;
+    color: white!important;
   }
 </style>
