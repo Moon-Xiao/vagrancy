@@ -4,18 +4,16 @@
 import Axios from 'axios'
 // import {CoreServiceError} from 'core-service/common/error'
 
-const baseURL = 'http://localhost:3004'
+const baseURL = 'http://172.28.166.229:3004'
 
 const api = Axios.create({
   baseURL: `${baseURL}/api`,
-  timeout: 3000,
-  withCredentials: true
+  timeout: 3000
 })
 
 const auth = Axios.create({
   baseURL: `${baseURL}/admin`,
-  timeout: 3000,
-  withCredentials: true
+  timeout: 3000
 })
 
 async function wrapper (method, url, ...options) {
