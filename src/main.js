@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import 'jquery/dist/jquery.min'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -12,10 +13,14 @@ import 'font-awesome/css/font-awesome.min.css'
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+store.dispatch('init')
+  .then(function () {
+    /* eslint-disable no-new */
+    new Vue({
+      el: '#app',
+      router,
+      template: '<App/>',
+      components: {App}
+    })
+  })
+  .catch(console.error)
