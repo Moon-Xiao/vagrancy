@@ -10,12 +10,6 @@
   </div>
 </template>
 <script>
-  export default{
-
-    mounted () {
-      this.$refs.companies.animate({left: '-=10px'})
-    }
-  }
 </script>
 <style scoped>
   .cooperator {
@@ -24,10 +18,8 @@
   .cooperator .container {
     height: 90px;
     overflow: hidden;
-
   }
   .cooperator .companies{
-    overflow: hidden;
     height: 80px;
     white-space: nowrap;
     position: absolute;

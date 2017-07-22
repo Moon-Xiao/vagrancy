@@ -3,8 +3,17 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Destination from '@/components/Destination.vue'
 import Destinations from '@/components/Destinations.vue'
-import Scenic from '@/components/DestinationsSet/Scenic/Scenic.vue'
-import ScenicIndex from '@/components/DestinationsSet/Scenic/ScenicIndex.vue'
+
+import City from '@/components/DestinationsSet/city/city.vue'
+import CityIndex from '@/components/DestinationsSet/city/CityIndex.vue'
+import CitySurvey from '@/components/DestinationsSet/city/CitySurvey.vue'
+import CityScenic from '@/components/DestinationsSet/city/CityScenic.vue'
+
+import Country from '@/components/DestinationsSet/Country/Country.vue'
+import CountryIndex from '@/components/DestinationsSet/Country/CountryIndex.vue'
+import CountrySurvey from '@/components/DestinationsSet/Country/CountrySurvey.vue'
+import CountryCity from '@/components/DestinationsSet/Country/CountryCity.vue'
+
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
@@ -45,12 +54,44 @@ let routes = [
         component: Destinations
       },
       {
-        path: 'scenic',
-        component: Scenic,
+        path: 'city',
+        component: City,
         children: [
           {
-            path: 'index',
-            component: ScenicIndex
+            path: '/',
+            component: CityIndex
+          },
+          {
+            path: 'survey',
+            component: CitySurvey
+          },
+          {
+            path: 'city',
+            component: CityScenic
+          }
+        ]
+      },
+      {
+        path: 'country',
+        component: Country,
+        children: [
+          {
+            path: '/',
+            component: Country,
+            children: [
+              {
+                path: '/',
+                component: CountryIndex
+              },
+              {
+                path: 'survey',
+                component: CountrySurvey
+              },
+              {
+                path: 'city',
+                component: CountryCity
+              }
+            ]
           }
         ]
       }
@@ -191,6 +232,7 @@ let routes = [
   }
 ]
 export default new Router({
-  routes: routes
+  routes: routes,
+  mode: 'history'
 })
 export let links = routes

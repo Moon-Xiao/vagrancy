@@ -32,9 +32,9 @@
 
             <!-- Using button-content slot -->
             <template slot="button-content">
-              <span style="font-weight: bold;">User</span>
+              <div id="user-profile" :style="`background-image:url('${user.img}') ;`"></div>
+              <div>{{user.name}}</div>
             </template>
-
             <b-dropdown-item to="#">Profile</b-dropdown-item>
             <b-dropdown-item to="#">Signout</b-dropdown-item>
           </b-nav-item-dropdown>
@@ -66,7 +66,7 @@
             隐私政策<br/>
             服务协议<br/>
             联系我们<br/>
-            <a><strong>加入蚂蜂窝</strong></a>
+            <a><strong>加入vagrancy</strong></a>
           </div>
         </div>
 
@@ -92,7 +92,11 @@
     name: 'app',
     data () {
       return {
-        links: links
+        links: links,
+        user: {
+          uname: 'user1',
+          img: '/static/images/services2.jpg'
+        }
       }
     }
   }
@@ -110,9 +114,11 @@
   #app .navbar {
     z-index: 50;
   }
-  #app em{
+
+  #app em {
     font-style: normal;
   }
+
   #app ul {
     list-style: none;
     padding: 0;
@@ -127,7 +133,6 @@
 
   #app a {
     text-decoration: none;
-    color: #555555;
   }
 
   #app .subtitle {
@@ -158,6 +163,14 @@
     text-align: center;
     color: #1c4587;
     /*margin-top: 60px;*/
+  }
+
+  #user-profile {
+    background-size: cover;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
   }
 
   .navbar {

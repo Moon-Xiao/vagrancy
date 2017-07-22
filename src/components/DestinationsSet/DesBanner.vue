@@ -29,7 +29,7 @@
           </li>
           <span>&gt;</span>
           <li>
-            <router-link to="destinations/scenic">拉迈海滩</router-link>
+            <router-link to="destinations/city">拉迈海滩</router-link>
           </li>
         </ul>
       </div>

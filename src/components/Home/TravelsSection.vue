@@ -55,7 +55,7 @@
             cost: 18920,
             daycounter: '15',
             country: '法国',
-            scenic: '巴黎',
+            city: '巴黎',
             img: '/static/images/travels1.jpg',
             title: '拍的就是这种Freestyle~'
           },
@@ -63,7 +63,7 @@
             cost: 1150,
             daycounter: '5',
             country: '中国',
-            scenic: '香港',
+            city: '香港',
             img: '/static/images/travels2.jpg',
             title: '东西方文化碰撞出的小世界'
           },
@@ -71,7 +71,7 @@
             cost: 2920,
             daycounter: '5',
             country: '中国',
-            scenic: '九寨沟',
+            city: '九寨沟',
             img: '/static/images/travels3.jpg',
             title: '在色彩的王国体味春天的气息'
           }
