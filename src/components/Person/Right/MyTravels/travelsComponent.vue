@@ -1,5 +1,5 @@
 <template>
-  <div class="travels-nav">
+  <div id="travelsComponent">
     <div class="row" v-for="item in articleList">
       <a :href="item.link" class="row">
         <div class="col-md-3">
@@ -26,7 +26,7 @@
         articleList: [
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/1.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '1',
@@ -36,7 +36,7 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/2.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '2',
@@ -46,7 +46,7 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/3.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '3',
@@ -56,7 +56,7 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/4.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '4',
@@ -66,7 +66,7 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/5.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '5',
@@ -76,7 +76,7 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/6.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '6',
@@ -86,20 +86,10 @@
           },
           {
             link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
+            img: '/static/images/person/travels/7.jpg',
             title: '美丽的大沙漠',
             info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
             id: '7',
-            place: '爱琴海',
-            saveNum: '999',
-            heartNum: '666'
-          },
-          {
-            link: '/manage-info',
-            img: 'http://placeskull.com/200/200/ABABAB/-1/0',
-            title: '美丽的大沙漠',
-            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
-            id: '8',
             place: '爱琴海',
             saveNum: '999',
             heartNum: '666'
@@ -110,28 +100,27 @@
   }
 </script>
 
-<style>
-
+<style scoped>
   /*travel-nav*/
-  .row {
+   .row {
     box-shadow: 0 0 0.2rem #eee;
     border-radius: 0.2rem;
-    margin: 0 0 0.8rem;
+    margin: 0 0 1.5rem;
     padding: 0;
-    height: 13rem;
+    height: 14rem;
   }
 
-  .row .col-md-3 {
+   .row .col-md-3 {
     padding: 0;
     margin: 0;
   }
 
-  .row .col-md-9 {
+   .row .col-md-9 {
     padding: 0 1rem;
     margin: 0;
   }
 
-  .article-img {
+   .article-img {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -141,14 +130,14 @@
     padding: 1.2rem;
   }
 
-  .travels-nav .article-title {
+   .article-title {
     font-size: 28px;
     color: #717171;
     text-align: left;
     margin: 1.2rem auto;
   }
 
-  .travels-nav .article-nav {
+   .article-nav {
     font-size: 16px;
     color: rgba(51, 51, 51, 0.72);
     text-align: left;
@@ -164,7 +153,7 @@
   }
 
   /*nav-bottom*/
-  .article-bottom {
+   .article-bottom {
     display: flex;
     width: 40%;
     right: 2%;
@@ -172,25 +161,25 @@
     position: absolute;
   }
 
-  .article-bottom span {
+   .article-bottom span {
     font-size: 14px;
     color: #999999;
     margin-right: 0.5rem;
   }
 
-  .article-bottom span:first-child {
+   .article-bottom span:first-child {
     flex: 2;
   }
 
-  .article-bottom span:nth-child(2) {
+   .article-bottom span:nth-child(2) {
     flex: 1;
   }
 
-  .article-bottom span:last-child {
+   .article-bottom span:last-child {
     flex: 1;
   }
 
-  .article-bottom span i {
+   .article-bottom span i {
     margin-right: .5rem;
     font-size: 14px;
     color: cornflowerblue;

@@ -18,7 +18,7 @@
         <span style="color: red">{{rank}}</span>
       </div>
       <!--signature-->
-      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn">简单介绍下自己吧</button>
+      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn" style="cursor: pointer" title="戳我填写个性签名">简单介绍下自己吧</button>
       <!--write input-->
       <div id="write-sign" class="sign-write" v-show="isWriteShow">
         <textarea @blur="signShow" v-model="signature" placeholder="介绍介绍寄几吧(￣▽￣)"></textarea>

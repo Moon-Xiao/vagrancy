@@ -1,14 +1,6 @@
 <template>
   <div id="fans">
-
     <h3>我的粉丝</h3>
-
-    <!--<section class="container">-->
-    <!--<div ref="fans" class="companies">-->
-    <!--<img v-for="item in imgList" :src="item.img">-->
-    <!--</div>-->
-    <!--</section>-->
-
     <section class="container">
       <div ref="fans" class="fans-items">
         <a v-for="item in fansList" :href="item.link">
@@ -17,19 +9,19 @@
         </a>
       </div>
     </section>
-
-    <div style="height: 3rem;line-height: 3rem;padding:0.5rem 0;text-align: center">
-      <span class="fa fa-chevron-left" style="color: #ddd;"></span>
-      <span style="height: 2rem;width: 2rem;display:inline-block;border-radius:50%;border: 1px outset #ddd">{{fansPageNum}}</span>
-      <span class="fa fa-chevron-right" style="color: #ddd;"></span>
-    </div>
+    <paging></paging>
   </div>
 </template>
 <script>
+  import Paging from '../Bottom/Paging.vue'
   export default{
+    components: {
+      Paging
+    },
     name: 'MyConcern',
     data () {
       return {
+        // 16个每页
         fansPageNum: '0',
         fansList: [
           {img: '/static/images/person/weixin.png', name: '微信', link: '/manage-info'},
@@ -98,7 +90,7 @@
       left: 0;
     }
     100% {
-      left: -500px;
+      left: -490px;
     }
   }
 
@@ -108,7 +100,7 @@
       left: 0;
     }
     100% {
-      left: -500px;
+      left: -490px;
     }
   }
 

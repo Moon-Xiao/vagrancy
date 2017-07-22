@@ -20,16 +20,21 @@
           <div class="item-operation" @click="deleteSuccess"><span>删除</span></div>
         </div>
       </template>
+      <paging></paging>
     </div>
   </div>
 </template>
 
 <script>
+  import Paging from '../Bottom/Paging.vue'
   export default {
-    components: {},
+    components: {
+      Paging
+    },
     data  () {
       return {
         leaveMessage: '',
+        messagePageNum: '0',
         message: [
           {
             name: 'moon-xiao',

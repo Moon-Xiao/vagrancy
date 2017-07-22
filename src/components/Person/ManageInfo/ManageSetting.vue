@@ -55,7 +55,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="right">
       <div class="right-card">
@@ -112,8 +111,7 @@
         sina: '',
         settingList: [
           {img: '/static/images/person/weixin.png', name: '微信', percent: '95%'},
-          {img: '/static/images/person/sina.png', name: '新浪', percent: '80%'},
-          {img: '/static/images/person/QQspace.png', name: 'QQ空间', percent: '90%'}
+          {img: '/static/images/person/sina.png', name: '新浪', percent: '80%'}
         ]
       }
     },
@@ -211,10 +209,10 @@
   }
 
   #setting .right .right-card .qr-code {
-    width: 10rem;
     height: 10rem;
     margin: 0 auto;
-    background-color: pink;
+    background: url("/static/images/person/RQcode.png") no-repeat;
+    background-size: cover;
   }
 
   #setting .right .right-card .info {
@@ -241,7 +239,7 @@
   }
 
   .safe-form .form-item p {
-    flex: 1;
+    width: 6rem;
     text-align: center;
     line-height: 2.6rem;
     color: black;

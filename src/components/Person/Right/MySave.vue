@@ -6,13 +6,16 @@
       </div>
     </div>
     <travels-component></travels-component>
+    <paging></paging>
   </div>
 </template>
 
 <script>
   import travelsComponent from './MyTravels/travelsComponent.vue'
+  import Paging from '../Bottom/Paging.vue'
   export default {
     components: {
+      Paging,
       travelsComponent
     },
     data () {
