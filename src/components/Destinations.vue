@@ -4,11 +4,11 @@
     <des-banner></des-banner>
     <des-hot-des :tab_title="'热门目的地'" :tabs="allDesTabs" class="des-tabs all-des-tabs">
       <ul v-for="(all,i) in allDesTabs" :slot="`content-${i}`" class="row" >
-        <li v-for="sub in all.subtabs" class="all-sub-li row">
-          <div class="sub-title col-4">{{sub.subtitle}}</div>
-          <ul class="sub-list-ul col-8">
-            <li v-for="list in sub.deslist">{{list}}</li>
-          </ul>
+        <li v-for="sub in all.subtabs" class="all-sub-li row col-6">
+          <a class="sub-title col-4">{{sub.subtitle}}</a>
+          <div class="sub-list-ul col-8">
+            <a v-for="list in sub.deslist">{{list}}</a>
+          </div>
         </li>
       </ul>
     </des-hot-des>
@@ -381,41 +381,24 @@
     }
   }
 </script>
-<style>
-  ul.nav-list-ul {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-  }
+<style scoped>
   .all-des-tabs  li.all-sub-li {
-    width: 45%;
     margin-right: 10px;
-    padding: 10px 0;
+    padding: 16px 0;
     text-align: left;
     border-bottom: 1px dashed #eee;;
   }
-
-  .all-des-tabs .sub-title {
-    /*height: 100%;*/
-    /*width: 15%;*/
-    text-align: center;
-  }
-  .all-des-tabs .sub-list-ul {
-    /*width: 80%;*/
-    margin: 0;
-    display: block;
-  }
-  .all-des-tabs .sub-list-ul li{
-    display: inline-block;
-    margin: 0 3px;
-  }
-  .all-des-tabs .sub-list-ul {
-    display: inline-block;
-    text-align: left;
+  .nav-list-li {
+    margin: 0 50px;
   }
 
-  .all-des-tabs #destinations ul.sub-list-ul > li {
-    margin: 2px 2px;
+  li.all-sub-li a.sub-title {
+    color: #333333!important;
+  }
+
+  li.all-sub-li:hover .sub-title{
+    color: #ec971f!important;
+    flex-direction: column;
   }
 
 </style>
@@ -433,11 +416,5 @@
     position: absolute;
     bottom: 10px;
   }
-  .months-des-tabs .nav-list-li .row{
-    margin: 0 auto 10px auto;
-    width: 100%;
-  }
-  .months-des-tabs .all-sub-li {
 
-  }
 </style>

@@ -7,7 +7,7 @@
       <ul class="tab-nav inline-ul">
         <li v-for="(item,index) in tabs"  v-on:mouseenter="nowIndex = index" :class="{active: index === nowIndex}">{{item.title}}</li>
       </ul>
-      <ul class="nav-list-ul inline-ul">
+      <ul class="nav-list-ul">
         <li v-for="(item,index) in tabs" v-if="index === nowIndex" class="nav-list-li">
           <slot :name="`content-${index}`"></slot>
         </li>

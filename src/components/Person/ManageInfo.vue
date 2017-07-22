@@ -18,7 +18,7 @@
     <div class="info-right">
       <div class="right-top">
         <span>{{$route.name}}</span>
-        <span>资料完善度</span>
+        <span style="font-size: 15px">资料完善度</span>
         <div class="progress">
           <div class="progress-bar bg-success" role="progressbar" :style="'width: '+infoFinish" :aria-valuenow="infoFinish"
                aria-valuemin="0" aria-valuemax="100">{{infoFinish}}
@@ -50,11 +50,14 @@
 <style>
   #info {
     display: flex;
+    background-color:white;
+    font-size: 18px;
   }
 
   #info .info-left {
     flex: 1;
     padding: 2rem 1rem;
+    margin-top: 0.25rem;
   }
 
   #info .info-left .list-group-item {
