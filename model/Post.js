@@ -36,7 +36,8 @@ Post.add('基本信息', [
   {name: 'tags', label: '标签', type: Types.Text, search: true},
   {name: 'author', label: '作者', type: Types.Reference, ref: User, cms: '$creator'},
   {name: 'content', label: '内容', type: Types.RichText, search: true},
-  ])
+  {name: 'photo', label: '封面图', type: Types.File, accept: 'image/*'}
+])
 
 Post.add('附加信息', [
   {name: 'fellow', label: '驴友', type: Types.Reference, ref: User, many: true},
@@ -44,7 +45,7 @@ Post.add('附加信息', [
   {name: 'categories', label: '分类', type: Types.Reference, ref: Category, many: true},
   {name: 'createdDate', label: '发布日期', type: Types.Date},
   {name: 'modifiedDate', label: '修改日期', type: Types.Date}
-  ])
+])
 
 Post.add('其他', [
   {name: 'visited', label: '浏览次数', type: Types.Number},

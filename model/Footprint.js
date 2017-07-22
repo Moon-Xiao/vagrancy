@@ -1,10 +1,3 @@
-/**
- * Created by jagger on 2017/7/16.
- */
-/**
- *
- * @type {Service}
- */
 const service = require('core-service')
 const Types = service.Types
 const Scene = require('./Scene')

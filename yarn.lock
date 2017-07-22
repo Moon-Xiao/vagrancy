@@ -1191,7 +1191,7 @@ clone@^2.1.1:
 
 "cms@git+https://repo.jagger.tech/core-service/cms.git":
   version "0.0.5"
-  resolved "git+https://repo.jagger.tech/core-service/cms.git#10cf5ec416b0581940fc8573ae93ee367c5db8b0"
+  resolved "git+https://repo.jagger.tech/core-service/cms.git#9b87e338ba4be05c8881bfb501ba45575bae0eec"
 
 co@^4.6.0:
   version "4.6.0"
@@ -1366,7 +1366,7 @@ core-pluggable@^0.0.2:
 
 "core-service@git+https://repo.jagger.tech/core-service/core-service.git":
   version "0.0.4"
-  resolved "git+https://repo.jagger.tech/core-service/core-service.git#5f3edb18b4578122a65b5e09ffb90adee11dae8f"
+  resolved "git+https://repo.jagger.tech/core-service/core-service.git#87af9ab579febd4c2a485a1917b9c70f79eccfd0"
   dependencies:
     body-parser "^1.17.2"
     connect-mongo "^1.3.2"
@@ -2965,8 +2965,8 @@ jsesc@~0.5.0:
   resolved "http://r.cnpmjs.org/jsesc/download/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
 
 json-loader@^0.5.4:
-  version "0.5.5"
-  resolved "http://r.cnpmjs.org/json-loader/download/json-loader-0.5.5.tgz#1147a469b24f4641520614312fea0c07af176974"
+  version "0.5.6"
+  resolved "http://r.cnpmjs.org/json-loader/download/json-loader-0.5.6.tgz#51697650c63f7d17e21561582117282e1e711db8"
 
 json-schema-traverse@^0.3.0:
   version "0.3.1"

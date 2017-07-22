@@ -25,8 +25,10 @@ const User = module.exports = service.list('User', {
 
 const Post = require('./Post')
 
+module.exports = User
+
 User.add('基本信息', [
-  {name: 'nickname', label: '昵称', type: Types.Text, required: true, unique: 'true'},
+  {name: 'nickname', label: '昵称', type: Types.Text, required: true, unique: true},
   {name: 'password', label: '密码', type: Types.Password, secured: true},
   {name: 'avatar', label: '头像', type: Types.File, accept: 'image/*'}
 ])
@@ -56,4 +58,37 @@ User.inverse('fans', {
   list: 'User',
   field: 'follow',
   label: '真正的粉丝'
+})
+
+User.inverse('albums', {
+  list: 'Album',
+  field: 'author',
+  label: '相册'
+})
+
+User.get('all_fans', async function (req) {
+  let data = await this.model.find({}).lean(true).select('follow')
+  let result = {}
+  for (let user of data) {
+    if (user.follow) {
+      for (let f of user.follow) {
+        result[f] = (result[f] || 0) + 1
+      }
+    }
+  }
+  const resultArray = Object.keys(result).map(_id => ({_id, value: result[_id]}))
+  const topN = topn(resultArray, req.query.size || 3, function (a, b) {
+    return a.value < b.value
+  })
+    .map(n => n._id)
+  let query = this.model.find({_id: topN}).lean()
+  let docs = await this._configFindQuery(query, {single: false, req})
+  for (let doc of docs) {
+    doc.fansCount = result[doc._id]
+  }
+  return {data: docs}
+})
+
+User.virtual('fans_count', async function (req) {
+  return {fansCount: await User.model.find({follow: this._id}).count()}
 })
