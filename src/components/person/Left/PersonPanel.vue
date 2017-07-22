@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="per-nav">
-      <router-link to="manage-info">{{name}}
+      <router-link to="manage-info" class="name-style">{{name}}
         <i class="fa fa-edit"></i>
       </router-link>
       <div class="tip">
@@ -18,10 +18,10 @@
         <span style="color: red">{{rank}}</span>
       </div>
       <!--signature-->
-      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn">简单介绍下自己吧</button>
+      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn" style="cursor: pointer" title="戳我填写个性签名">简单介绍下自己吧</button>
       <!--write input-->
       <div id="write-sign" class="sign-write" v-show="isWriteShow">
-        <textarea v-model="signature" placeholder="介绍介绍寄几吧(￣▽￣)"></textarea>
+        <textarea @blur="signShow" v-model="signature" placeholder="介绍介绍寄几吧(￣▽￣)"></textarea>
         <button class="btn btn-primary" @click="signShow">保存</button>
       </div>
       <!--show input-->
@@ -69,11 +69,7 @@
         isSignShow: false,
         concernNum: 20,
         fansNum: 80,
-        saveNum: 18,
-        bottomList: [
-          {name: '关注', icon: 'eye', num: 20},
-          {name: '粉丝', icon: 'heart-o', num: 80},
-          {name: '收藏', icon: 'star-o', num: 18}]
+        saveNum: 18
       }
     },
     methods: {
@@ -100,7 +96,7 @@
 <style>
   #per {
     position: relative;
-    width: 15rem;
+    width: 19rem;
     min-height: 20rem;
     color: black;
     /*border: 1px solid lightgray;*/
@@ -225,49 +221,63 @@
     border: 1px dotted #5f9afa;
     box-shadow: 0 0 0.3rem #eee;
     border-radius: 0.3rem;
+    padding: 1rem 0;
   }
 
-  .per-nav > a {
-    font-size: 24px;
+  .per-nav .name-style {
+    font-size: 28px;
   }
 
   /*tip*/
-  #per .tip span:first-child, .tip span:nth-child(2) {
-    margin-right: 0.6rem;
-  }
-
   #per .tip span {
+    margin: 0.6rem 0;
+    font-size: 14px;
     background-color: cornflowerblue;
   }
-
+  #per .tip span:first-child {
+    margin-right: 0.6rem;
+  }
+  #per .tip span:nth-child(2){
+    margin-right: 0.6rem;
+  }
   #per .sign-btn {
     width: 90%;
-    margin: 0.5rem auto;
+    margin: 0.8rem auto;
     color: white;
     background-color: cornflowerblue;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     border-radius: 0.3rem;
+    font-size: 18px;
     /*border: 1px solid lightgrey;*/
   }
 
   #per .sign-write {
     width: 100%;
-    margin: 0.5rem auto;
+    margin: 0.8rem auto;
     /*border: 1px solid lightgrey;*/
     border-radius: 0.3rem;
   }
 
   #per .sign-write > textarea {
-    width: 95%;
+    width: 92%;
     border-radius: 0.2rem;
+    font-size: 16px;
     /*background-color: lightyellow;*/
   }
 
   #per .sign-write > button {
-    width: 95%;
-    background-color: cornflowerblue;
+    font-size: 18px;
+    width: 92%;
+    background-color: #5c83d3;
     border-color: honeydew;
+  }
+
+  #per .sign-write > button:hover{
+    background-color: #3a3dd3;
+    -webkit-box-shadow: 0 0 0.1rem #b9cbfa; ;
+    -moz-box-shadow: 0 0 0.1rem #b9cbfa; ;
+    box-shadow: 0 0 0.1rem #b9cbfa;
   }
 
   #per .sign {
@@ -276,14 +286,15 @@
     border: 1px solid honeydew;
     border-radius: 0.3rem;
     font-size: 20px;
-    color: white;
-    background-color: #ffbe59;
+    color: #666;
+    background-color: #ffffff;
     height: 2.2rem;
     line-height: 2.2rem;
   }
 /*rate*/
   #per .rate{
-    margin: 0.8rem 0 0;
+    margin: 0.5rem auto;
+    font-size: 18px;
   }
   /*bottom-bar*/
   #per .bottom-bar{
@@ -300,7 +311,13 @@
   }
   #per .bottom-bar .bottom-item > div{
     margin-bottom: 0.2rem;
-    font-size: 22px;
+    font-size: 24px;
+  }
+  #per .bottom-bar .bottom-item>i{
+    font-size: 15px;
+  }
+  #per .bottom-bar .bottom-item>span{
+    font-size: 15px;
   }
   #per .bottom-bar .bottom-item .save{
     color: #ffff00;

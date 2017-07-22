@@ -1,101 +1,160 @@
 <template>
-  <div id="concern">
+  <div id="fans">
     <h3>我的粉丝</h3>
-    <b-carousel controls indicators :interval="6000" background="#eeeeee">
-
-      <b-carousel-slide v-for="list in imgList">
-        <div class="items">
-          <div class="item" v-for="item in list">
-            <div :style="'background-image: url('+item.link+')'">
-            </div>
-            <p>{{item.title}}</p>
-          </div>
-        </div>
-      </b-carousel-slide>
-    </b-carousel>
+    <section class="container">
+      <div ref="fans" class="fans-items">
+        <a v-for="item in fansList" :href="item.link">
+          <div class="fans-img" :style="'background-image: url('+item.img+')'"></div>
+          <p class="fans-name">{{item.name}}</p>
+        </a>
+      </div>
+    </section>
+    <paging></paging>
   </div>
 </template>
-
 <script>
-  export default {
+  import Paging from '../Bottom/Paging.vue'
+  export default{
+    components: {
+      Paging
+    },
     name: 'MyConcern',
     data () {
       return {
-        imgList: [
-          [
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/0', title: 'nice1'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/1', title: 'nice2'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: 'nice3'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'}
-          ],
-          [
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: 'nice3'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'}
-          ],
-          [
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: 'nice3'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'}
-          ],
-          [
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: 'nice3'},
-            {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: 'nice4'}
-          ]
+        // 16个每页
+        fansPageNum: '0',
+        fansList: [
+          {img: '/static/images/person/weixin.png', name: '微信', link: '/manage-info'},
+          {img: '/static/images/person/sina.png', name: '新浪', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/weixin.png', name: '微信', link: '/manage-info'},
+          {img: '/static/images/person/sina.png', name: '新浪', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/weixin.png', name: '微信', link: '/manage-info'},
+          {img: '/static/images/person/sina.png', name: '新浪', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/weixin.png', name: '微信', link: '/manage-info'},
+          {img: '/static/images/person/sina.png', name: '新浪', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'},
+          {img: '/static/images/person/QQspace.png', name: 'QQ空间', link: 'manage-info'}
         ]
       }
-    },
-    methods: {}
+    }
   }
 </script>
-
 <style scoped>
-  #concern {
+  #fans {
     position: relative;
-    border: 1px solid lightgray;
+    width: 18rem;
+    height: 14rem;
+    border: 1px dotted #5f9afa;
+    box-shadow: 0 0 0.3rem #eee;
+    border-radius: 0.3rem;
     padding: 1rem 0.3rem;
   }
-  h3 {
-    font-size: 24px;
-    margin-bottom:1rem ;
+
+  #fans h3 {
+    margin-top: 1rem;
+    font-size: 26px;
+    color: #0275d8;
   }
-  .items {
-    margin: 1rem .12rem 0;
+
+  #fans .container {
+    height: 6rem;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+
+  #fans .fans-items {
+    overflow: hidden;
     height: 100%;
-    width: 100%;
-    text-align: center;
-  }
-
-  .item {
-    display: inline-block;
-    width: 3.5rem;
-    height: 5rem;
-  }
-
-  .item>div {
+    white-space: nowrap;
     position: absolute;
-    width: 3.25rem;
-    height: 3.25rem;
+    animation: nfans-items 10s infinite;
+    -moz-animation: nfans-items 10s infinite; /* Firefox */
+    -webkit-animation: nfans-items 10s infinite; /* Safari and Chrome */
+    -o-animation: nfans-items 10s infinite; /* Opera */
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+  }
+
+  #fans .fans-items a {
+    display: inline-block;
+  }
+
+  @keyframes nfans-items {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -490px;
+    }
+  }
+
+  @-webkit-keyframes nfans-items /* Safari and Chrome */
+  {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -490px;
+    }
+  }
+
+  #fans .fans-items .fans-img {
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-origin: content-box;
     border: 1px solid lightgray;
+    margin: 0 0.5rem;
   }
 
-  /*.item img {*/
-    /*position: relative;*/
-    /*width: 3.25rem;*/
-    /*height: 3.25rem;*/
-    /*border-radius: 50%;*/
-  /*}*/
-
-  .item p {
-    position: relative;
-    font-size: 18px;
-    margin-top: 3.75rem;
+  #fans .fans-items .fans-name {
+    font-size: 14px;
+    margin-top: .8rem;
+    color: #aaa;
   }
 
+  #fans .companies {
+    overflow: hidden;
+    height: 80px;
+    white-space: nowrap;
+    position: absolute;
+    animation: ncompanie 10s infinite;
+    -moz-animation: ncompanie 10s infinite; /* Firefox */
+    -webkit-animation: ncompanie 10s infinite; /* Safari and Chrome */
+    -o-animation: ncompanie 10s infinite; /* Opera */
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+  }
+
+  @keyframes ncompanie {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: -800px;
+    }
+  }
+
+  @-webkit-keyframes ncompanie /* Safari and Chrome */
+  {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: -800px;
+    }
+  }
+
+  #fans .companies img {
+    padding: 15px;
+    height: 100%;
+  }
 </style>

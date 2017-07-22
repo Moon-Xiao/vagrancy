@@ -2,11 +2,11 @@
   <div class="layout-content">
     <div class="content-wrap">
       <div class="content">
-        <slot :name="left-content"></slot>
+        <slot name="left-content"></slot>
       </div>
     </div>
     <aside class="sidebar">
-      <slot :name="right-sidebar"></slot>
+      <slot name="right-sidebar"></slot>
     </aside>
     <div class="clearfix"></div>
   </div>

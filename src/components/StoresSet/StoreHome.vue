@@ -6,7 +6,7 @@
 
         <b-nav is-nav-bar>
           <template v-if="link.path==='/stores'" v-for="link in links">
-            <template v-for="item in link.children">
+            <template v-if="item.name!==''" v-for="item in link.children">
               <b-nav-item :to='item.path'>{{item.name}}</b-nav-item>
             </template>
           </template>
@@ -18,6 +18,7 @@
     <store-flash-sale></store-flash-sale>
     <store-flight-hotel></store-flight-hotel>
     <store-local-place></store-local-place>
+    <store-theme-ad></store-theme-ad>
   </div>
 </template>
 
@@ -29,6 +30,7 @@
   import StoreFlashSale from './StoreFlashSale.vue'
   import StoreFlightHotel from './StoreFlightHotel.vue'
   import StoreLocalPlace from './StoreLocalPlace.vue'
+  import StoreThemeAd from './StoreThemeAd.vue'
 
   export default {
     components: {
@@ -37,7 +39,8 @@
       StoreAd,
       StoreFlashSale,
       StoreFlightHotel,
-      StoreLocalPlace
+      StoreLocalPlace,
+      StoreThemeAd
     },
     data () {
       return {
@@ -48,18 +51,44 @@
 </script>
 
 <style>
-  #store-home-container{
+  #store-home-container {
     width: 100%;
   }
 
-  #store-nav{
+  #store-nav {
     padding: 0 4rem;
   }
 
-  #store-home-container .navbar .nav.navbar-nav li>a.active {
+  #store-home-container .navbar .nav.navbar-nav li > a.active {
     box-sizing: border-box;
-    color: #f8f8f8;
-    background-color: violet;
+    background-color: #00b081;
     transition: 0.5s background-color;
+  }
+
+  .navbar .nav.navbar-nav li > a {
+    position: relative;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    color: #323232;
+    transition: 0.5s background-color;
+  }
+
+  #store-home-container .navbar .navbar-nav li a.nav-link:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0;
+    background: #00b081;
+    height: 4px;
+    transition-property: left, right;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+  }
+
+  #store-home-container .navbar .nav.navbar-nav .nav-item:hover .nav-link {
+    color: #00b081;
   }
 </style>

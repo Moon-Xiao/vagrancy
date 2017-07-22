@@ -13,7 +13,7 @@
         <span>绑定邮箱:</span>
       </div>
       <div class="item-info">
-        <b-btn v-b-modal.changePass>设置邮箱</b-btn>
+        <b-btn v-b-modal.changeEmail>设置邮箱</b-btn>
       </div>
     </div>
     <div class="item">
@@ -21,16 +21,16 @@
         <span>绑定手机:</span>
       </div>
       <div class="item-info">
-        <span>157****3296</span><span class="bind-style"><i class="fa fa-mobile"></i>已绑定</span><b-btn v-b-modal.changePass>更换号码</b-btn>
+        <span>157****3296</span><span class="bind-style"><i class="fa fa-mobile"></i>已绑定</span><b-btn v-b-modal.changePhone>更换号码</b-btn>
       </div>
     </div>
 
 
-    <b-modal id="changePass" title="修改密码" hide-footer="true">
+    <b-modal id="changePass" title="修改密码" :hide-footer="true">
 
       <form class="safe-form">
         <div class="form-item">
-          <p>输入密码：</p>
+          <p>密&nbsp;&nbsp;码：</p>
           <div class="input-style">
             <b-form-input type="text" placeholder="请输入密码"></b-form-input>
           </div>
@@ -39,7 +39,7 @@
         <div class="form-item">
           <p>确认密码：</p>
           <div class="input-style">
-            <b-form-input type="text" placeholder="请再次输入密码"></b-form-input>
+            <b-form-input type="text" placeholder="请再次输入密码" v-model='mPass'></b-form-input>
           </div>
         </div>
         <div class="submit-btn">
@@ -48,8 +48,53 @@
       </form>
 
     </b-modal>
+
+    <b-modal id="changeEmail" title="修改邮箱" :hide-footer="true">
+
+      <form class="safe-form">
+        <div class="form-item">
+          <p>邮&nbsp;&nbsp;箱：</p>
+          <div class="input-style">
+            <b-form-input type="text" placeholder="请输入邮箱"></b-form-input>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button class="btn btn-primary">提交</button>
+        </div>
+      </form>
+
+    </b-modal>
+
+    <b-modal id="changePhone" title="修改手机号" :hide-footer="true">
+
+      <form class="safe-form">
+        <div class="form-item">
+          <p>手&nbsp;机&nbsp;号：</p>
+          <div class="input-style">
+            <b-form-input type="text" placeholder="请输入手机号"></b-form-input>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button class="btn btn-primary">提交</button>
+        </div>
+      </form>
+
+    </b-modal>
+
+
   </div>
 </template>
+<script>
+  export default {
+    data () {
+      return {
+        mPhone: '',
+        mEmail: '',
+        mPass: ''
+      }
+    }
+  }
+</script>
 <style>
   #safe {
     padding: 1rem;
@@ -91,7 +136,7 @@
     height: 2.6rem;
   }
   #safe .safe-form .form-item p{
-    flex: 1;
+    width: 6rem;
     text-align: center;
     line-height: 2.6rem;
     color: black;

@@ -12,10 +12,10 @@
 <script>
 </script>
 <style scoped>
-  .cooperator {
+  .detail-div {
     margin:50px 0;
   }
-  .cooperator .container {
+  .detail-div .container {
     height: 90px;
     overflow: hidden;
   }
@@ -40,7 +40,7 @@
     100%  {left:-800px;}
   }
 
-  .cooperator .companies img {
+  .detail-div .companies img {
     padding: 15px;
     height: 100%;
   }

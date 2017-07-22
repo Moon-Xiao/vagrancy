@@ -2,8 +2,8 @@
   <div id="purse">
     <div class="header">
       <div class="left">
-        <p><span>现金余额：</span><span class="money"><i class="fa fa-rmb"></i>0.00</span><span class="mobile"><i class="fa fa-mobile"></i>已绑定手机</span></p>
-        <p><span>V币余额：</span><span class="money"><i class="fa fa-heart"></i>0</span></p>
+        <p><span>现金余额：</span><span class="money"><i class="fa fa-rmb"></i>{{money}}</span><span class="mobile"><i class="fa fa-mobile"></i>已绑定手机</span></p>
+        <p><span>V币余额：</span><span class="money"><i class="fa fa-heart"></i>{{vMoney}}</span></p>
       </div>
       <div class="right">
         <button class="btn btn-pull">提现</button>
@@ -11,6 +11,16 @@
     </div>
   </div>
 </template>
+<script>
+  export default {
+    data () {
+      return {
+        money: '0.00',
+        vMoney: '0'
+      }
+    }
+  }
+</script>
 <style>
   #purse {
     padding: 1rem;
@@ -32,7 +42,7 @@
   #purse .header .left .money i{
     font-size: 14px;
     margin-right: 0.5rem;
-    color:#ff1c0b;
+    color:#FF9800;
   }
   #purse .header .left .mobile{
     background-color: #fff6e5;

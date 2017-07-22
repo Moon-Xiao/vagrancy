@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="flashsale-bottom">
-      <div class="flashsale-item" v-for="item in saleItems">
+      <div class="flashsale-item" @click="$router.push('/stores/product')" v-for="item in saleItems">
         <img :src="item.src"/>
         <div id="item-description">
           <p>{{item.description}}</p>
@@ -61,17 +61,6 @@
           //            price: '1999'
           //          }
         ]
-      }
-    },
-    methods: {
-      remove:function () {
-        window.$('#item-description').find('p').each(function () {
-          var maxwidth = 28
-          if (window.$(this).text().length > maxwidth) {
-            window.$(this).text(window.$(this).text().substring(0, maxwidth))
-            window.$(this).html(window.$(this).html() + '...')
-          }
-        })
       }
     }
   }
@@ -131,6 +120,9 @@
   .flashsale-item {
     flex: 1;
     margin: 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .flashsale-item img{
@@ -138,6 +130,7 @@
     width: 7.5rem;
     height: 7.5rem;
     border-top: solid 0.3rem #717171;
+    margin: 0;
   }
 
   .flashsale-item #item-description{
@@ -147,7 +140,7 @@
     background-color: white;
     height: 7.5rem;
     float: left;
-    width: 65%;
+    width: 67%;
   }
 
   .flashsale-item #item-description p{

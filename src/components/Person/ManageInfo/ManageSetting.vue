@@ -3,25 +3,58 @@
     <div class="left">
       <p class="tip">好东西就要与朋友们分享，97% 的蜂蜂正在将精彩内容分享给朋友们</p>
 
-      <template v-for="settingItem in settingList">
-        <div class="item">
-          <div class="item-left">
-            <div class="item-img" :style="'background-image: url('+settingItem.img+')'"></div>
+      <!--<template v-for="settingItem in settingList">-->
+      <!--<div class="item">-->
+      <!--<div class="item-left">-->
+      <!--<div class="item-img" :style="'background-image: url('+settingItem.img+')'"></div>-->
+      <!--</div>-->
+      <!--<div class="item-right">-->
+      <!--<div class="item-info">-->
+      <!--<p>-->
+      <!--我的{{settingItem.name}}账户<span class="band-style">未绑定</span>-->
+      <!--</p>-->
+      <!--<p><span class="percent-style">{{settingItem.percent}}</span>的驴友正在分享</p>-->
+      <!--</div>-->
+      <!--<div class="item-operation">-->
+      <!--<button class="btn btn-operation" v-b-modal.bandWeiXin>现在绑定</button>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</template>-->
+
+      <div class="item">
+        <div class="item-left">
+          <div class="item-img" style="background-image: url(/static/images/person/weixin.png)"></div>
+        </div>
+        <div class="item-right">
+          <div class="item-info">
+            <p>
+              我的微信账户<span class="band-style">未绑定</span>
+            </p>
+            <p><span class="percent-style">95%</span>的驴友正在分享</p>
           </div>
-          <div class="item-right">
-            <div class="item-info">
-              <p>
-                我的{{settingItem.name}}账户<span class="band-style">未绑定</span>
-              </p>
-              <p><span class="percent-style">{{settingItem.percent}}</span>的驴友正在分享</p>
-            </div>
-            <div class="item-operation">
-              <button class="btn btn-operation">现在绑定</button>
-            </div>
+          <div class="item-operation">
+            <b-btn class="btn btn-operation" v-b-modal.bandWeiXin>现在绑定</b-btn>
           </div>
         </div>
-      </template>
+      </div>
 
+      <div class="item">
+        <div class="item-left">
+          <div class="item-img" style="background-image: url(/static/images/person/sina.png)"></div>
+        </div>
+        <div class="item-right">
+          <div class="item-info">
+            <p>
+              我的新浪账户<span class="band-style">未绑定</span>
+            </p>
+            <p><span class="percent-style">90%</span>的驴友正在分享</p>
+          </div>
+          <div class="item-operation">
+            <b-btn class="btn btn-operation" v-b-modal.bandSina>现在绑定</b-btn>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="right">
       <div class="right-card">
@@ -35,16 +68,50 @@
         </div>
       </div>
     </div>
+
+    <b-modal id="bandWeiXin" title="绑定微信" :hide-footer="true">
+
+      <form class="safe-form">
+        <div class="form-item">
+          <p>微信账号：</p>
+          <div class="input-style">
+            <b-form-input type="text" placeholder="请输入微信账号"></b-form-input>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button class="btn btn-primary">提交验证</button>
+        </div>
+      </form>
+
+    </b-modal>
+
+    <b-modal id="bandSina" title="绑定新浪" :hide-footer="true">
+
+      <form class="safe-form">
+        <div class="form-item">
+          <p>新浪账号：</p>
+          <div class="input-style">
+            <b-form-input type="text" placeholder="请输入新浪账号"></b-form-input>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button class="btn btn-primary">提交验证</button>
+        </div>
+      </form>
+
+    </b-modal>
+
   </div>
 </template>
 <script>
   export default {
     data () {
       return {
+        weixin: '',
+        sina: '',
         settingList: [
           {img: '/static/images/person/weixin.png', name: '微信', percent: '95%'},
-          {img: '/static/images/person/sina.png', name: '新浪', percent: '80%'},
-          {img: '/static/images/person/QQspace.png', name: 'QQ空间', percent: '90%'}
+          {img: '/static/images/person/sina.png', name: '新浪', percent: '80%'}
         ]
       }
     },
@@ -142,10 +209,10 @@
   }
 
   #setting .right .right-card .qr-code {
-    width: 10rem;
     height: 10rem;
     margin: 0 auto;
-    background-color: pink;
+    background: url("/static/images/person/RQcode.png") no-repeat;
+    background-size: cover;
   }
 
   #setting .right .right-card .info {
@@ -154,12 +221,37 @@
     font-size: 16px;
   }
 
-  #setting .right .right-card .info strong{
+  #setting .right .right-card .info strong {
     margin-left: .5rem;
   }
-  #setting .right .right-card .info .info-detail{
+
+  #setting .right .right-card .info .info-detail {
     margin-top: .8rem;
     color: #b6c8f9;
     font-size: 15px;
+  }
+
+  /*model*/
+  .form-item {
+    margin: 2rem 1rem;
+    display: flex;
+    height: 2.6rem;
+  }
+
+  .safe-form .form-item p {
+    width: 6rem;
+    text-align: center;
+    line-height: 2.6rem;
+    color: black;
+  }
+
+  .safe-form .form-item .input-style {
+    flex: 4;
+    margin-left: 1rem;
+  }
+
+  .safe-form .submit-btn {
+    margin: 1rem;
+    text-align: right;
   }
 </style>

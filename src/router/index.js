@@ -18,12 +18,15 @@ import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
 import Person from '@/components/Person/Person.vue'
-
+import ShowAlbum from '@/components/Person/Right/Album/ShowAlbum.vue'
+import MemorializeAlbum from '@/components/Person/Right/Album/MemorializeAlbum.vue'
+import CreateAlbum from '@/components/Person/Right/Album/CreateAlbum.vue'
 import MySave from '@/components/Person/Right/MySave'
 import Mytravels from '@/components/Person/Right/MyTravels'
 import MyConcern from '@/components/Person/Right/MyConcern'
 import MyAlbum from '@/components/Person/Right/MyAlbum'
 import MyBag from '@/components/Person/Right/MyBag'
+import MyCertainTravels from '@/components/Person/Right/MyTravels/Post'
 
 import ManageInfo from '@/components/Person/ManageInfo'
 import ManageDetail from '@/components/Person/ManageInfo/ManageDetail'
@@ -37,6 +40,14 @@ import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
 import FlightAndHotel from '@/components/StoresSet/FlightAndHotel.vue'
 import StoreHome from '@/components/StoresSet/StoreHome.vue'
+
+import Login from '@/components/Login'
+
+import store from '@/store'
+
+import Product from '@/components/StoresSet/StoreProductDetail.vue'
+import Collection from '@/components/StoresSet/ProductCollection.vue'
+
 Vue.use(Router)
 let routes = [
   {
@@ -123,14 +134,44 @@ let routes = [
         component: FlightAndHotel
       },
       {
-        path: '/stores/flight',
+        path: '/stores/flight-and-hotel',
         name: '签证',
-        component: StoreHome
+        component: FlightAndHotel
       },
       {
-        path: '/stores/flight',
+        path: '/stores/flight-and-hotel',
         name: '游轮',
-        component: StoreHome
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '租车自驾',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '海岛游',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '私人订制',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '限时特卖',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '深度旅行',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/product',
+        name: '',
+        component: Product
       }
     ]
   },
@@ -162,6 +203,7 @@ let routes = [
   {
     path: '/person',
     component: Person,
+    meta: {requiresAuth: true},
     children: [
       {
         path: '/person',
@@ -187,8 +229,28 @@ let routes = [
         path: '/person/my-bag',
         name: '我的背包',
         component: MyBag
+      },
+      {
+        path: '/person/tr/:id',
+        component: MyCertainTravels
       }
     ]
+  },
+  {
+    path: '/persons/:id',
+    component: Person
+  },
+  {
+    path: '/show-album',
+    component: ShowAlbum
+  },
+  {
+    path: '/memorialize-album',
+    component: MemorializeAlbum
+  },
+  {
+    path: '/create-album',
+    component: CreateAlbum
   },
   {
     path: '/manage-info',
@@ -229,10 +291,37 @@ let routes = [
     path: '/about',
     name: '关于',
     component: About
+  },
+  {
+    path: '/collection',
+    name: '',
+    component: Collection
+  },
+  {
+    path: '/login',
+    component: Login
   }
 ]
-export default new Router({
+const router = new Router({
   routes: routes,
   mode: 'history'
 })
 export let links = routes
+export default router
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
+    // esta ruta requiere autenticación, verificamos que haya iniciado sesión
+    // sino, redirigimos a la página de inicio de sesión.
+    if (!store.state.user.logged) {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // ¡Asegúrate de ejecutar next siempre!
+  }
+})

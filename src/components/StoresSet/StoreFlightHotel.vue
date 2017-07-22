@@ -125,17 +125,6 @@
             }
           ]
         }
-      },
-      methods: {
-        remove: function () {
-          window.$('.fli-hotel-description').find('p').each(function () {
-            var maxwidth = 28
-            if (window.$(this).text().length > maxwidth) {
-              window.$(this).text(window.$(this).text().substring(0, maxwidth))
-              window.$(this).html(window.$(this).html() + '...')
-            }
-          })
-        }
       }
     }
 </script>
@@ -168,6 +157,11 @@
   .row{
     height: 18rem;
     margin-bottom: 1.5rem;
+    margin: auto;
+  }
+
+  .col-md-6{
+    padding-left: 0;
   }
 
   .col-md-6 img{
@@ -183,7 +177,7 @@
     text-align: left;
     position: absolute;
     bottom: 7%;
-    width: 94.9%;
+    width: 97.4%;
     border: none;
     background: rgba(0,0,0,0.6);
   }
@@ -191,6 +185,10 @@
   .col-md-3 img{
     width: 100%;
     height: 65%;
+  }
+
+  .second-line .col-md-3:first-child{
+    padding-left: 0;
   }
 
   .second-line .col-md-3:last-child img{
@@ -259,6 +257,15 @@
     font-size: 1rem;
     height: 28%;
     text-align: left;
+  }
+
+  .fli-hotel-description p{
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .label-price{

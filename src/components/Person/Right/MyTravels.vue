@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div id="travels">
     <div>
       <div class="travel-top" style="width: 100%;position: relative">
         <div class="top-nav">
           <div class="top-item">
-            <span>10</span>
+            <span>{{travlesNum}}</span>
             </br>
             <span>游记</span>
           </div>
           <div class="top-item">
-            <span>1000</span></br>
+            <span>{{readPeopleNum}}</span></br>
             <span>总阅读人数</span>
           </div>
           <div class="top-item">
@@ -21,21 +21,10 @@
 
 
     <div class="travels-nav" style="clear: both">
-      <div class="row" v-for="item in articleList">
-        <div class="col-md-3">
-          <div class="article-img" :style="'background-image: url('+item.link+')'"></div>
-        </div>
-        <div class="col-md-9">
-          <h3 class="article-title">{{item.title}}</h3>
-          <p class="article-nav">{{item.id}}哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：
-            我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼... </p>
-          <div class="article-bottom">
-            <span><i class="fa fa-globe"></i>撒哈拉</span>
-            <span><i class="fa fa-eye"></i>9999</span>
-            <span><i class="fa fa-thumbs-up"></i>666</span>
-          </div>
-        </div>
-      </div>
+
+       <travels-component></travels-component>
+
+       <paging></paging>
     </div>
 
   </div>
@@ -43,18 +32,88 @@
 </template>
 
 <script>
+  import Paging from '../Bottom/Paging.vue'
+  import TravelsComponent from './MyTravels/travelsComponent.vue'
   export default {
+    components: {
+      Paging,
+      TravelsComponent
+    },
     data () {
       return {
+        travlesNum: 10,
+        readPeopleNum: 666,
         articleList: [
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/0', title: '美丽的大沙漠', id: '1'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/1', title: '美丽的大沙漠', id: '2'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: '美丽的大沙漠', id: '3'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: '美丽的大沙漠', id: '4'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/0', title: '美丽的大沙漠', id: '5'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/1', title: '美丽的大沙漠', id: '6'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/2', title: '美丽的大沙漠', id: '7'},
-          {link: 'http://placeskull.com/200/200/ABABAB/-1/3', title: '美丽的大沙漠', id: '8'}
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/1.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '1',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/2.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '2',
+            place: '天涯海角',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/3.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '3',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/4.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '4',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/5.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '5',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/6.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '6',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          },
+          {
+            link: '/manage-info',
+            img: '/static/images/person/travels/7.jpg',
+            title: '美丽的大沙漠',
+            info: '哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼。哈喽，大噶猴呀～ 按照书里的情节，故事开始前要先交代主人公：我认识我妞儿是在高中时期，那年我们都15岁。以“妞儿”这个字眼来称呼彼此，是在20岁的时候，然后一直到现在，我们依然称呼',
+            id: '7',
+            place: '爱琴海',
+            saveNum: '999',
+            heartNum: '666'
+          }
         ]
       }
     }
@@ -63,71 +122,34 @@
 
 <style>
   /*top*/
-  .top-nav {
+  #travels .top-nav {
     display: flex;
     width: 40%;
     height: 4.2rem;
     padding: .3rem;
     float: right;
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
     margin-bottom: 1rem;
   }
 
-  .top-item {
-    flex: 1;
-    /*width: 33.33%;*/
+  #travels .top-item {
     height: 100%;
     font-size: 18px;
-    color: black;
-    border-right: 1px solid ghostwhite;
-    /*line-height: 5rem;*/
-    /*display: inline-block;*/
+    color: #717171;
+    border-right: 1px inset #eee;
   }
 
-  .top-item:last-child {
-    line-height: 3.6rem;
-  }
-/*travel-nav*/
-  .row{
-    border: 1px solid lightgrey;
-    margin:0;
-    padding: 0;
-    height: 14rem;
-  }
-  .travels-nav .article-title{
-    font-size: 24px;
-    color: black;
-    text-align: left;
-    margin: 0.6rem auto;
-  }
-  .travels-nav .article-nav{
-    font-size: 16px;
-    color: black;
-    text-align: left;
-    height: 9rem;
-    position: relative;
-  }
-  .article-img {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-origin: content-box;
-    width: 100%;
-    /*border: 1px solid black;*/
-    padding: 0.5rem;
-  }
-  /*nav-bottom*/
-  .article-bottom{
-    display: flex;
-    width: 30%;
-    right: 0;
-    bottom: 2%;
-    position: absolute;
-  }
-  .article-bottom span{
+  #travels .top-item:first-child {
     flex: 1;
   }
-  .article-bottom span i{
-    margin-right:.5rem;
+
+  #travels .top-item:nth-child(2) {
+    flex: 2;
+  }
+
+  #travels .top-item:last-child {
+    line-height: 3.6rem;
+    border: none;
+    flex: 2;
   }
 </style>
