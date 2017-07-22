@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "cms": "git+https://repo.jagger.tech/core-service/cms.git",
     "core-service": "git+https://repo.jagger.tech/core-service/core-service.git",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1"
