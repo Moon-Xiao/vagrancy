@@ -30,8 +30,7 @@
 
     </div>
   </div>
-  </div>
-  </div>
+
 </template>
 
 <script>
@@ -358,17 +357,17 @@
   }
 
   #per-nav .center-nav .nav-left .group-panel {
-    margin: 2.5rem 1.5rem 0;
+    margin: 2rem 1.5rem 0;
     padding: 0 .3rem;
   }
 
   #per-nav .center-nav .nav-left .concern-panel {
-    margin: 2.5rem 1.5rem 0;
+    margin: 2rem 1.5rem 0;
     padding: 0 .3rem;
   }
 
   #per-nav .center-nav .nav-left .message-panel {
-    margin: 2.5rem 1.5rem 0;
+    margin: 2rem 1.5rem 0;
     padding: 0 .3rem;
   }
 
@@ -376,6 +375,6 @@
     flex: 4;
     box-shadow: 0 0 0.2rem #eee;
     margin-left: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 1.3rem 1.5rem;
   }
 </style>

@@ -30,7 +30,7 @@
 
       <form class="safe-form">
         <div class="form-item">
-          <p>密  码：</p>
+          <p>密&nbsp;&nbsp;码：</p>
           <div class="input-style">
             <b-form-input type="text" placeholder="请输入密码"></b-form-input>
           </div>
@@ -53,7 +53,7 @@
 
       <form class="safe-form">
         <div class="form-item">
-          <p>邮  箱：</p>
+          <p>邮&nbsp;&nbsp;箱：</p>
           <div class="input-style">
             <b-form-input type="text" placeholder="请输入邮箱"></b-form-input>
           </div>
@@ -69,7 +69,7 @@
 
       <form class="safe-form">
         <div class="form-item">
-          <p>手 机 号：</p>
+          <p>手&nbsp;机&nbsp;号：</p>
           <div class="input-style">
             <b-form-input type="text" placeholder="请输入手机号"></b-form-input>
           </div>
@@ -136,7 +136,7 @@
     height: 2.6rem;
   }
   #safe .safe-form .form-item p{
-    flex: 1;
+    width: 6rem;
     text-align: center;
     line-height: 2.6rem;
     color: black;

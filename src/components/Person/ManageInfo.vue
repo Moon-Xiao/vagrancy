@@ -52,6 +52,7 @@
     display: flex;
     background-color:white;
     font-size: 18px;
+    min-width:1200px;
   }
 
   #info .info-left {

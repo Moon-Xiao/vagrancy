@@ -15,8 +15,8 @@
   export default {
     data () {
       return {
-        money: '',
-        vMoney: ''
+        money: '0.00',
+        vMoney: '0'
       }
     }
   }

@@ -4,40 +4,48 @@
   <div id="album">
 
     <div class="album-top">
-      <button class="top-btn btn" @click="isShowCreateAlbum">
-        <i class="fa fa-plus"></i><span>添加相册</span>
-      </button>
+      <router-link to="/create-album">
+        <button class="top-btn btn">
+          <i class="fa fa-plus"></i><span>创建相册</span>
+        </button>
+      </router-link>
       <button class="top-btn btn" @click="isShowEdit">
-        <i class="fa fa-picture-o"></i><span>编辑相册</span>
+        <i class="fa fa-picture-o"></i><span>删除相册</span>
       </button>
     </div>
     <div class="row">
       <!-- With image -->
-      <div class="col-md-4 col-sm-6 col-xs-12" v-for="item in albumList">
+      <div class="col-md-4 col-sm-6 col-xs-12" v-for="(item,index) in albumList">
         <span @click='remove($event)' class="remove-style">
           <i v-show="showEdit" class="fa fa-times-circle"></i>
         </span>
         <router-link to="/show-album">
           <div class="row-item">
             <div class="item-img" :style="'background-image: url('+item.img+')'"></div>
-            <h3>{{item.title}}</h3>
-            <p>{{item.id}}{{item.detail}}</p>
+            <div :style="'background-color:'+colors[index%colors.length]">
+              <h3>{{item.title}}</h3>
+            </div>
+            <p :style="'color:'+textColors[index%textColors.length]">{{item.id}}{{item.detail}}</p>
           </div>
         </router-link>
       </div>
     </div>
 
-    <div style="height: 3rem;line-height: 3rem;padding:0.5rem 0;text-align: center">
-      <span class="fa fa-chevron-left" style="color: #ddd;"></span>
-      <span style="height: 2rem;width: 2rem;display:inline-block;border-radius:50%;border: 1px outset #ddd">{{albumPageNum}}</span>
-      <span class="fa fa-chevron-right" style="color: #ddd;"></span>
+    <div style="height: 3rem;padding:0.5rem 0;text-align: center;position: relative;clear: both;">
+      <span title="previous" class="fa fa-chevron-left"
+            style="color: rgb(221, 221, 221);position: absolute;font-size: 16px;margin-top: 0.5rem;margin-left: -0.9rem;"></span>
+      <span
+        style="height: 2rem;width: 2rem;display:inline-block;border-radius:50%;border: 1px solid #ddd;box-shadow:0 0 1px #eee;text-align: center;line-height: 2rem">{{albumPageNum}}</span>
+      <span title="next" class="fa fa-chevron-right"
+            style="color: rgb(221, 221, 221);position: absolute;font-size: 16px;margin-top: 0.5rem;margin-left: 0.2rem;"></span>
     </div>
 
-    <!--createAlbum-->
 
-    <b-modal siz="lg" ref="createAlbum" id="createAlbum" :hide-footer="isHideFooter" title="创建相册">
-      <create-album></create-album>
-    </b-modal>
+    <!--&lt;!&ndash;createAlbum&ndash;&gt;-->
+
+    <!--<b-modal siz="lg" ref="createAlbum" id="createAlbum" :hide-footer="isHideFooter" title="创建相册">-->
+    <!--<create-album></create-album>-->
+    <!--</b-modal>-->
 
   </div>
 </template>
@@ -45,16 +53,12 @@
 <!--</template>-->
 
 <script>
-  import CreateAlbum from './Album/createAlbum.vue'
   export default {
-    components: {
-      CreateAlbum
-    },
     data () {
       return {
-        isHideFooter: true,
         showEdit: false,
-        showDelete: false,
+        colors: ['rgba(33, 150, 243, 0.29)', 'rgba(76, 175, 80, 0.35)', 'rgba(0, 0, 255, 0.17)'],
+        textColors: ['rgba(33, 150, 243, 0.8)', 'rgba(0, 150, 136, 0.73)', ' rgba(103, 58, 183, 0.69)'],
         albumPageNum: '0',
         albumList: [
           {
@@ -142,9 +146,6 @@
       isShowEdit: function () {
         this.showEdit = !this.showEdit
       },
-      isShowDelete: function () {
-        this.showDelete = !this.showDelete
-      },
       showModal: function () {
         this.$refs.modal1.show()
       },
@@ -167,7 +168,7 @@
   #album .album-top {
     height: 4rem;
     text-align: right;
-    margin-right: -1rem;
+    margin-right: -0.6rem;
   }
 
   #album .album-top .top-btn {
@@ -177,6 +178,11 @@
     padding: 0.5rem;
     background-color: cornflowerblue;
     color: white;
+  }
+
+  #album .album-top .top-btn:hover{
+    background-color: #4548ff;
+    box-shadow: 0 0 8px rgba(100, 149, 237, 0.77);
   }
 
   #album .album-top .top-btn span {
@@ -190,12 +196,16 @@
   }
 
   #album .col-md-4 {
-    padding: 0.3rem;
+    padding: 0.7rem;
+  }
+
+  #album .col-ms-6 {
+    padding: 1rem;
   }
 
   #album .remove-style {
     float: right;
-    margin-top: 0rem;
+    margin-top: -0.6rem;
     margin-right: -0.4rem;
     background: none;
     vertical-align: middle;
@@ -219,7 +229,6 @@
   #album .row-item {
     box-shadow: 0 0 0.1rem cornflowerblue;
     padding-bottom: 1rem;
-    margin: 0.6rem 0;
     padding-top: 0.25rem;
   }
 
@@ -245,12 +254,18 @@
     background-size: 130% 130%;
   }
 
+  #album .row-item div {
+    height: 3rem;
+    background-color: rgba(33, 150, 243, 0.45);
+  }
+
   #album .row-item h3 {
     width: 100%;
     text-align: center;
     font-size: 20px;
     color: #717171;
-    margin: 0.9rem auto;
+    line-height: 3rem;
+    /*margin: 0.9rem auto;*/
   }
 
   #album .row-item p {
@@ -263,6 +278,9 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: rgba(33, 150, 243, 0.8);
   }
 
   /*photos*/

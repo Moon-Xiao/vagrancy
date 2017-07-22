@@ -43,11 +43,14 @@
       </div>
       <div class="form-group row">
         <label for="intro" class="col-2 col-form-label">个人简介:</label>
-        <div class="col-6">
+        <div class="col-5">
           <textarea class="form-control" rows="6" id="intro"></textarea>
         </div>
       </div>
-      <button class="btn btn-warning" style="text-align: right">提交</button>
+      <div class="item-operation col-7">
+        <b-btn class="btn btn-operation" v-b-modal.bandSina>保存修改</b-btn>
+      </div>
+
     </form>
   </div>
 </template>
@@ -79,5 +82,20 @@
 
   #detail .form .check-box {
     text-align: left;
+  }
+  #detail .item-operation {
+    padding-top: 1.3rem;
+    text-align: right;
+    margin-right: 2.2rem;
+  }
+
+  #detail .item-operation .btn-operation {
+    color: #fff;
+    background-color: #a1e452;
+    border-color: #55d25a;
+  }
+
+  #detail .item-operation .btn-operation:hover {
+    background-color: #55d25a;
   }
 </style>
