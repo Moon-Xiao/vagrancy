@@ -36,6 +36,9 @@ import Login from '@/components/Login'
 
 import store from '@/store'
 
+import Product from '@/components/StoresSet/StoreProductDetail.vue'
+import Collection from '@/components/StoresSet/ProductCollection.vue'
+
 Vue.use(Router)
 let routes = [
   {
@@ -90,14 +93,44 @@ let routes = [
         component: FlightAndHotel
       },
       {
-        path: '/stores/flight',
+        path: '/stores/flight-and-hotel',
         name: '签证',
-        component: StoreHome
+        component: FlightAndHotel
       },
       {
-        path: '/stores/flight',
+        path: '/stores/flight-and-hotel',
         name: '游轮',
-        component: StoreHome
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '租车自驾',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '海岛游',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '私人订制',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '限时特卖',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/flight-and-hotel',
+        name: '深度旅行',
+        component: FlightAndHotel
+      },
+      {
+        path: '/stores/product',
+        name: '',
+        component: Product
       }
     ]
   },
@@ -217,6 +250,11 @@ let routes = [
     path: '/about',
     name: '关于',
     component: About
+  },
+  {
+    path: '/collection',
+    name: '',
+    component: Collection
   },
   {
     path: '/login',
