@@ -2,7 +2,7 @@ import api from '../../api'
 
 const state = {
   logged: false,
-  userInfo: {},
+  info: {},
   types: {}
 }
 
@@ -11,6 +11,7 @@ const actions = {
   async getUserInfo ({commit}) {
     let result = await api.getUserState()
     if (result.logged) {
+      console.log('login', result)
       commit('login', result)
     }
   },

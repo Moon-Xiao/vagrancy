@@ -2,18 +2,20 @@
  * Created by jagger on 2017/7/12.
  */
 import Axios from 'axios'
-import {CoreServiceError} from 'core-service/common/error'
+// import {CoreServiceError} from 'core-service/common/error'
 
 const baseURL = 'http://localhost:3004'
 
 const api = Axios.create({
   baseURL: `${baseURL}/api`,
-  timeout: 3000
+  timeout: 3000,
+  withCredentials: true
 })
 
 const auth = Axios.create({
   baseURL: `${baseURL}/admin`,
-  timeout: 3000
+  timeout: 3000,
+  withCredentials: true
 })
 
 async function wrapper (method, url, ...options) {
@@ -21,8 +23,8 @@ async function wrapper (method, url, ...options) {
     let req = this[method](url, ...options)
     return (await req).data
   } catch (error) {
-    let err = CoreServiceError.parse(error.response.data.error)
-    throw err || error
+    // let err = CoreServiceError.parse(error.response.data.error)
+    throw error
   }
 }
 

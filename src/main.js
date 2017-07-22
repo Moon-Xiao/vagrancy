@@ -13,12 +13,24 @@ import 'font-awesome/css/font-awesome.min.css'
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
+Vue.mixin({
+  computed: {
+    logged () {
+      return this.$store.state.user.logged
+    },
+    userInfo () {
+      return this.$store.state.user.info
+    }
+  }
+})
+
 store.dispatch('init')
   .then(function () {
     /* eslint-disable no-new */
     new Vue({
       el: '#app',
       router,
+      store,
       template: '<App/>',
       components: {App}
     })

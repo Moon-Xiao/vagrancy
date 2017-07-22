@@ -15,6 +15,7 @@ import Mytravels from '@/components/Person/Right/MyTravels'
 import MyConcern from '@/components/Person/Right/MyConcern'
 import MyAlbum from '@/components/Person/Right/MyAlbum'
 import MyBag from '@/components/Person/Right/MyBag'
+import MyCertainTravels from '@/components/Person/Right/MyTravels/Post'
 
 import ManageInfo from '@/components/Person/ManageInfo'
 import ManageDetail from '@/components/Person/ManageInfo/ManageDetail'
@@ -28,6 +29,11 @@ import NoteDetail from '@/components/Blog/NoteDetail.vue'
 import NoteGrid from '@/components/Blog/NoteGrid.vue'
 import FlightAndHotel from '@/components/StoresSet/FlightAndHotel.vue'
 import StoreHome from '@/components/StoresSet/StoreHome.vue'
+
+import Login from '@/components/Login'
+
+import store from '@/store'
+
 Vue.use(Router)
 let routes = [
   {
@@ -121,6 +127,7 @@ let routes = [
   {
     path: '/person',
     component: Person,
+    meta: {requiresAuth: true},
     children: [
       {
         path: '/person',
@@ -146,6 +153,10 @@ let routes = [
         path: '/person/my-bag',
         name: '我的背包',
         component: MyBag
+      },
+      {
+        path: '/person/tr/:id',
+        component: MyCertainTravels
       }
     ]
   },
@@ -196,9 +207,32 @@ let routes = [
     path: '/about',
     name: '关于',
     component: About
+  },
+  {
+    path: '/login',
+    component: Login
   }
 ]
-export default new Router({
+
+const router = new Router({
   routes: routes
 })
 export let links = routes
+export default router
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
+    // esta ruta requiere autenticación, verificamos que haya iniciado sesión
+    // sino, redirigimos a la página de inicio de sesión.
+    if (!store.state.user.logged) {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // ¡Asegúrate de ejecutar next siempre!
+  }
+})
