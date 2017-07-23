@@ -76,3 +76,16 @@ store.dispatch('init')
     })
   })
   .catch(console.error)
+
+store.dispatch('init')
+  .then(function () {
+    /* eslint-disable no-new */
+    new Vue({
+      el: '#app',
+      router,
+      store,
+      template: '<App/>',
+      components: {App}
+    })
+  })
+  .catch(console.error)

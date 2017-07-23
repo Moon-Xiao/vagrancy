@@ -41,13 +41,14 @@ import TravelDetail from '@/components/Travel/TravelDetail.vue'
 import TravelList from '@/components/Travel/TravelList.vue'
 import FlightAndHotel from '@/components/StoresSet/FlightAndHotel.vue'
 import StoreHome from '@/components/StoresSet/StoreHome.vue'
+import Pay from '@/components/StoresSet/PayOrder.vue'
+import Paymethod from '@/components/StoresSet/Paypaypay.vue'
 
 import Login from '@/components/Login'
 
 import store from '@/store'
 
 import Product from '@/components/StoresSet/StoreProductDetail.vue'
-import Collection from '@/components/StoresSet/ProductCollection.vue'
 
 Vue.use(Router)
 let routes = [
@@ -164,7 +165,7 @@ let routes = [
         component: FlightAndHotel
       },
       {
-        path: '/stores/product',
+        path: '/stores/product/:id',
         name: '',
         component: Product
       }
@@ -292,13 +293,17 @@ let routes = [
     component: About
   },
   {
-    path: '/collection',
+    path: '/payorder',
     name: '',
-    component: Collection
+    component: Pay
   },
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/pay',
+    component: Paymethod
   }
 ]
 const router = new Router({

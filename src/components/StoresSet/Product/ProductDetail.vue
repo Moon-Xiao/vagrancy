@@ -20,7 +20,7 @@
           <span v-if="index===0" class="pro-subtitle">参考行程</span>
           <span v-if="index!=0" class="pro-subtitle"></span>
           <div class="pro-img-div">
-            <img :src="prodet.journalSrc"/>
+            <img :src="'http://192.168.1.100:3004/'+prodet.photo.path"/>
           </div>
         </div>
         <div class="pro-det-content-line">

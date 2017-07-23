@@ -115,6 +115,15 @@
     margin: 0 auto;
   }
 
+  .interest ul li {
+    transition: box-shadow 300ms;
+    box-shadow: rgba(0,0,0,0.4) 0 0 0 0;
+  }
+
+  .interest ul li:hover {
+    box-shadow: rgba(0,0,0,0.4) 1px 1px 18px 1px;
+  }
+
   .interest ul li .interest-item {
     border: 1px gainsboro solid;
     left: 0;

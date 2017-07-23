@@ -1,7 +1,7 @@
 <template>
   <div class="product-intro-type">
     <div class="product-intro-left">
-      <img :src="productDetail.src"/>
+      <img :src="'http://192.168.1.100:3004/'+productDetail.photo.path"/>
       <p class="product-id">产品编号：{{productDetail.id}}</p>
       <div class="collection-div">
         <div @click="clicked=!clicked" :class="['item-div',{active:clicked}]">
@@ -19,32 +19,32 @@
       <div class="product-type-row">
         <div class="row-title">出发城市</div>
         <div class="row-types">
-          <button @click="choosen1=index+1" :class="['type-item',{active:choosen1===index+1}]" type="button"
-                  v-for="(place,index) in productDetail.departures">{{place.name}}
+          <button @click="choosen1=index" :class="['type-item',{active:choosen1===index}]" type="button"
+                  v-for="(place,index) in split(productDetail.departures)">{{place}}
           </button>
         </div>
       </div>
       <div class="product-type-row">
         <div class="row-title">行程天数</div>
         <div class="row-types" style="clear: both">
-          <button @click="choosen2=index+1" :class="['type-item',{active:choosen2===index+1}]" type="button"
-                  v-for="(day,index) in productDetail.days">{{day.time}}天往返
+          <button @click="choosen2=index" :class="['type-item',{active:choosen2===index}]" type="button"
+                  v-for="(day,index) in split(productDetail.days)">{{day}}天往返
           </button>
         </div>
       </div>
       <div class="product-type-row">
         <div class="row-title">航空公司</div>
         <div class="row-types">
-          <button @click="choosen3=index+1" :class="['type-item',{active:choosen3===index+1}]" type="button"
-                  v-for="(aircompany,index) in productDetail.airplaneCompanys">{{aircompany.name}}
+          <button @click="choosen3=index" :class="['type-item',{active:choosen3===index}]" type="button"
+                  v-for="(aircompany,index) in split(productDetail.airline)">{{aircompany}}
           </button>
         </div>
       </div>
       <div class="product-type-row">
         <div class="row-title">出行日期</div>
         <div class="row-types">
-          <button @click="choosen4=index+1" :class="['type-item',{active:choosen4===index+1}]" type="button"
-                  v-for="(departureDate,index) in productDetail.departureDates">{{departureDate.des}}
+          <button @click="choosen4=index" :class="['type-item',{active:choosen4===index}]" type="button"
+                  v-for="(departureDate,index) in split(productDetail.departureDates)">{{departureDate}}
           </button>
         </div>
       </div>
@@ -58,7 +58,7 @@
       </div>
       <div class="product-type-row">
         <div class="buy-it-now">
-          <router-link to="/collection" class="buy-button">立即购买</router-link>
+          <a @click="jump" class="buy-button">立即购买</a>
         </div>
       </div>
     </div>
@@ -73,11 +73,23 @@
     data () {
       return {
         clicked: false,
-        choosen1: 1,
-        choosen2: 1,
-        choosen3: 1,
-        choosen4: 1,
+        choosen1: 0,
+        choosen2: 0,
+        choosen3: 0,
+        choosen4: 0,
         number: 1
+      }
+    },
+    methods: {
+      jump () {
+        let {choosen1, choosen2, choosen3, choosen4, number} = this
+        this.$router.push({
+          path: '/payorder',
+          query: {choosen1, choosen2, choosen3, choosen4, number, productDetail: JSON.stringify(this.productDetail)}
+        })
+      },
+      split (str) {
+        return (str || '').split(' ').map(s => s.trim()).filter(s => s !== '')
       }
     }
   }
@@ -189,7 +201,7 @@
     background-color: rgb(253, 117, 107);
     font-size: 1.2rem;
     border: none;
-    color: white;
+    color: white !important;
     padding: 0.8rem 1rem;
     outline: none;
     box-shadow: 0 0 2px rgb(253, 117, 107);
@@ -219,8 +231,8 @@
     padding-right: 1.5rem;
   }
 
-  .collection-div .active i{
-    color: rgb(253,117,106);
+  .collection-div .active i {
+    color: rgb(253, 117, 106);
   }
 
 </style>

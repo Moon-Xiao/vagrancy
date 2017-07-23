@@ -11,9 +11,14 @@
         </template>
       </template>
     </div>
-    <product-brief :productDetail="product"></product-brief>
-    <product-intro-type :productDetail="product"></product-intro-type>
-    <product-detail :productDetail="product"></product-detail>
+    <item certain-list="product" :certain-id="$route.params.id">
+      <template slot="item" scope="item">
+        <product-brief :productDetail="item.value"></product-brief>
+        <product-intro-type :productDetail="item.value" @choosen-changed=""></product-intro-type>
+        <product-detail :productDetail="item.value"></product-detail>
+      </template>
+    </item>
+
   </div>
 
 </template>
@@ -24,12 +29,14 @@
   import ProductBrief from './Product/ProductBrief.vue'
   import ProductIntroType from './Product/ProductIntroType.vue'
   import ProductDetail from './Product/ProductDetail.vue'
+  import Item from '../mixins/Item.vue'
   export default {
     components: {
       StoreCommonTop,
       ProductBrief,
       ProductIntroType,
-      ProductDetail
+      ProductDetail,
+      Item
     },
     data () {
       return {

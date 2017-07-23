@@ -18,7 +18,7 @@ const Post = module.exports = service.list('Post', {
   defaultFields: ['title', 'intro', 'tags', 'author', 'categories', 'top'],
   keyPath: 'title',
   visible: true,
-  editable: '$creator',
+  // editable: '$creator',
   records: {
     date: {
       created: 'createdDate',
@@ -32,9 +32,8 @@ const User = require('./User')
 Post.add('基本信息', [
   {name: 'title', label: '标题', type: Types.Text, search: true},
   {name: 'intro', label: '简介', type: Types.TextArea, search: true},
-  {name: 'tags', label: '标签', type: Types.Text, search: true},
-  {name: 'author', label: '作者', type: Types.Reference, ref: User, cms: '$creator'},
-  {name: 'content', label: '内容', type: Types.RichText, search: true},
+  {name: 'author', label: '作者', type: Types.Reference, ref: User},
+  {name: 'content', label: '内容', type: Types.TextArea, search: true},
   {name: 'photo', label: '封面图', type: Types.File, accept: 'image/*'}
 ])
 
