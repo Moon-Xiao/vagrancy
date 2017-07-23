@@ -15,28 +15,24 @@
         <b-dropdown right text="查看模式">
           <b-dropdown-item to="/show-album">经典模式</b-dropdown-item>
           <b-dropdown-item to="/memorialize-album">回忆录式</b-dropdown-item>
-          <b-dropdown-item to="/carousel-album">轮播模式</b-dropdown-item>
         </b-dropdown>
       </div>
     </div>
 
-    <paginate-list certain-list="photo" :certain-user="{album: $route.params.id}" class-name="row">
-      <template slot="list-item" scope="item">
-        <!-- With image -->
-        <div class="col-md-2 col-sm-3 col-xs-4">
+    <div class="row">
+      <!-- With image -->
+      <div class="col-md-2 col-sm-3 col-xs-4" v-for="item in imgList">
         <span @click='remove($event)' class="remove-style">
         <i v-show="showDelete" class="fa fa-times-circle"></i>
         </span>
-          <div class="row-item">
-            <div class="item-img" :style="`background-image: url('http://192.168.1.100:3004/${item.value.photo.path}')`"></div>
-            <div>
-              <h3>{{item.value.name}}</h3>
-            </div>
-            <p>{{item.value.intro}}</p>
+        <div class="row-item">
+          <div class="item-img" :style="'background-image: url('+item.img+')'"></div>
+          <div>
+            <h3>{{item.title}}</h3>
           </div>
+          <p>{{item.id}}{{item.detail}}</p>
         </div>
-
-      </template>
+      </div>
 
       <div style="height: 3rem;padding:0.5rem 0;text-align: center;position: relative;width: 100%;margin: 1rem auto">
         <span title="previous" class="fa fa-chevron-left"
@@ -46,7 +42,7 @@
         <span title="next" class="fa fa-chevron-right"
               style="color: rgb(221, 221, 221);position: absolute;font-size: 16px;margin-top: 0.5rem;margin-left: 0.2rem;"></span>
       </div>
-    </paginate-list>
+    </div>
 
     <!--add photo-->
     <b-modal ref="addPhoto" id="addPhoto" :hide-footer="true" title="添加照片">
@@ -57,10 +53,9 @@
 </template>
 <script>
   import AddPhoto from './AddPhoto.vue'
-  import PaginateList from '../../../mixins/PaginateList.vue'
   export default {
     components: {
-      AddPhoto, PaginateList
+      AddPhoto
     },
     data () {
       return {
