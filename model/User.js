@@ -39,13 +39,19 @@ User.add('社交信息', [
   {name: 'collect', label: '收藏', type: Types.Reference, ref: Post, many: true},
   {name: 'like', label: '点赞', type: Types.Reference, ref: Post, many: true},
   {name: 'intro', label: '个性签名', type: Types.TextArea},
-  {name: 'album', label: '相册', type: Types.Number},
+  {name: 'tags', label: '标签', type: Types.Text},
   {name: 'visited', label: '主页访问人数', type: Types.Number}
 ])
 
 User.add('其他信息', [
   {name: 'birth', label: '生日', type: Types.Date},
-  {name: 'sex', label: '性别', type: Types.Enum, values: ['男', '女']}
+  {name: 'location', label: '居住城市', type: Types.Text},
+  {name: 'sex', label: '性别', type: Types.Enum, values: ['男', '女', '保密']}
+])
+
+User.add('社交账户', [
+  {name: 'wx_account', label: '微信账号', type: Types.Text},
+  {name: 'wb_account', label: '微博账号', type: Types.Text}
 ])
 
 User.inverse('posts', {

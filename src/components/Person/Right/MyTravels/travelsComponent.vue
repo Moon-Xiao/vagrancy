@@ -11,7 +11,10 @@
             <h3 class="article-title">{{item.value.title}}</h3>
             <p class="article-nav">{{item.value.intro}} </p>
             <div class="article-bottom">
-              <span><i class="fa fa-map-marker"></i>{{item.value.footprint[0].name}}</span>
+              <span><i class="fa fa-map-marker"></i>
+                <span v-for="scene in item.value.footprint">{{scene.name}}</span>
+                <span v-if="item.value.footprint.length === 0">无足迹</span>
+              </span>
               <span><i class="fa fa-eye"></i>{{item.value.visited}}</span>
               <span><i class="fa fa-thumbs-up"></i>{{item.value.favor_count}}</span>
               <span><i class="fa fa-eye"></i>{{formatDate(item.value.modifiedDate)}}</span>

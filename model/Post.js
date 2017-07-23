@@ -8,8 +8,7 @@
 const service = require('core-service')
 const Types = service.Types
 
-
-const Footprint = require('./Footprint')
+const Scene = require('./Scene')
 const Category = require('./Category')
 
 const Post = module.exports = service.list('Post', {
@@ -41,7 +40,7 @@ Post.add('基本信息', [
 
 Post.add('附加信息', [
   {name: 'fellow', label: '驴友', type: Types.Reference, ref: User, many: true},
-  {name: 'footprint', label: '足迹', type: Types.Reference, ref: Footprint, many: true},
+  {name: 'footprint', label: '足迹', type: Types.Reference, ref: Scene, many: true},
   {name: 'categories', label: '分类', type: Types.Reference, ref: Category, many: true},
   {name: 'createdDate', label: '发布日期', type: Types.Date},
   {name: 'modifiedDate', label: '修改日期', type: Types.Date}
@@ -49,6 +48,7 @@ Post.add('附加信息', [
 
 Post.add('其他', [
   {name: 'visited', label: '浏览次数', type: Types.Number},
+  {name: 'favor_count', label: '点赞次数', type: Types.Number},
   {name: 'top', label: '置顶', type: Types.Boolean}
 ])
 

@@ -20,7 +20,7 @@ const Country = service.list('Country', {
 
 Country.add('基本信息', [
   {name: 'name', label: '名字', type: Types.Text},
-  {name: 'latitude', label: '坐标', type: Types.Text}
+  {name: 'photo', label: '图片', type: Types.File, accept: 'image/*'}
 ])
 
 module.exports = Country

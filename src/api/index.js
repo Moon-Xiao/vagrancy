@@ -4,7 +4,7 @@
 import Axios from 'axios'
 // import {CoreServiceError} from 'core-service/common/error'
 
-const baseURL = 'http://192.168.1.100:3004'
+export const baseURL = 'http://192.168.1.100:3004'
 
 const api = Axios.create({
   baseURL: `${baseURL}/api`,
