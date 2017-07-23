@@ -1,13 +1,10 @@
 <template>
   <div id="app" style="padding-top: 60px">
     <b-navbar fixed="top" toggleable type="inverse">
-
       <b-nav-toggle target="nav_collapse"></b-nav-toggle>
-
       <b-link class="navbar-brand" to="#">
         <img src="../static/images/logo.png" alt="datas logo" class="navbar-logo">
       </b-link>
-
       <b-collapse is-nav id="nav_collapse">
         <b-nav is-nav-bar>
           <template v-for="link in links" v-if="link.name">
@@ -17,34 +14,23 @@
             </b-nav-item-dropdown>
           </template>
         </b-nav>
-
         <b-nav is-nav-bar class="ml-auto">
-
           <!-- Navbar dropdowns -->
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item to="#">EN</b-dropdown-item>
-            <b-dropdown-item to="#">ES</b-dropdown-item>
-            <b-dropdown-item to="#">RU</b-dropdown-item>
-            <b-dropdown-item to="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown right>
-
-            <!-- Using button-content slot -->
-            <template slot="button-content">
+          <!--<b-nav-item-dropdown text="Lang" right>-->
+            <!--<b-dropdown-item to="#">EN</b-dropdown-item>-->
+            <!--<b-dropdown-item to="#">ES</b-dropdown-item>-->
+            <!--<b-dropdown-item to="#">RU</b-dropdown-item>-->
+            <!--<b-dropdown-item to="#">FA</b-dropdown-item>-->
+          <!--</b-nav-item-dropdown>-->
+          <div class="nav-item-right" style="float: right;width: 10%" >
               <div id="user-profile" :style="`background-image:url('${user.img}') ;`"></div>
-              <div>{{user.name}}</div>
-            </template>
-            <b-dropdown-item to="#">Profile</b-dropdown-item>
-            <b-dropdown-item to="#">Signout</b-dropdown-item>
-          </b-nav-item-dropdown>
-
+              <div>{{user.uname}}</div>
+          </div>
         </b-nav>
       </b-collapse>
     </b-navbar>
     <!-- navbar.vue -->
     <router-view></router-view>
-
     <div class="footer">
       <div class="container row">
         <div class="col-md-3">
@@ -134,7 +120,7 @@
 
   #app a {
     text-decoration: none;
-    color: #555555;
+    /*color: #555555;*/
   }
 
   #app .subtitle {
@@ -168,6 +154,7 @@
   }
 
   #user-profile {
+    height: 100%;
     background-size: cover;
     background-position: center;
     width: 30px;

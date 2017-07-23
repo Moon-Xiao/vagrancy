@@ -4,7 +4,7 @@
       <div class="form-group row">
         <label for="name" class="col-2 col-form-label">姓名:</label>
         <div class="col-4">
-          <input class="form-control" type="text" id="name">
+          <input class="form-control" v-model="nickname" type="text" id="name">
         </div>
       </div>
       <div class="form-group row">
@@ -30,25 +30,19 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="city" class="col-2 col-form-label">居住城市:</label>
+        <label for="city"  class="col-2 col-form-label">居住城市:</label>
         <div class="col-4">
-          <input class="form-control" type="text" id="city">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="birth" class="col-2 col-form-label">出生日期:</label>
-        <div class="col-4">
-          <input class="form-control" type="text" id="birth">
+          <input class="form-control" type="text" v-model="location" id="city">
         </div>
       </div>
       <div class="form-group row">
         <label for="intro" class="col-2 col-form-label">个人简介:</label>
         <div class="col-5">
-          <textarea class="form-control" rows="6" id="intro"></textarea>
+          <textarea class="form-control" rows="3" id="intro"  v-model="intro"></textarea>
         </div>
       </div>
       <div class="item-operation col-7">
-        <b-btn class="btn btn-operation" v-b-modal.bandSina>保存修改</b-btn>
+        <b-btn class="btn btn-operation" @click="onUpdate">保存修改</b-btn>
       </div>
 
     </form>
@@ -58,12 +52,29 @@
   export default {
     data () {
       return {
-        mName: '',
-        mSex: '',
-        mCity: '',
-        mBirth: '',
-        mIntro: ''
+        nickname: '',
+        sex: '',
+        location: '',
+        intro: ''
       }
+    },
+    methods: {
+      async onUpdate () {
+        let {nickname, sex, location, intro} = this
+        try {
+          await this.updateInfo({nickname, sex, location, intro})
+          window.alert('保存成功')
+        } catch (error) {
+          window.alert('保存失败 - ' + error.toLocaleString())
+        }
+      }
+    },
+    mounted () {
+      let {nickname, sex, location, intro} = this.userInfo
+      this.nickname = nickname
+      this.sex = sex
+      this.intro = intro
+      this.location = location
     }
   }
 </script>

@@ -6,6 +6,7 @@ const state = function () {
     perPage: 0,
     total: 0,
     fields: [],
+    ref: null,
     list: null,
     where: null,
     search: null,
@@ -23,7 +24,7 @@ const actions = {
 
   async fetchSome ({commit, state}) {
     commit('startFetching')
-    let {page, perPage, where, list, search, sort, select} = state
+    let {page, perPage, where, list, ref, search, sort, select} = state
     const params = {page, per_page: perPage}
     if (where && typeof where === 'object') {
       params.where = JSON.stringify(where)
@@ -37,15 +38,20 @@ const actions = {
     if (select && typeof select === 'string') {
       params.select = select
     }
-    let result = await api.getListItems(list, {params})
+    let result
+    if (ref) {
+      result = await api.getListItemField(list, ref.id, ref.field, list, {params})
+    } else {
+      result = await api.getListItems(list, {params})
+    }
     result.perPage = result.limit
     commit('paginate', result)
     commit('bufferingSome', result)
     commit('stopFetching')
   },
 
-  async switchPage ({commit, dispatch}, {page, perPage, where, search, sort, select}) {
-    commit('paginate', {page, perPage, where, search, sort, select})
+  async switchPage ({commit, dispatch}, {page, perPage, where, search, sort, select, ref}) {
+    commit('paginate', {page, perPage, where, search, sort, select, ref})
     await dispatch('fetchSome')
   }
 }
@@ -71,7 +77,7 @@ const mutations = {
     state.list = list
   },
 
-  paginate (state, {page, perPage, where, total, search, sort, select}) {
+  paginate (state, {page, perPage, where, total, search, sort, select, ref}) {
     state.page = page || state.page
     state.perPage = perPage || state.perPage
     state.total = total || state.total
@@ -79,6 +85,8 @@ const mutations = {
     state.select = typeof select === 'string' ? select : state.select
     state.search = typeof search === 'string' ? search : state.search
     state.sort = typeof sort === 'string' ? sort : state.sort
+    state.ref = typeof ref === 'object' ? ref : state.ref
+    console.log('xxxxxxxxx', ref)
   },
 
   bufferingSome (state, {docs, fields, total} = {docs: [], fields: []}) {

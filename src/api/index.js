@@ -4,7 +4,7 @@
 import Axios from 'axios'
 // import {CoreServiceError} from 'core-service/common/error'
 
-const baseURL = 'http://192.168.1.105:3004'
+export const baseURL = 'http://192.168.1.100:3004'
 
 const api = Axios.create({
   baseURL: `${baseURL}/api`,
@@ -54,6 +54,10 @@ api.getListItems = async function (list, ...options) {
  */
 api.getListItem = async function (list, id, ...options) {
   return wrapper.call(api, 'get', `${list.url}/${id}`, ...options)
+}
+
+api.getListItemField = async function (list, id, field, ...options) {
+  return wrapper.call(api, 'get', `${list.url}/${id}/${field}`, options)
 }
 
 api.updateItem = async function (list, id, ...options) {

@@ -35,15 +35,15 @@ import ManagePurse from '@/components/Person/ManageInfo/ManagePurse'
 import ManageSafe from '@/components/Person/ManageInfo/ManageSafe'
 import ManageSetting from '@/components/Person/ManageInfo/ManageSetting'
 
-import Blog from '@/components/Blog.vue'
-import NoteDetail from '@/components/Blog/NoteDetail.vue'
-import NoteGrid from '@/components/Blog/NoteGrid.vue'
+import Travel from '@/components/Travel.vue'
+import TravelDetail from '@/components/Travel/TravelDetail.vue'
+import TravelList from '@/components/Travel/TravelList.vue'
 import FlightAndHotel from '@/components/StoresSet/FlightAndHotel.vue'
 import StoreHome from '@/components/StoresSet/StoreHome.vue'
 
 import Login from '@/components/Login'
 
-import store from '@/store'
+// import store from '@/store'
 
 import Product from '@/components/StoresSet/StoreProductDetail.vue'
 import Collection from '@/components/StoresSet/ProductCollection.vue'
@@ -88,21 +88,15 @@ let routes = [
         children: [
           {
             path: '/',
-            component: Country,
-            children: [
-              {
-                path: '/',
-                component: CountryIndex
-              },
-              {
-                path: 'survey',
-                component: CountrySurvey
-              },
-              {
-                path: 'city',
-                component: CountryCity
-              }
-            ]
+            component: CountryIndex
+          },
+          {
+            path: 'survey',
+            component: CountrySurvey
+          },
+          {
+            path: 'city',
+            component: CountryCity
           }
         ]
       }
@@ -176,27 +170,27 @@ let routes = [
     ]
   },
   {
-    path: '/blog',
-    name: '博客',
-    component: Blog,
+    path: '/travel',
+    name: '游记',
+    component: Travel,
     dropdown: [
       {
-        path: '/blog/note-detail',
-        name: '热门攻略'
+        path: '/travel/note-detail',
+        name: '热门游记'
       },
       {
-        path: '/blog/note-grid',
+        path: '/travel/note-grid',
         name: '热门国家'
       }
     ],
     children: [
       {
         path: 'note-detail',
-        component: NoteDetail
+        component: TravelDetail
       },
       {
         path: 'note-grid',
-        component: NoteGrid
+        component: TravelList
       }
     ]
   },
@@ -309,19 +303,19 @@ const router = new Router({
 export let links = routes
 export default router
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
-    // esta ruta requiere autenticación, verificamos que haya iniciado sesión
-    // sino, redirigimos a la página de inicio de sesión.
-    if (!store.state.user.logged) {
-      next({
-        path: '/login',
-        query: {redirect: to.fullPath}
-      })
-    } else {
-      next()
-    }
-  } else {
-    next() // ¡Asegúrate de ejecutar next siempre!
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
+//     // esta ruta requiere autenticación, verificamos que haya iniciado sesión
+//     // sino, redirigimos a la página de inicio de sesión.
+//     if (!store.state.user.logged) {
+//       next({
+//         path: '/login',
+//         query: {redirect: to.fullPath}
+//       })
+//     } else {
+//       next()
+//     }
+//   } else {
+//     next() // ¡Asegúrate de ejecutar next siempre!
+//   }
+// })

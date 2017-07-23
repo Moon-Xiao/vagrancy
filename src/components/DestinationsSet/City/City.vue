@@ -231,30 +231,59 @@
           name: '瓦拉纳西',
           ename: 'Varanasi',
           country: '印度',
-          img: '',
           wantgoCount: '542',
           wentCount: '321',
-          desctinations: [
-            '鹿野苑',
-            'Dasaswamedh Ghat',
-            'Manikarnika Ghat',
-            '恒河夜祭',
-            'Ghat',
-            '恒河晨浴',
-            '湿婆神庙',
-            'Blue Lassi'
+          scenics: [
+            {nema: '鹿野苑'},
+            {name: 'Dasaswamedh Ghat'},
+            {name: 'Manikarnika Ghat'},
+            {name: '恒河夜祭'},
+            {name: 'Ghat'},
+            {name: '恒河晨浴'},
+            {name: '湿婆神庙'},
+            {name: 'Blue Lassi'}
           ],
           hotels: [
-            '钻石酒店(Diamond Hotel)',
-            '维博哈弗哈什酒店(Hotel Vibhavharsh)',
-            '兹拉斯酒店(Hotel Zeeras)',
-            '普拉迪普酒店(Hotel Pradeep)'
+            {nema: '钻石酒店(Diamond Hotel)'},
+            {nema: '维博哈弗哈什酒店(Hotel Vibhavharsh)'},
+            {nema: '兹拉斯酒店(Hotel Zeeras)'},
+            {nema: '普拉迪普酒店(Hotel Pradeep)'}
           ],
           travels: [
-            '这些电影会让你爱上印度',
-            '北印必去的几个景点',
-            '感受恒河边生命的轮回'
-          ]
+            {nema: '这些电影会让你爱上印度'},
+            {nema: '北印必去的几个景点'},
+            {nema: '感受恒河边生命的轮回'}
+          ],
+          mainImgs: [
+            '/static/images/des/country/varanasi1 680x400.jpg',
+            '/static/images/des/country/varanasi2 680x400.jpg',
+            '/static/images/des/country/varanasi3 680x400.jpg',
+            '/static/images/des/country/varanasi4 680x400.jpg'
+          ],
+          experiences: [
+            {
+              author: 'wulane1992',
+              content: '恒河边很好看，有很多笔直的高高的建筑，Varanasi处处显示自己曾经是在文化、宗教、军事上在印度有特殊地位的都市，可是随着时间的流逝不思进取沉迷在自己曾经的辉煌之中不想清醒过来，很有一种没落贵族的感觉，挺让人唏嘘的一个地方。'
+            },
+            {
+              author: 'a_day',
+              content: '全程最脏乱差的城市，一定要做好心理准备！河边住宿区只能靠走，寺庙地上很脏，请备好旧袜子。。火葬空气不好，虽有一定感触，但是拉着你讲解并劝你捐赠的大爷够扫兴，开口就一人300rmb，要跟这这么阔估计扫墓的时候能被祖宗敲吧。轻微洁癖接受无能。'
+            },
+            {
+              author: 'bjbluekk',
+              content: '这是一个来印度不得不去的城市 虽然如何如何脏乱差 虽然上游洗牛 中游烧尸 下游洗衣 下下游沐浴 下下下游再烧尸 虽然迷巷让你头晕眼花 虽然连个所谓背包客区该有的小超市都难找 但这里够印度 而且是非常不受游客影响 强烈建议岸边晨走'
+            },
+            {
+              author: 'zhuxin55',
+              content: '一个能让人安静的地方。'
+            }
+          ],
+          mainTravel: {
+            img: '/static/images/des/country/china travels.jpg',
+            title: '瓦拉纳西',
+            author: '藤爬藤',
+            amount: 91067
+          }
 
         }
       }
@@ -271,6 +300,7 @@
     width: 100%;
     height: 50px;
   }
+
   .placeNav .poiNavSearchIcon {
     position: absolute;
     right: 15px;
@@ -281,6 +311,7 @@
     line-height: 20px;
     padding-top: 2px;
   }
+
   .plcMenuBars {
     width: 100%;
     min-width: 1200px;
@@ -487,6 +518,7 @@
     border-left: 4px solid transparent;
     border-bottom: 4px solid transparent;
   }
+
   .place-nav-bubble.bubble-green:after {
     border: 4px solid #197936;
     border-left: 4px solid transparent;

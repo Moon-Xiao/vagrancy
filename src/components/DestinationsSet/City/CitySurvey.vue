@@ -364,7 +364,6 @@
   }
 </script>
 <style scoped>
-
   .solt-content {
     text-align: left;
     margin: 20px 0;

@@ -1,24 +1,26 @@
 <template>
   <div id="per">
     <div id="personImg">
-      <img src="/static/images/person/person.jpeg">
+      <img :src="`http://192.168.1.100:3004/${userInfo.avatar.path}`">
       <router-link to="/manage-info/manage-photo" class="moveUp">
         <i class="fa fa-camera moveIcon"></i>
       </router-link>
     </div>
     <div class="per-nav">
-      <router-link to="manage-info" class="name-style">{{name}}
+      <router-link to="manage-info" class="name-style">{{userInfo.nickname}}
         <i class="fa fa-edit"></i>
       </router-link>
       <div class="tip">
-        <b-badge pill v-for="character in characterList">{{character}}</b-badge>
+        <b-badge pill v-for="tag in tags">{{tag}}</b-badge>
       </div>
       <div class="rate">
         <span>等级：</span>
-        <span style="color: red">{{rank}}</span>
+        <span style="color: red">{{userInfo.level}}</span>
       </div>
       <!--signature-->
-      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn" style="cursor: pointer" title="戳我填写个性签名">简单介绍下自己吧</button>
+      <button v-if="signature===''" v-show="isShow" @click="writeSign" class="sign-btn" style="cursor: pointer"
+              title="戳我填写个性签名">简单介绍下自己吧
+      </button>
       <!--write input-->
       <div id="write-sign" class="sign-write" v-show="isWriteShow">
         <textarea @blur="signShow" v-model="signature" placeholder="介绍介绍寄几吧(￣▽￣)"></textarea>
@@ -37,39 +39,40 @@
         <!--{{item.name}}-->
         <!--</span>-->
         <div class="bottom-item col-md-4">
-            <div>{{concernNum}}</div>
-            <i class="fa fa-eye" style="color: cornflowerblue"></i>
-            <span>关注</span>
+          <div>{{userInfo.follow.length}}</div>
+          <i class="fa fa-eye" style="color: cornflowerblue"></i>
+          <span>关注</span>
         </div>
         <div class="bottom-item col-md-4">
-            <div>{{fansNum}}</div>
-            <i class="fa fa-heart" style="color: #ff6942"></i>
-            <span>粉丝</span>
+          <div>{{fans}}</div>
+          <i class="fa fa-heart" style="color: #ff6942"></i>
+          <span>粉丝</span>
         </div>
         <div class="bottom-item col-md-4">
-            <div>{{saveNum}}</div>
-            <i class="fa fa-star save" @click="saveNum+=1"></i>
-            <span>收藏</span>
+          <div>{{userInfo.like.length}}</div>
+          <i class="fa fa-star save" @click="saveNum+=1"></i>
+          <span>收藏</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+  import api from '../../../api'
   export default {
     name: 'personPanel',
     data () {
       return {
-        name: 'Moon',
-        characterList: ['爱读书', '爱旅行', '爱美食'],
-        rank: 'Lv.1',
-        signature: '',
+        fans: 0,
         isShow: true,
         isWriteShow: false,
-        isSignShow: false,
-        concernNum: 20,
-        fansNum: 80,
-        saveNum: 18
+        signature: ''
+        //        name: 'Moon',
+        //        characterList: ['爱读书', '爱旅行', '爱美食'],
+        //        rank: 'Lv.1',
+        //        concernNum: 20,
+        //        fansNum: 80,
+        //        saveNum: 18
       }
     },
     methods: {
@@ -77,18 +80,45 @@
         this.isShow = false
         this.isWriteShow = !this.isWriteShow
       },
-      signShow: function (e) {
-        this.isWriteShow = false
-        if (this.signature !== '') {
-          this.isSignShow = !this.isSignShow
-        } else {
-          this.isShow = true
+      signShow: async function (e) {
+        try {
+          await this.updateInfo({intro: this.signature})
+          this.isWriteShow = false
+          if (this.signature !== '') {
+            this.isSignShow = !this.isSignShow
+          } else {
+            this.isShow = true
+          }
+        } catch (error) {
+          window.alert('保存失败')
         }
       },
       writeAgain: function (e) {
         this.isSignShow = false
         this.isWriteShow = !this.isWriteShow
       }
+    },
+    computed: {
+      tags () {
+        return (this.userInfo.tags || '').split(' ').map(s => s.trim()).filter(s => s !== '')
+      },
+      isSignShow () {
+        return this.signature !== ''
+      }
+    },
+    async mounted () {
+      this.signature = this.userInfo.intro
+      let data = await api.getListItems({
+        url: 'lists/users'
+      }, {
+        params: {
+          perPage: 0,
+          where: JSON.stringify({
+            _id: this.userInfo._id
+          })
+        }
+      })
+      this.fans = data.total
     }
   }
 </script>
@@ -234,12 +264,15 @@
     font-size: 14px;
     background-color: cornflowerblue;
   }
+
   #per .tip span:first-child {
     margin-right: 0.6rem;
   }
-  #per .tip span:nth-child(2){
+
+  #per .tip span:nth-child(2) {
     margin-right: 0.6rem;
   }
+
   #per .sign-btn {
     width: 90%;
     margin: 0.8rem auto;
@@ -273,10 +306,10 @@
     border-color: honeydew;
   }
 
-  #per .sign-write > button:hover{
+  #per .sign-write > button:hover {
     background-color: #3a3dd3;
-    -webkit-box-shadow: 0 0 0.1rem #b9cbfa; ;
-    -moz-box-shadow: 0 0 0.1rem #b9cbfa; ;
+    -webkit-box-shadow: 0 0 0.1rem #b9cbfa;;
+    -moz-box-shadow: 0 0 0.1rem #b9cbfa;;
     box-shadow: 0 0 0.1rem #b9cbfa;
   }
 
@@ -291,37 +324,45 @@
     height: 2.2rem;
     line-height: 2.2rem;
   }
-/*rate*/
-  #per .rate{
+
+  /*rate*/
+  #per .rate {
     margin: 0.5rem auto;
     font-size: 18px;
   }
+
   /*bottom-bar*/
-  #per .bottom-bar{
+  #per .bottom-bar {
     margin: .5rem 0;
     height: 4rem;
     color: #666;
     border: none;
   }
+
   #per .bottom-bar .bottom-item {
     display: inline-block;
     height: 100%;
     padding: 0;
     margin: .05rem 0 0;
   }
-  #per .bottom-bar .bottom-item > div{
+
+  #per .bottom-bar .bottom-item > div {
     margin-bottom: 0.2rem;
     font-size: 24px;
   }
-  #per .bottom-bar .bottom-item>i{
+
+  #per .bottom-bar .bottom-item > i {
     font-size: 15px;
   }
-  #per .bottom-bar .bottom-item>span{
+
+  #per .bottom-bar .bottom-item > span {
     font-size: 15px;
   }
-  #per .bottom-bar .bottom-item .save{
+
+  #per .bottom-bar .bottom-item .save {
     color: #ffff00;
   }
+
   #per .bottom-bar .bottom-item .save:hover {
     box-shadow: 0 0 .2rem #ffff00;
     border-radius: 0.5rem;

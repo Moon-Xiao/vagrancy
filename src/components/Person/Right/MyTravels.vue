@@ -24,7 +24,7 @@
 
        <travels-component></travels-component>
 
-       <paging></paging>
+      <!--<paging></paging>-->
     </div>
 
   </div>
@@ -34,10 +34,12 @@
 <script>
   import Paging from '../Bottom/Paging.vue'
   import TravelsComponent from './MyTravels/travelsComponent.vue'
+  import PaginateList from '../../mixins/PaginateList.vue'
   export default {
     components: {
       Paging,
-      TravelsComponent
+      TravelsComponent,
+      PaginateList
     },
     data () {
       return {

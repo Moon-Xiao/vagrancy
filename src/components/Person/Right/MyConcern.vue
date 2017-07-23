@@ -1,27 +1,33 @@
 <template>
   <div id="concern">
-    <div class="row">
-      <div v-for="(item,index) in concernItems" class="col-4" title="点我进入该对象" style="cursor: pointer">
-        <div class="concern-card" :style="'background-color:'+colors[index%colors.length]">
-          <div class="card-icon" :style="'background-image:url('+item.img+')'">
-          </div>
-          <div class="card-info" style="border-top-right-radius:0.3rem ">
-            <div class="info-items">
-              <div class="info-item"><span>姓名：</span><span>{{item.name}}</span></div>
-              <div class="info-item"><span>等级：</span><span>{{item.rate}}</span></div>
-              <div class="info-item"><span>个性：</span><span>{{item.tip}}</span></div>
-              <div style="color: #999999;font-size: 14px; padding-top:0.3rem;padding-bottom: 0.6rem">你们共同关注了{{item.sameFansNum}}个对象</div>
+    <paginate-list class-name="row" certainList="user" :certainRef="{id: userInfo._id, field: 'follow'}"
+                   select="avatar nickname level intro">
+      <template slot="list-item" scope="item">
+        <div class="col-4" title="点我进入该对象" style="cursor: pointer">
+          <div class="concern-card" :style="'background-color:'+colors[item.index%colors.length]">
+            <div v-if="item.value.avatar" class="card-icon" :style="`background-image:url('http://192.168.1.100:3004/${item.value.avatar.path}')`">
+            </div>
+            <div class="card-info" style="border-top-right-radius:0.3rem ">
+              <div class="info-items">
+                <div class="info-item"><span>姓名：</span><span>{{item.value.nickname}}</span></div>
+                <div class="info-item"><span>等级：</span><span>{{item.value.level}}</span></div>
+                <div class="info-item"><span>个性：</span><span>{{item.value.intro}}</span></div>
+                <!--<div style="color: #999999;font-size: 14px; padding-top:0.3rem;padding-bottom: 0.6rem">你们共同关注了{{item.sameFansNum}}个对象</div>-->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </template>
+    </paginate-list>
   </div>
 </template>
 
 <script>
+  import PaginateList from '../../mixins/PaginateList.vue'
   export default {
-    components: {},
+    components: {
+      PaginateList
+    },
     data  () {
       return {
         colors: ['rgba(33, 150, 243, 0.29)', 'rgba(76, 175, 80, 0.35)', 'rgba(0, 0, 255, 0.17)'],
@@ -101,7 +107,8 @@
     padding-top: 0.8rem;
     /*border: 1px solid #eeeeee;*/
   }
-  #concern .row .concern-card .card-info .info-items .info-item{
+
+  #concern .row .concern-card .card-info .info-items .info-item {
     padding: 0.3rem 0;
     text-align: left;
     margin-left: 3rem;

@@ -4,6 +4,7 @@
       <b-dropdown right text="查看模式">
         <b-dropdown-item to="/show-album">经典模式</b-dropdown-item>
         <b-dropdown-item to="/memoir-album">回忆录式</b-dropdown-item>
+        <b-dropdown-item to="/carousel-album">轮播模式</b-dropdown-item>
       </b-dropdown>
     </div>
 

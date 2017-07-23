@@ -3,7 +3,7 @@
       <item certain-list="post" :certain-id="$route.params.id">
         <template slot="item" scope="item">
           <h2>{{item.value.title}}</h2>
-          <pre>{{item.value.nickname}}</pre>
+          <pre>{{item.value.author.nickname}}</pre>
           <div v-html="item.value.content"></div>
         </template>
       </item>

@@ -4,18 +4,13 @@
       <!-- 左侧焦点图 before -->
       <div class="plcFocusPhoto" id="focusPhoto">
         <ul class="plcFocusPhotoList">
-          <li style="position: absolute; left: 0px;">
-            <a href="#">
-              <img src="/static/images/des/country/china1 680x400.jpg" width="680" height="400">
-            </a>
-          </li>
-          <li v-for="(img,index) in desIndexInfo.img" style="position: absolute;"
+          <li v-for="(img,index) in des.mainImgs" style="position: absolute;"
               :style="nowImgIndex===index?'left: 0;':'left: 100%;'">
             <a href="#"><img :src="img" width="680" height="400"></a>
           </li>
         </ul>
-        <p class="prev" title="上一张" @click="nowImgIndex= nowImgIndex>0?nowImgIndex-1:desIndexInfo.img.length-1"></p>
-        <p class="next" title="下一张" @click="nowImgIndex= nowImgIndex<desIndexInfo.img.length-1?nowImgIndex+1:0"></p>
+        <p class="prev" title="上一张" @click="nowImgIndex= nowImgIndex>0?nowImgIndex-1:des.mainImgs.length-1"></p>
+        <p class="next" title="下一张" @click="nowImgIndex= nowImgIndex<des.mainImgs.length-1?nowImgIndex+1:0"></p>
         <p class="photoMore"><a href="#" style="color: #fff;">5180张照片</a></p>
       </div>
       <!-- 左侧焦点图 end -->
@@ -45,7 +40,7 @@
           <div class="plcShareExpTitle">经验</div>
           <div class="plcShareExpContent">
             <ul class="plcShareExpList">
-              <li v-for="(exp,index) in desIndexInfo.experiences" style="position: absolute;"
+              <li v-for="(exp,index) in des.experiences" style="position: absolute;"
                   :style="nowExpIndex===index?'left: 0;':'left: -100%;'">
                 <p><a href="#">{{exp.author}}:</a>{{exp.content}}</p>
               </li>
@@ -53,9 +48,9 @@
           </div>
           <div class="plcShareExpNavigation">
             <span class="prev" title="上一个"
-                  @click="nowExpIndex= nowExpIndex>0?nowExpIndex-1:desIndexInfo.experiences.length-1"></span>
+                  @click="nowExpIndex= nowExpIndex>0?nowExpIndex-1:des.experiences.length-1"></span>
             <span class="next" title="下一个"
-                  @click="nowExpIndex= nowExpIndex<desIndexInfo.experiences.length-1?nowExpIndex+1:0"></span></div>
+                  @click="nowExpIndex= nowExpIndex<des.experiences.length-1?nowExpIndex+1:0"></span></div>
           <div class="plcShareExpBottom">
             <p class="allShare"><a href="#" style="color: steelblue;font-size: 12px">查看全部经验</a></p>
             <p class="share"><a href="#" style="color: steelblue;font-size: 12px">+ 分享我的经验</a></p>
@@ -67,15 +62,15 @@
             <li data-id="92" style="text-align: left">
               <p class="cover">
                 <a href="#">
-                  <img :src="desIndexInfo.travels.img" width="60" height="90">
+                  <img :src="des.mainTravel.img" width="60" height="90">
                 </a>
               </p>
               <p class="title fontYaHei">
-                <a href="#">{{desIndexInfo.travels.title}}
+                <a href="#">{{des.travels.title}}
                 </a>
               </p>
-              <p class="info">作者：{{desIndexInfo.travels.author}}<br>
-                下载次数：{{desIndexInfo.travels.amount}}</p>
+              <p class="info">作者：{{des.travels.author}}<br>
+                下载次数：{{des.travels.amount}}</p>
               <p class="download">
                 <a href="#" class="ui-buttonA" style="color: white;">免费下载</a>
               </p>
@@ -101,7 +96,7 @@
       }
     },
     props: {
-      desIndexInfo: Object
+      des: Object
     }
   }
 </script>
