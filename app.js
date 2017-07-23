@@ -1,8 +1,5 @@
 process.env.NODE_ENV = 'dev'
-<<<<<<< Updated upstream
 process.env.MOCK_USER = 'dev'
-=======
->>>>>>> Stashed changes
 
 
 const service = require('core-service')
