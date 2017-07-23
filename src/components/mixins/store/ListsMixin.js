@@ -45,11 +45,6 @@ export default {
   async activated () {
     this._activated && this.switchPage({})
     this._activated = true
-  },
-  watch: {
-    ready () {
-      this.switchPage({})
-    }
   }
 }
 

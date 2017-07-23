@@ -16,6 +16,7 @@
     props: {
       certainList: String,
       certainUser: String,
+      certainRef: Object,
       perPage: Number,
       className: String
     },
@@ -24,17 +25,22 @@
       console.log('c', this.certainList, this.certainUser)
       setTimeout(() => {
         console.log('hi', this.state)
-        this.switchPage({page: 1, perPage: this.perPage || 8})
+        this.switchPage({page: 1, perPage: this.perPage || 8, ref: this.ref})
       }, 1000)
     },
     methods: {
       changePage (page) {
-        this.switchPage({page, perPage: this.state.perPage})
+        this.switchPage({page, perPage: this.state.perPage, ref: this.ref})
       }
     },
     computed: {
       pages () {
         return Math.floor(this.state.total / this.state.perPage)
+      },
+      computed: {
+        ref () {
+          return this.certainRef
+        }
       }
     }
   }
