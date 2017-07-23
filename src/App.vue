@@ -17,15 +17,27 @@
         <b-nav is-nav-bar class="ml-auto">
           <!-- Navbar dropdowns -->
           <!--<b-nav-item-dropdown text="Lang" right>-->
-            <!--<b-dropdown-item to="#">EN</b-dropdown-item>-->
-            <!--<b-dropdown-item to="#">ES</b-dropdown-item>-->
-            <!--<b-dropdown-item to="#">RU</b-dropdown-item>-->
-            <!--<b-dropdown-item to="#">FA</b-dropdown-item>-->
+          <!--<b-dropdown-item to="#">EN</b-dropdown-item>-->
+          <!--<b-dropdown-item to="#">ES</b-dropdown-item>-->
+          <!--<b-dropdown-item to="#">RU</b-dropdown-item>-->
+          <!--<b-dropdown-item to="#">FA</b-dropdown-item>-->
           <!--</b-nav-item-dropdown>-->
-          <div class="nav-item-right" style="float: right;width: 10%" >
-              <div id="user-profile" :style="`background-image:url('${user.img}') ;`"></div>
-              <div>{{user.uname}}</div>
-          </div>
+          <template v-if="$store.state.user.logged">
+            <router-link to="/person">
+              <div class="nav-item-right" style="display: flex;">
+                <div id="user-profile" :style="`background-image:url('${user.img}') ;`"></div>
+                <div style="margin: 20px 18px;color: black">{{user.uname}}<button @click="api.logoutUser()">退出</button></div>
+              </div>
+            </router-link>
+          </template>
+          <template v-else>
+            <router-link to="/login">
+              <div style="margin: 20px 18px;color: black">
+                未登录
+              </div>
+            </router-link>
+          </template>
+
         </b-nav>
       </b-collapse>
     </b-navbar>
@@ -74,6 +86,7 @@
 
 <script>
   import {links} from './router/index.js'
+  import api from './api'
   export default {
     name: 'app',
     data () {
@@ -83,6 +96,11 @@
           uname: 'user1',
           img: '/static/images/services2.jpg'
         }
+      }
+    },
+    computed: {
+      api () {
+        return api
       }
     }
   }
@@ -100,12 +118,15 @@
   #app .navbar {
     z-index: 50;
   }
+
   #app em {
     font-style: normal;
   }
-  #app em{
+
+  #app em {
     font-style: normal;
   }
+
   #app ul {
     list-style: none;
     padding: 0;
@@ -131,7 +152,7 @@
     overflow: hidden;
   }
 
-  article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+  article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
     margin: 0;
     padding: 0;
     outline: none;
@@ -154,12 +175,12 @@
   }
 
   #user-profile {
-    height: 100%;
     background-size: cover;
     background-position: center;
     width: 30px;
     height: 30px;
-    border-radius: 50px;
+    border-radius: 50%;
+    margin-top: 15px;
   }
 
   .navbar {

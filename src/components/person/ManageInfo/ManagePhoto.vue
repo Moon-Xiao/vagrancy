@@ -3,14 +3,15 @@
     <form>
       <div class="img-back">
         <div id="photo-img" class="img-style">
-          <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file" accept="image/jpeg, image/png, image/gif"/>
+          <input style="width: 100%;height: 100%;opacity: 0" @change="addFile" type="file"
+                 accept="image/jpeg, image/png, image/gif"/>
         </div>
         <!--<div title="点我选择图片"  class="img-mask">-->
 
         <!--</div>-->
       </div>
       <div class="btn-bottom">
-        <button class="btn btn-warning" type="button" style="text-align: right" @click="updateInfo({avatar: mImg})">保存修改</button>
+        <button class="btn btn-warning" type="button" style="text-align: right" @click="updatePhoto()">保存修改</button>
       </div>
     </form>
   </div>
@@ -36,6 +37,14 @@
             }
           })(window.$('#photo-img'))
           reader.readAsDataURL(this.mImg)
+        }
+      },
+      updatePhoto: function () {
+        try {
+          this.updateInfo({avatar: this.mImg})
+          window.alert('修改成功')
+        } catch (error) {
+          window.alert('修改失败' + error)
         }
       }
     }

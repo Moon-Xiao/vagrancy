@@ -57,22 +57,22 @@ Vue.mixin({
   }
 })
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: {App}
-})
-// store.dispatch('init')
-//   .then(function () {
-//     /* eslint-disable no-new */
-//     new Vue({
-//       el: '#app',
-//       router,
-//       store,
-//       template: '<App/>',
-//       components: {App}
-//     })
-//   })
-//   .catch(console.error)
+// new Vue({
+//   el: '#app',
+//   router,
+//   store,
+//   template: '<App/>',
+//   components: {App}
+// })
+store.dispatch('init')
+  .then(function () {
+    /* eslint-disable no-new */
+    new Vue({
+      el: '#app',
+      router,
+      store,
+      template: '<App/>',
+      components: {App}
+    })
+  })
+  .catch(console.error)

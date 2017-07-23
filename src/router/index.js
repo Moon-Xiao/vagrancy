@@ -44,7 +44,7 @@ import StoreHome from '@/components/StoresSet/StoreHome.vue'
 
 import Login from '@/components/Login'
 
-// import store from '@/store'
+import store from '@/store'
 
 import Product from '@/components/StoresSet/StoreProductDetail.vue'
 import Collection from '@/components/StoresSet/ProductCollection.vue'
@@ -308,19 +308,19 @@ const router = new Router({
 export let links = routes
 export default router
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
-//     // esta ruta requiere autenticación, verificamos que haya iniciado sesión
-//     // sino, redirigimos a la página de inicio de sesión.
-//     if (!store.state.user.logged) {
-//       next({
-//         path: '/login',
-//         query: {redirect: to.fullPath}
-//       })
-//     } else {
-//       next()
-//     }
-//   } else {
-//     next() // ¡Asegúrate de ejecutar next siempre!
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
+    // esta ruta requiere autenticación, verificamos que haya iniciado sesión
+    // sino, redirigimos a la página de inicio de sesión.
+    if (!store.state.user.logged) {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // ¡Asegúrate de ejecutar next siempre!
+  }
+})

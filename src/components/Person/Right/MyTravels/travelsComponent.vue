@@ -183,7 +183,6 @@
   /*nav-bottom*/
   .article-bottom {
     display: flex;
-    width: 52%;
     right: 2%;
     bottom: 4%;
     position: absolute;
