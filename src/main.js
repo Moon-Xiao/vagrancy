@@ -51,6 +51,22 @@ Vue.mixin({
       await api.updateItem({url: 'lists/users'}, this.userInfo._id, formData, {headers: {'Content-Type': 'multipart/form-data'}})
       store.dispatch('user/getUserInfo')
     },
+    async createItem (type, infos) {
+      let formData = new FormData()
+      let data = {}
+      for (let key of Object.keys(infos)) {
+        if (infos[key] instanceof File) {
+          formData.append(key, infos[key])
+        } else {
+          data[key] = infos[key]
+        }
+      }
+      formData.append('$data', JSON.stringify(data))
+      await api.createItem({url: `lists/${type}`}, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+    },
+    async deleteItem (type, id) {
+      await api.deleteItem({url: `lists/${type}`}, id)
+    },
     formatDate (date, format) {
       return moment(date).format(format || 'll')
     }
