@@ -5,35 +5,42 @@
            v-for="(item,index) in chooseTab">{{item.title}}
       </div>
     </div>
-    <div v-for="iproduct in products" class="product-description">
-      <img class="product-img" :src="iproduct.imageSrc"/>
-      <div class="product-des-right">
-        <div class="product-des-top">
-          <span>{{iproduct.label}}</span>
-          <i class="fa fa-heart"></i>
-          <span>{{iproduct.place}}</span>
-          <div class="num-jian">
-            <span class="num">{{iproduct.num}}</span>
-            <span>件已售</span>
+    <paginate-list certain-list="product" select="photo description label soldNum country price travelTime">
+      <template slot="list-item" scope="iproduct">
+        <div class="product-description">
+          <img class="product-img" :src="'http://192.168.1.100:3004/'+iproduct.value.photo.path"/>
+          <div class="product-des-right">
+            <div class="product-des-top">
+              <span>{{iproduct.value.label}}</span>
+              <i class="fa fa-heart"></i>
+              <span>{{iproduct.value.country.name}}</span>
+              <div class="num-jian">
+                <span class="num">{{iproduct.value.soldNum}}</span>
+                <span>件已售</span>
+              </div>
+            </div>
+            <div class="product-des-middle">
+              <p class="pro-des-title">{{iproduct.value.description}}</p>
+            </div>
+            <div class="pro-price">
+              <span class="pro-price-num">{{iproduct.value.price}}</span>
+              <span class="pro-price-unit">元起</span>
+            </div>
+            <div class="pro-travel-time">旅行时间：{{iproduct.value.travelTime}}</div>
+            <router-link :to="`/stores/product/${iproduct.value._id}`" class="buy-button-now">立即购买</router-link>
           </div>
         </div>
-        <div class="product-des-middle">
-          <p class="pro-des-title">{{iproduct.description}}</p>
-          <p v-for="iproperty in iproduct.property" class="pro-des-property">{{iproperty.name}} </p>
-        </div>
-        <div class="pro-price">
-          <span class="pro-price-num">{{iproduct.price}}</span>
-          <span>元起</span>
-        </div>
-        <div class="pro-travel-time">旅行时间：{{iproduct.travelTime}}</div>
-        <button>立即购买</button>
-      </div>
-    </div>
+
+      </template>
+    </paginate-list>
+
   </div>
 </template>
 
 <script>
+  import PaginateList from '../mixins/PaginateList.vue'
   export default {
+    components: {PaginateList},
     data () {
       return {
         selected: 0,
@@ -204,22 +211,21 @@
     -webkit-line-clamp: 1;
   }
 
-  .pro-des-property {
-    color: rgb(180, 180, 180);
-    float: left;
-    margin-right: 0.5rem;
-  }
-
   .pro-price {
     color: rgb(120, 120, 120);
     float: right;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .pro-price-num {
     color: rgb(253, 117, 107);
     font-size: 1.4rem;
     font-weight: bold;
+  }
+
+  .pro-price-unit{
+    color: rgb(120, 120, 120);
+    font-size: 0.9rem;
   }
 
   .pro-travel-time {
@@ -230,7 +236,7 @@
     width: inherit;
   }
 
-  .product-des-right button {
+  .product-des-right .buy-button-now {
     float: right;
     position: absolute;
     bottom: 0.6rem;
@@ -238,7 +244,7 @@
     background-color: rgb(253, 117, 107);
     border: none;
     padding: 0.5rem 1rem;
-    color: white;
+    color: white !important;
     font-weight: bold;
     font-size: 1rem;
   }
