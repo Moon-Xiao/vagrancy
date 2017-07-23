@@ -195,21 +195,6 @@
     margin-right: 0.5rem;
   }
 
-  .article-bottom span:first-child {
-    flex: 1;
-  }
-
-  .article-bottom span:nth-child(2) {
-    flex: 1;
-  }
-
-  .article-bottom span:nth-child(3) {
-    flex: 1;
-  }
-  .article-bottom span:last-child {
-    flex: 2;
-  }
-
   .article-bottom span i {
     margin-right: .5rem;
     font-size: 14px;

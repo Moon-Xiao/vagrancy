@@ -1,9 +1,9 @@
 <template>
   <div>
     <div :class="className||''">
-      <slot v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
-      <slot v-if="state.buffer.length === 0" name="no-content"></slot>
-      <slot name="pager" :page="state.page" :total="state.total" :perPage="state.perPage"
+      <slot v-if="ready" v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
+      <slot v-if="ready && state.buffer.length === 0" name="no-content"></slot>
+      <slot v-if="ready" name="pager" :page="state.page" :total="state.total" :perPage="state.perPage"
             :pages="pages"></slot>
     </div>
 
@@ -29,10 +29,10 @@
         this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref})
       }
     },
-    mounted () {
-      setTimeout(() => {
+    watch: {
+      ready () {
         this.switchPage({page: 1, perPage: this.perPage || 8, select: this.select, ref: this.ref})
-      }, 200)
+      }
     },
     computed: {
       pages () {
