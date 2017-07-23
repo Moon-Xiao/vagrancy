@@ -25,12 +25,12 @@
     mixins: [ListsMixin],
     methods: {
       changePage (page) {
-        console.log('aweewvfwef', this.certainRef)
         this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref})
       }
     },
     watch: {
       ready () {
+        console.log('aweewvfwef', this.certainRef, this.select)
         this.switchPage({page: 1, perPage: this.perPage || 8, select: this.select, ref: this.ref})
       }
     },

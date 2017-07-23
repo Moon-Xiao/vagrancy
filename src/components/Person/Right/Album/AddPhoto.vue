@@ -9,12 +9,12 @@
           </div>
         </div>
         <div class="img-info">
-          <input type="text" placeholder="相片名"/>
-          <textarea rows="4" placeholder="相片描述"></textarea>
+          <input type="text" placeholder="相片名" v-model="photoTitle"/>
+          <textarea rows="4" placeholder="相片描述" v-model="photoInfo"></textarea>
         </div>
       </div>
       <div class="btn-bottom">
-        <button class="btn btn-primary" style="text-align: right">保存修改</button>
+        <button type="button" class="btn btn-primary" style="text-align: right" @click="createAlbum">保存修改</button>
       </div>
     </form>
   </div>
@@ -41,6 +41,16 @@
             }
           })(window.$('#photo-img'))
           reader.readAsDataURL(this.photo)
+        }
+      },
+      async createAlbum () {
+        try {
+          let data = {name: this.photoTitle, intro: this.photoInfo, photo: this.photo, album: this.$route.params.id}
+          await this.createItem('photos', data)
+          window.alert('创建成功')
+          this.$emit('success')
+        } catch (error) {
+          window.alert(error)
         }
       }
     }

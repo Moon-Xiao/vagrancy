@@ -107,7 +107,7 @@
   }
 
   #group h3 {
-    font-size: 26px;
+    font-size: 18px;
     margin-top: 1rem;
     color: #0275d8;
   }
@@ -136,7 +136,7 @@
     line-height: 3.5rem;
     margin-left: -.16rem;
     color: #bbb;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   #group .group-items .next-item {
@@ -154,7 +154,7 @@
     line-height: 3.5rem;
     margin-right: -.16rem;
     color: #bbb;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   #group .group-items .item {
@@ -173,6 +173,6 @@
   #group .group-items .item p {
     margin-top: 0.5rem;
     color: #aaa;
-    font-size: 14px;
+    font-size: 10px;
   }
 </style>

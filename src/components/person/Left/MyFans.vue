@@ -58,7 +58,7 @@
 
   #fans h3 {
     margin-top: 1rem;
-    font-size: 26px;
+    font-size: 18px;
     color: #0275d8;
   }
 
@@ -116,7 +116,7 @@
   }
 
   #fans .fans-items .fans-name {
-    font-size: 14px;
+    font-size: 12px;
     margin-top: .8rem;
     color: #aaa;
   }

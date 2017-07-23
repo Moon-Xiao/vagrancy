@@ -57,7 +57,8 @@ api.getListItem = async function (list, id, ...options) {
 }
 
 api.getListItemField = async function (list, id, field, ...options) {
-  return wrapper.call(api, 'get', `${list.url}/${id}/${field}`, options)
+  console.log(options)
+  return wrapper.call(api, 'get', `${list.url}/${id}/${field}`, ...options)
 }
 
 api.updateItem = async function (list, id, ...options) {

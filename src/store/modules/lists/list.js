@@ -39,8 +39,9 @@ const actions = {
       params.select = select
     }
     let result
+    console.log(params)
     if (ref) {
-      result = await api.getListItemField(list, ref.id, ref.field, list, {params})
+      result = await api.getListItemField(list, ref.id, ref.field, {params})
     } else {
       result = await api.getListItems(list, {params})
     }
@@ -57,12 +58,12 @@ const actions = {
 }
 
 const getters = {
-
-  nameList (state) {
-    const {list, buffer} = state
-    const nameField = list.nameField || '_id'
-    return buffer.map(item => item[nameField])
-  }
+  //
+  // nameList (state) {
+  //   const {list, buffer} = state
+  //   const nameField = list.nameField || '_id'
+  //   return buffer.map(item => item[nameField])
+  // }
 
 }
 

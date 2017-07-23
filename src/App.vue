@@ -25,8 +25,8 @@
           <template v-if="$store.state.user.logged">
             <router-link to="/person">
               <div class="nav-item-right" style="display: flex;">
-                <div id="user-profile" :style="`background-image:url('${user.img}') ;`"></div>
-                <div style="margin: 20px 18px;color: black">{{user.uname}}<button @click="api.logoutUser()">退出</button></div>
+                <div id="user-profile" :style="`background-image:url(${baseUrl}/${userInfo.avatar.path})`"></div>
+                <div style="margin: 20px 10px 20px 15px;color: black">{{userInfo.nickname}}<button style="margin-left:1rem" @click="api.logoutUser()">退出</button></div>
               </div>
             </router-link>
           </template>

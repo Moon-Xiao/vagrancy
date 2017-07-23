@@ -1,7 +1,7 @@
 <template>
   <div id="per">
     <div id="personImg">
-      <img :src="`http://192.168.1.100:3004/${userInfo.avatar.path}`">
+      <img :src="`${baseUrl}/${userInfo.avatar.path}`">
       <router-link to="/manage-info/manage-photo" class="moveUp">
         <i class="fa fa-camera moveIcon"></i>
       </router-link>
@@ -50,7 +50,7 @@
         </div>
         <div class="bottom-item col-md-4">
           <div>{{userInfo.like.length}}</div>
-          <i class="fa fa-star save" @click="saveNum+=1"></i>
+          <i class="fa fa-star save"></i>
           <span>收藏</span>
         </div>
       </div>
@@ -255,13 +255,13 @@
   }
 
   .per-nav .name-style {
-    font-size: 28px;
+    font-size: 18px;
   }
 
   /*tip*/
   #per .tip span {
     margin: 0.6rem 0;
-    font-size: 14px;
+    font-size: 12px;
     background-color: cornflowerblue;
   }
 
@@ -281,7 +281,7 @@
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     border-radius: 0.3rem;
-    font-size: 18px;
+    font-size: 13px;
     /*border: 1px solid lightgrey;*/
   }
 
@@ -300,7 +300,7 @@
   }
 
   #per .sign-write > button {
-    font-size: 18px;
+    font-size: 13px;
     width: 92%;
     background-color: #5c83d3;
     border-color: honeydew;
@@ -318,7 +318,7 @@
     margin: 0.5rem auto;
     border: 1px solid honeydew;
     border-radius: 0.3rem;
-    font-size: 20px;
+    font-size: 14px;
     color: #666;
     background-color: #ffffff;
     height: 2.2rem;
@@ -328,7 +328,7 @@
   /*rate*/
   #per .rate {
     margin: 0.5rem auto;
-    font-size: 18px;
+    font-size: 12px;
   }
 
   /*bottom-bar*/
@@ -348,24 +348,24 @@
 
   #per .bottom-bar .bottom-item > div {
     margin-bottom: 0.2rem;
-    font-size: 24px;
+    font-size: 14px;
   }
 
   #per .bottom-bar .bottom-item > i {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   #per .bottom-bar .bottom-item > span {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   #per .bottom-bar .bottom-item .save {
     color: #ffff00;
   }
 
-  #per .bottom-bar .bottom-item .save:hover {
-    box-shadow: 0 0 .2rem #ffff00;
-    border-radius: 0.5rem;
-  }
+  /*#per .bottom-bar .bottom-item .save:hover {*/
+    /*box-shadow: 0 0 .2rem #ffff00;*/
+    /*border-radius: 0.5rem;*/
+  /*}*/
 
 </style>

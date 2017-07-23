@@ -1,11 +1,10 @@
 <template>
   <div id="travelsComponent">
     <!--<div class="row" v-for="item in articleList">-->
-    <paginate-list ref="list" certainList="post" :certainUser="{author: userInfo._id}" select="photo title intro visited footprint favor_count modifiedDate" :perPage="1">
-      <template scope="item" slot="list-item">
+
         <div class="row">
           <div class="col-3">
-            <div class="article-img" :style="`background-image: url('http://192.168.1.100:3004/${item.value.photo.path}')`"></div>
+            <div class="article-img" :style="`background-image: url('${baseUrl}/${item.value.photo.path}')`"></div>
           </div>
           <div class="col-9">
             <h3 class="article-title">{{item.value.title}}</h3>
@@ -21,19 +20,6 @@
             </div>
           </div>
         </div>
-      </template>
-      <template slot="no-content">
-        <p>No content</p>
-      </template>
-      <template slot="pager" scope="pager">
-        <paging :page="pager.page" :per-page="pager.perPage" :total="pager.total" :pages="pager.pages"
-                @switch="$refs.list.changePage(pager.page+$event)"
-        ></paging>
-      </template>
-      <!--<a :href="item.link" class="row">-->
-
-      <!--</a>-->
-    </paginate-list>
     <!--</div>-->
   </div>
 </template>
