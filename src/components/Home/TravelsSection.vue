@@ -158,13 +158,18 @@
     width: 100%;
   }
 
+  .kd-package-list article figcaption {
+    transition: background 400ms
+  }
   .kd-package-list article:hover figcaption {
     background-color: rgba(0, 0, 0, 0.3);
+  }
+  .kd-package-list article .days-counter {
+    transition: transform 200ms
   }
 
   .kd-package-list article:hover .days-counter {
     transform: scale(1.2);
-    transition: 1s;
   }
 
 

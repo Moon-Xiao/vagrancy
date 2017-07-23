@@ -1366,7 +1366,7 @@ core-pluggable@^0.0.2:
 
 "core-service@https://repo.jagger.tech/core-service/core-service.git":
   version "0.0.4"
-  resolved "https://repo.jagger.tech/core-service/core-service.git#12e53430de32fc69976c49613f1d7cef283c5130"
+  resolved "https://repo.jagger.tech/core-service/core-service.git#9453186bb23b1c13ca32d98763068c4abb6dec13"
   dependencies:
     body-parser "^1.17.2"
     connect-mongo "^1.3.2"
