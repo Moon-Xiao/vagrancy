@@ -3,11 +3,11 @@
     <left-aside :tabs="tabTitles">
       <div slot="content-0" class="solt-content">
         <div class="wiki-title clearfix">
-          <h1 class="h1">{{tabTitles[0]}}</h1>
+          <h1 class="h1">瓦拉纳西速览</h1>
         </div>
         <div class="wiki-content">
           <div class="anchor-nav">
-            <a href="#">{{city.name}} {{city.ename}}</a>
+            <a href="#">瓦拉纳西 Varanasi</a>
             <span class="split"></span><a href="#">最佳旅行时间</a>
             <span class="split"></span><a href="#">穿衣指南</a>
             <span class="split"></span><a href="#">时差</a>
@@ -70,7 +70,7 @@
       </div>
       <div slot="content-1" class="solt-content">
         <div class="wiki-title clearfix">
-          <h1 class="h1">{{tabTitles[1]}}</h1>
+          <h1 class="h1">瓦拉纳西体验</h1>
         </div>
         <div class="wiki-content">
           <div class="anchor-nav">
@@ -103,7 +103,7 @@
       </div>
       <div slot="content-2" class="solt-content">
         <div class="wiki-title clearfix">
-          <h1 class="h1">{{tabTitles[2]}}</h1>
+          <h1 class="h1">景点</h1>
         </div>
         <div class="wiki-content">
           <div class="anchor-nav" style="display:none">
@@ -179,7 +179,7 @@
       </div>
       <div slot="content-3" class="solt-content">
         <div class="wiki-title clearfix">
-          <h1 class="h1">{{tabTitles[3]}}</h1>
+          <h1 class="h1">餐饮</h1>
         </div>
         <div class="wiki-content">
           <div class="anchor-nav">
@@ -286,7 +286,7 @@
       </div>
       <div slot="content-4" class="solt-content">
         <div class="wiki-title clearfix">
-          <h1 class="h1">{{tabTitles[4]}}</h1>
+          <h1 class="h1">购物</h1>
         </div>
         <div class="wiki-content">
           <div class="anchor-nav" style="display:none">

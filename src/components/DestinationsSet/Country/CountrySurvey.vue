@@ -102,8 +102,7 @@
             <div class="poi-card clearfix">
               <div class="item ">
                 <a href="#">
-                  <div class="img"><img
-                    src="http://n2-q.mafengwo.net/s5/M00/49/4A/wKgB3FEN7S-AfJfIAAoxQSIqSl845.jpeg?imageMogr2%2Fthumbnail%2F%21215x140r%2Fgravity%2FCenter%2Fcrop%2F%21215x140%2Fquality%2F100">
+                  <div class="img"><img src="http://n2-q.mafengwo.net/s5/M00/49/4A/wKgB3FEN7S-AfJfIAAoxQSIqSl845.jpeg?imageMogr2%2Fthumbnail%2F%21215x140r%2Fgravity%2FCenter%2Fcrop%2F%21215x140%2Fquality%2F100">
                   </div>
                   <div class="info">
                     <h3>玛尼卡尼卡河坛</h3>
