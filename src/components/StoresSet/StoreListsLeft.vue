@@ -130,7 +130,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .store-list-left-container {
     width: 100%;
     padding: 0.5rem 1rem 0.5rem 2rem;

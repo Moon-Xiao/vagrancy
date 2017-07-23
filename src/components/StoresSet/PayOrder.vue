@@ -54,11 +54,10 @@
 
 <script>
   import AdvertStrip from '../Home/AdvertStrip.vue'
-  import Item from '../mixins/Item.vue'
+
   export default {
     components: {
-      AdvertStrip,
-      Item
+      AdvertStrip
     },
     data () {
       return {
@@ -280,5 +279,6 @@
     text-align: right;
     color: #777777;
     float: right;
+
   }
 </style>
