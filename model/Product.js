@@ -15,7 +15,7 @@ const Product = service.list('Product', {
   plural: 'products',
   defaultFields: ['description', 'label'],
   keyPath: 'description',
-  editable: '$creator',
+  // editable: '$creator',
   visible: true
 })
 
@@ -42,7 +42,7 @@ Product.add('旅游信息', [
 ])
 
 Product.add('卖家信息', [
-  {name: 'seller', label: '卖家', type: Types.Reference, ref: Seller, required: true, cms: '$creator'},
+  {name: 'seller', label: '卖家', type: Types.Reference, ref: Seller, required: true},
   {name: 'price', label: '价格', type: Types.Number},
   {name: 'soldNum', label: '已售数量', type: Types.Number}
 ])

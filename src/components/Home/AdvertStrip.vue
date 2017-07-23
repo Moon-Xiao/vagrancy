@@ -24,6 +24,8 @@
   }
   .advert-strip img{
     border-radius: 5px;
+    box-shadow: 0 0 0 0 rgba(50, 50, 50, 0.22);
+    transition: box-shadow 300ms;
   }
   .advert-strip img:hover{
     box-shadow: 0px 3px 15px 0px rgba(50, 50, 50, 0.22);
