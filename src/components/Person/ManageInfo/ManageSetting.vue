@@ -29,12 +29,12 @@
         <div class="item-right">
           <div class="item-info">
             <p>
-              我的微信账户<span class="band-style">未绑定</span>
+              我的微信账户<span class="band-style">{{userInfo.wx_account || '未绑定'}}</span>
             </p>
             <p><span class="percent-style">95%</span>的驴友正在分享</p>
           </div>
           <div class="item-operation">
-            <b-btn class="btn btn-operation" v-b-modal.bandWeiXin>现在绑定</b-btn>
+            <b-btn class="btn btn-operation" :disabled="!!userInfo.wx_account" v-b-modal.bandWeiXin>现在绑定</b-btn>
           </div>
         </div>
       </div>
@@ -46,12 +46,12 @@
         <div class="item-right">
           <div class="item-info">
             <p>
-              我的新浪账户<span class="band-style">未绑定</span>
+              我的新浪账户<span class="band-style">{{userInfo.wb_account || '未绑定'}}</span>
             </p>
             <p><span class="percent-style">90%</span>的驴友正在分享</p>
           </div>
           <div class="item-operation">
-            <b-btn class="btn btn-operation" v-b-modal.bandSina>现在绑定</b-btn>
+            <b-btn class="btn btn-operation" :disabled="!!userInfo.wb_account" v-b-modal.bandSina>现在绑定</b-btn>
           </div>
         </div>
       </div>
@@ -69,33 +69,33 @@
       </div>
     </div>
 
-    <b-modal id="bandWeiXin" title="绑定微信" :hide-footer="true">
+    <b-modal id="bandWeiXin" ref="bandWeiXin" title="绑定微信" :hide-footer="true">
 
       <form class="safe-form">
         <div class="form-item">
           <p>微信账号：</p>
           <div class="input-style">
-            <b-form-input type="text" placeholder="请输入微信账号"></b-form-input>
+            <b-form-input type="text" v-model="weixin" placeholder="请输入微信账号"></b-form-input>
           </div>
         </div>
         <div class="submit-btn">
-          <button class="btn btn-primary">提交验证</button>
+          <button type="button" @click="updateWx" class="btn btn-primary">提交验证</button>
         </div>
       </form>
 
     </b-modal>
 
-    <b-modal id="bandSina" title="绑定新浪" :hide-footer="true">
+    <b-modal id="bandSina" ref="bandSina" title="绑定新浪" :hide-footer="true">
 
       <form class="safe-form">
         <div class="form-item">
           <p>新浪账号：</p>
           <div class="input-style">
-            <b-form-input type="text" placeholder="请输入新浪账号"></b-form-input>
+            <b-form-input type="text" v-model="weibo" placeholder="请输入新浪账号"></b-form-input>
           </div>
         </div>
         <div class="submit-btn">
-          <button class="btn btn-primary">提交验证</button>
+          <button type="button" @click="updateWb" class="btn btn-primary">提交验证</button>
         </div>
       </form>
 
@@ -108,14 +108,23 @@
     data () {
       return {
         weixin: '',
-        sina: '',
+        weibo: '',
         settingList: [
           {img: '/static/images/person/weixin.png', name: '微信', percent: '95%'},
           {img: '/static/images/person/sina.png', name: '新浪', percent: '80%'}
         ]
       }
     },
-    methods: {}
+    methods: {
+      updateWx: function () {
+        this.updateInfo({wb_account: this.weixin})
+        this.$refs.bandWeiXin.hide()
+      },
+      updateWb: function () {
+        this.updateInfo({wb_account: this.weibo})
+        this.$refs.bandSina.hide()
+      }
+    }
   }
 </script>
 <style>

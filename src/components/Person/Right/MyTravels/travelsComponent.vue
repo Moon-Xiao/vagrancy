@@ -1,26 +1,51 @@
 <template>
   <div id="travelsComponent">
-    <div class="row" v-for="item in articleList">
-      <a :href="item.link" class="row">
-        <div class="col-md-3">
-          <div class="article-img" :style="'background-image: url('+item.img+')'"></div>
-        </div>
-        <div class="col-md-9">
-          <h3 class="article-title">{{item.title}}</h3>
-          <p class="article-nav">{{item.id}}{{item.info}} </p>
-          <div class="article-bottom">
-            <span><i class="fa fa-map-marker"></i>{{item.place}}</span>
-            <span><i class="fa fa-eye"></i>{{item.saveNum}}</span>
-            <span><i class="fa fa-thumbs-up"></i>{{item.heartNum}}</span>
+    <!--<div class="row" v-for="item in articleList">-->
+    <paginate-list ref="list" certainList="post" :certainUser="{author: userInfo._id}" select="photo title intro visited footprint favor_count modifiedDate" :perPage="1">
+      <template scope="item" slot="list-item">
+        <div class="row">
+          <div class="col-3">
+            <div class="article-img" :style="`background-image: url('http://192.168.1.100:3004/${item.value.photo.path}')`"></div>
+          </div>
+          <div class="col-9">
+            <h3 class="article-title">{{item.value.title}}</h3>
+            <p class="article-nav">{{item.value.intro}} </p>
+            <div class="article-bottom">
+              <span><i class="fa fa-map-marker"></i>{{item.value.footprint[0].name}}</span>
+              <span><i class="fa fa-eye"></i>{{item.value.visited}}</span>
+              <span><i class="fa fa-thumbs-up"></i>{{item.value.favor_count}}</span>
+              <span><i class="fa fa-eye"></i>{{formatDate(item.value.modifiedDate)}}</span>
+            </div>
           </div>
         </div>
-      </a>
-    </div>
+      </template>
+      <template slot="no-content">
+        <p>No content</p>
+      </template>
+      <template slot="pager" scope="pager">
+        <paging :page="pager.page" :per-page="pager.perPage" :total="pager.total" :pages="pager.pages"
+                @switch="$refs.list.changePage(pager.page+$event)"
+        ></paging>
+      </template>
+      <!--<a :href="item.link" class="row">-->
+
+      <!--</a>-->
+    </paginate-list>
+    <!--</div>-->
   </div>
 </template>
 
 <script>
+  import PaginateList from '../../../mixins/PaginateList.vue'
+  import Paging from '../../Bottom/Paging.vue'
   export default {
+    components: {
+      PaginateList,
+      Paging
+    },
+    props: {
+      item: Object
+    },
     data () {
       return {
         articleList: [
@@ -102,7 +127,7 @@
 
 <style scoped>
   /*travel-nav*/
-   .row {
+  .row {
     box-shadow: 0 0 0.2rem #eee;
     border-radius: 0.2rem;
     margin: 0 0 1.5rem;
@@ -110,17 +135,17 @@
     height: 14rem;
   }
 
-   .row .col-md-3 {
+  .row .col-3 {
     padding: 0;
     margin: 0;
   }
 
-   .row .col-md-9 {
+  .row .col-9 {
     padding: 0 1rem;
     margin: 0;
   }
 
-   .article-img {
+  .article-img {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -130,14 +155,14 @@
     padding: 1.2rem;
   }
 
-   .article-title {
+  .article-title {
     font-size: 28px;
     color: #717171;
     text-align: left;
     margin: 1.2rem auto;
   }
 
-   .article-nav {
+  .article-nav {
     font-size: 16px;
     color: rgba(51, 51, 51, 0.72);
     text-align: left;
@@ -153,33 +178,36 @@
   }
 
   /*nav-bottom*/
-   .article-bottom {
+  .article-bottom {
     display: flex;
-    width: 40%;
+    width: 52%;
     right: 2%;
-    bottom: 2%;
+    bottom: 4%;
     position: absolute;
   }
 
-   .article-bottom span {
+  .article-bottom span {
     font-size: 14px;
     color: #999999;
     margin-right: 0.5rem;
   }
 
-   .article-bottom span:first-child {
+  .article-bottom span:first-child {
+    flex: 1;
+  }
+
+  .article-bottom span:nth-child(2) {
+    flex: 1;
+  }
+
+  .article-bottom span:nth-child(3) {
+    flex: 1;
+  }
+  .article-bottom span:last-child {
     flex: 2;
   }
 
-   .article-bottom span:nth-child(2) {
-    flex: 1;
-  }
-
-   .article-bottom span:last-child {
-    flex: 1;
-  }
-
-   .article-bottom span i {
+  .article-bottom span i {
     margin-right: .5rem;
     font-size: 14px;
     color: cornflowerblue;

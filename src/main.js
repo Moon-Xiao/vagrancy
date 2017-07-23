@@ -9,7 +9,7 @@ import 'jquery/dist/jquery.min'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'font-awesome/css/font-awesome.min.css'
-import {baseURL} from './api'
+import api, {baseURL} from './api'
 import moment from 'moment'
 
 moment.locale('zh-CN')
@@ -17,6 +17,13 @@ moment.locale('zh-CN')
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
+/* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   router,
+//   template: '<App/>',
+//   components: {App}
+// })
 Vue.mixin({
   computed: {
     logged () {
@@ -27,6 +34,25 @@ Vue.mixin({
     },
     baseUrl () {
       return baseURL
+    }
+  },
+  methods: {
+    async updateInfo (infos) {
+      let formData = new FormData()
+      let data = {}
+      for (let key of Object.keys(infos)) {
+        if (infos[key] instanceof File) {
+          formData.append(key, infos[key])
+        } else {
+          data[key] = infos[key]
+        }
+      }
+      formData.append('$data', JSON.stringify(data))
+      await api.updateItem({url: 'lists/users'}, this.userInfo._id, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+      store.dispatch('user/getUserInfo')
+    },
+    formatDate (date, format) {
+      return moment(date).format(format || 'll')
     }
   }
 })

@@ -9,8 +9,9 @@ import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
 import Person from '@/components/Person/Person.vue'
-import ShowAlbum from '@/components/Person/Right/Album/ShowAlbum.vue'
+import ShowAlbum from '@/components/Person/Right/Album/showAlbum.vue'
 import MemorializeAlbum from '@/components/Person/Right/Album/MemorializeAlbum.vue'
+import CarouselAlbum from '@/components/Person/Right/Album/CarouselAlbum.vue'
 import CreateAlbum from '@/components/Person/Right/Album/CreateAlbum.vue'
 import MySave from '@/components/Person/Right/MySave'
 import Mytravels from '@/components/Person/Right/MyTravels'
@@ -200,12 +201,16 @@ let routes = [
     component: Person
   },
   {
-    path: '/show-album',
+    path: '/show-album/:id',
     component: ShowAlbum
   },
   {
     path: '/memorialize-album',
     component: MemorializeAlbum
+  },
+  {
+    path: '/carousel-album',
+    component: CarouselAlbum
   },
   {
     path: '/create-album',

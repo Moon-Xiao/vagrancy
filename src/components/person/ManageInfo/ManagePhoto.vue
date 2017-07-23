@@ -10,7 +10,7 @@
         <!--</div>-->
       </div>
       <div class="btn-bottom">
-        <button class="btn btn-warning" style="text-align: right">保存修改</button>
+        <button class="btn btn-warning" type="button" style="text-align: right" @click="updateInfo({avatar: mImg})">保存修改</button>
       </div>
     </form>
   </div>
@@ -26,6 +26,7 @@
     methods: {
       addFile: function (e) {
         this.mImg = e.srcElement.files[0]
+        console.log(this.mImg)
         if (this.mImg.type.match(this.imageType)) {
           let reader = new FileReader()
           reader.onload = (function (aDiv) {

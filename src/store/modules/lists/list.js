@@ -50,8 +50,8 @@ const actions = {
     commit('stopFetching')
   },
 
-  async switchPage ({commit, dispatch}, {page, perPage, where, search, sort, select}) {
-    commit('paginate', {page, perPage, where, search, sort, select})
+  async switchPage ({commit, dispatch}, {page, perPage, where, search, sort, select, ref}) {
+    commit('paginate', {page, perPage, where, search, sort, select, ref})
     await dispatch('fetchSome')
   }
 }
@@ -77,7 +77,7 @@ const mutations = {
     state.list = list
   },
 
-  paginate (state, {page, perPage, where, total, search, sort, select}) {
+  paginate (state, {page, perPage, where, total, search, sort, select, ref}) {
     state.page = page || state.page
     state.perPage = perPage || state.perPage
     state.total = total || state.total
@@ -85,6 +85,8 @@ const mutations = {
     state.select = typeof select === 'string' ? select : state.select
     state.search = typeof search === 'string' ? search : state.search
     state.sort = typeof sort === 'string' ? sort : state.sort
+    state.ref = typeof ref === 'object' ? ref : state.ref
+    console.log('xxxxxxxxx', ref)
   },
 
   bufferingSome (state, {docs, fields, total} = {docs: [], fields: []}) {

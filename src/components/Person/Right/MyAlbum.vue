@@ -13,23 +13,26 @@
         <i class="fa fa-picture-o"></i><span>删除相册</span>
       </button>
     </div>
-    <div class="row">
-      <!-- With image -->
-      <div class="col-md-4 col-sm-6 col-xs-12" v-for="(item,index) in albumList">
-        <span @click='remove($event)' class="remove-style">
+    <paginate-list class-name="row" certainList="album" :certainUser="{owner: userInfo._id}">
+      <template slot="list-item" scope="item">
+        <!-- With image -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <span @click='remove' class="remove-style">
           <i v-show="showEdit" class="fa fa-times-circle"></i>
         </span>
-        <router-link to="/show-album">
-          <div class="row-item">
-            <div class="item-img" :style="'background-image: url('+item.img+')'"></div>
-            <div :style="'background-color:'+colors[index%colors.length]">
-              <h3>{{item.title}}</h3>
+          <router-link :to="`/show-album/${item.value._id}`">
+            <div class="row-item">
+              <div class="item-img" :style="`background-image: url('http://192.168.1.100:3004/${item.value.avatar.path}')`"></div>
+              <div :style="'background-color:'+colors[item.index%colors.length]">
+                <h3>{{item.value.name}}</h3>
+              </div>
+              <p :style="'color:'+textColors[item.index%textColors.length]">{{item.value.intro}}</p>
             </div>
-            <p :style="'color:'+textColors[index%textColors.length]">{{item.id}}{{item.detail}}</p>
-          </div>
-        </router-link>
-      </div>
-    </div>
+          </router-link>
+        </div>
+      </template>
+
+    </paginate-list>
 
     <div style="height: 3rem;padding:0.5rem 0;text-align: center;position: relative;clear: both;">
       <span title="previous" class="fa fa-chevron-left"
@@ -53,7 +56,9 @@
 <!--</template>-->
 
 <script>
+  import PaginateList from '../../mixins/PaginateList.vue'
   export default {
+    components: {PaginateList},
     data () {
       return {
         showEdit: false,

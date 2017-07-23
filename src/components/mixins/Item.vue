@@ -1,6 +1,6 @@
 <template>
   <div :class="className||''">
-    <slot name="item" :value="state.originInfo"></slot>
+    <slot v-if="ready" name="item" :value="state.originInfo"></slot>
   </div>
 </template>
 
@@ -12,13 +12,6 @@
       certainList: String,
       certainId: String,
       className: String
-    },
-    mounted () {
-    },
-    watch: {
-      'state.originInfo' () {
-        console.log(this.state)
-      }
     }
   }
 </script>
