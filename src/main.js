@@ -9,6 +9,10 @@ import 'jquery/dist/jquery.min'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'font-awesome/css/font-awesome.min.css'
+import {baseURL} from './api'
+import moment from 'moment'
+
+moment.locale('zh-CN')
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
@@ -20,6 +24,9 @@ Vue.mixin({
     },
     userInfo () {
       return this.$store.state.user.info
+    },
+    baseUrl () {
+      return baseURL
     }
   }
 })
