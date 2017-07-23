@@ -19,8 +19,7 @@ const User = module.exports = service.list('User', {
   'cms user': true,
   'cms grant': 'password',
   'cms grant username': 'nickname',
-  'cms grant password': 'password',
-  'editable': '$self'
+  'cms grant password': 'password'
 })
 
 const Post = require('./Post')
@@ -30,7 +29,9 @@ module.exports = User
 User.add('基本信息', [
   {name: 'nickname', label: '昵称', type: Types.Text, required: true, unique: true},
   {name: 'password', label: '密码', type: Types.Password, secured: true},
-  {name: 'avatar', label: '头像', type: Types.File, accept: 'image/*'}
+  {name: 'avatar', label: '头像', type: Types.File, accept: 'image/*'},
+  {name: 'email', label: '邮箱', type: Types.Email},
+  {name: 'phone', label: '手机号', type: Types.Text}
 ])
 
 User.add('社交信息', [
@@ -46,7 +47,19 @@ User.add('社交信息', [
 User.add('其他信息', [
   {name: 'birth', label: '生日', type: Types.Date},
   {name: 'location', label: '居住城市', type: Types.Text},
-  {name: 'sex', label: '性别', type: Types.Enum, values: ['男', '女', '保密']}
+  {name: 'sex', label: '性别', type: Types.Enum, values: ['男', '女', '保密']},
+  {name: 'balance', label: '余额', type: Types.Number},
+  {name: 'v_balance', label: 'v币', type: Types.Number}
+])
+
+User.add('', [
+  {name: 'want_country', label: '想去的国家', type: Types.Reference, ref: require('./Country'), many: true},
+  {name: 'want_region', label: '想去的城市', type: Types.Reference, ref: require('./Region'), many: true},
+  {name: 'want_scene', label: '想去的景点', type: Types.Reference, ref: require('./Scene'), many: true},
+  {name: 'been_to_country', label: '去过的国家', type: Types.Reference, ref: require('./Country'), many: true},
+  {name: 'been_to_region', label: '去过的城市', type: Types.Reference, ref: require('./Region'), many: true},
+  {name: 'been_to_scene', label: '去过的景点', type: Types.Reference, ref: require('./Scene'), many: true},
+  {name: 'collect_products', label: '收藏的商品', type: Types.Reference, ref: require('./Product'), many: true}
 ])
 
 User.add('社交账户', [

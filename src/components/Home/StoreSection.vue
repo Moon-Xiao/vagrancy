@@ -13,7 +13,7 @@
           <li><span class="filter" >特产</span></li>
         </ul>
         <div id="portfoliolist" class="clearfix row">
-          <div v-for="(store,index) in stores" class="col-3" style="display: inline-block; opacity: 1;height: 180px">
+          <div v-for="(store,index) in stores" class="col-3" style="display: inline-block; height: 180px">
             <div class="portfolio-wrapper grid_box">
               <a :href="`/static/images/temp/des-${index+1}.jpg`" :class="store.label" title="Image Title">
                 <div :style="`width: 100%; height: 100%; background-image: url('/static/images/temp/des-${index+1}.jpg')`" class="img-responsive" alt=""></div>
@@ -114,7 +114,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   #filters {
     margin: 3% 0;
     padding: 0;
@@ -173,6 +173,27 @@
   .portfolio-wrapper>a{
     width: 100%;
     height: 100%;
+  }
+  div.col-3 {
+    padding: 4px;
+    opacity: 0.8;
+    transition: transform 300ms ease-out,  opacity 400ms, box-shadow 500ms;
+  }
+
+  #portfoliolist:hover div.col-3 {
+    opacity: 0.6
+  }
+
+  div.col-3:hover {
+    transform: scale(1.3);
+    opacity: 1!important;
+    z-index: 100;
+    padding: 0;
+    box-shadow: rgba(0,0,0,0.4) 1px 1px 18px 1px;
+  }
+  .img-responsive {
+    background-position: center;
+    background-size: cover;
   }
  </style>
 
