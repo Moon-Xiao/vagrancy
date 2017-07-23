@@ -18,10 +18,12 @@ const Scene = service.list('Scene', {
   visible: true
 })
 
+const Country = require('./Country')
+
 Scene.add('基本信息', [
-  {name: 'name', label: '名字', type: Types.Text},
+  {name: 'name', label: '名字', type: Types.Text, required: true, unique: true},
   {name: 'latitude', label: '坐标', type: Types.Text},
-  {name: 'country', label: '国家', type: Types.Text}
+  {name: 'country', label: '国家', type: Types.Reference, ref: Country, required: true}
 ])
 
 module.exports = Scene
