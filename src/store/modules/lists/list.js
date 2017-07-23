@@ -6,6 +6,7 @@ const state = function () {
     perPage: 0,
     total: 0,
     fields: [],
+    ref: null,
     list: null,
     where: null,
     search: null,
@@ -23,7 +24,7 @@ const actions = {
 
   async fetchSome ({commit, state}) {
     commit('startFetching')
-    let {page, perPage, where, list, search, sort, select} = state
+    let {page, perPage, where, list, ref, search, sort, select} = state
     const params = {page, per_page: perPage}
     if (where && typeof where === 'object') {
       params.where = JSON.stringify(where)
@@ -37,7 +38,12 @@ const actions = {
     if (select && typeof select === 'string') {
       params.select = select
     }
-    let result = await api.getListItems(list, {params})
+    let result
+    if (ref) {
+      result = await api.getListItemField(list, ref.id, ref.field, list, {params})
+    } else {
+      result = await api.getListItems(list, {params})
+    }
     result.perPage = result.limit
     commit('paginate', result)
     commit('bufferingSome', result)
