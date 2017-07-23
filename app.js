@@ -1,5 +1,8 @@
 process.env.NODE_ENV = 'dev'
+<<<<<<< Updated upstream
 process.env.MOCK_USER = 'dev'
+=======
+>>>>>>> Stashed changes
 
 
 const service = require('core-service')
@@ -30,13 +33,6 @@ service.use(cms)
 
 service.start()
   .then(() => {
-    User.model.find({}).then(docs => {
-      docs.forEach(doc => {
-        doc.balance = parseFloat((Math.random() * 100).toFixed(2))
-        doc.v_balance = parseFloat((Math.random() * 1000).toFixed(2))
-        doc.save()
-      })
-    })
     return Admin.model.count()
       .then(count => {
         if (count === 0) {

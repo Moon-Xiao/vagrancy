@@ -60,6 +60,7 @@ User.add('', [
   {name: 'been_to_region', label: '去过的城市', type: Types.Reference, ref: require('./Region'), many: true},
   {name: 'been_to_scene', label: '去过的景点', type: Types.Reference, ref: require('./Scene'), many: true},
   {name: 'collect_products', label: '收藏的商品', type: Types.Reference, ref: require('./Product'), many: true}
+
 ])
 
 User.add('社交账户', [

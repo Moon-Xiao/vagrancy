@@ -30,9 +30,6 @@ Country.add('基本信息', [
   {name: 'guide4', label: '餐饮', type: Types.TextArea},
   {name: 'guide5', label: '购物', type: Types.TextArea},
 
-
-  //
-
 ])
 
 module.exports = Country
