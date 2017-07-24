@@ -50,5 +50,9 @@ Post.add('其他', [
   {name: 'favor_count', label: '点赞次数', type: Types.Number},
   {name: 'top', label: '置顶', type: Types.Boolean}
 ])
+//
+// Post.schedule('collectNum', {label: '收藏次数', type: Types.Number, interval: 1000 * 3}, async function () {
+//   return User.model.find({collect: this._id}).count()
+// })
 
 Post.schema.index({'$**': 'text'})

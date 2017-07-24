@@ -47,4 +47,6 @@ Product.add('卖家信息', [
   {name: 'soldNum', label: '已售数量', type: Types.Number}
 ])
 
+Product.group('卖家信息')
+
 module.exports = Product

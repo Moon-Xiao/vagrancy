@@ -28,3 +28,5 @@ Album.add([
   {name: 'createdDate', label: '发布日期', type: Types.Date},
   {name: 'modifiedDate', label: '修改日期', type: Types.Date}
 ])
+
+Album.group('用户信息')

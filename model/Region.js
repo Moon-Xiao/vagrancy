@@ -32,4 +32,6 @@ Region.add('基本信息', [
   {name: 'guide5', label: '购物', type: Types.TextArea},
 ])
 
+Region.group('基本信息')
+
 module.exports = Region

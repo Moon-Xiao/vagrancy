@@ -109,6 +109,8 @@ User.get('all_fans', async function (req) {
   return {data: docs}
 })
 
+User.group('用户')
+
 User.virtual('fans_count', async function (req) {
   return {fansCount: await User.model.find({follow: this._id}).count()}
 })

@@ -8,7 +8,7 @@
     <paginate-list certain-list="product" select="photo description label soldNum country price travelTime">
       <template slot="list-item" scope="iproduct">
         <div class="product-description">
-          <img class="product-img" :src="'http://192.168.1.100:3004/'+iproduct.value.photo.path"/>
+          <img class="product-img" :src="baseUrl+'/'+iproduct.value.photo.path"/>
           <div class="product-des-right">
             <div class="product-des-top">
               <span>{{iproduct.value.label}}</span>
