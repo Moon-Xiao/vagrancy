@@ -295,4 +295,8 @@
     color: #ff9d00;
     font-weight: normal;
   }
+  .footer {
+    margin-top: 10px;
+    border-top: 3px  #ff9d00 solid;
+  }
 </style>

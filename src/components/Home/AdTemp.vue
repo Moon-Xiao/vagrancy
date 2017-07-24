@@ -1,10 +1,14 @@
 <template>
   <div class="ad-temp">
     <img src="/static/images/AdTemp.png">
-    <div class="ad-button">查看商城</div>
+      <a href="/stores"><div class="st-button"></div></a>
   </div>
 </template>
 <script>
 </script>
 <style>
+  .st-button{
+    background: url(/static/images/AdTemp1.png);
+    height: 100px;
+  }
 </style>

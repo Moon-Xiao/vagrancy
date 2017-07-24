@@ -21,7 +21,7 @@
               如果在香港遇见了你
             </h1>
             <div class="mguide-like">
-              <span class="mguide-likeBtn" data-bn-ipg="place-mguide-view-top-like">
+              <span class="mguide-likeBtn" >
                 <em class="leftPart">
                   <i class="icon"></i>
                 </em>
@@ -65,7 +65,7 @@
         </ul>
         <!--列表 end-->
         <div class="mguide-like">
-          <span class="mguide-likeBtn" data-bn-ipg="place-mguide-view-bottom-like">
+          <span class="mguide-likeBtn" >
             <em class="leftPart">
               <i class="icon"></i>
             </em>
@@ -79,13 +79,12 @@
           评论<span id="mguideCommentTotal">(5条)</span></h1>
         <div class="mguide-comment" id="largeCommentBox">
           <textarea class="ui2_textarea autoHeight" onclick="ajaxlogin()"
-                    style="height: 92px;"></textarea><textarea class="ui2_textarea" onclick="ajaxlogin()"
-
-                                                               style="position: absolute; left: -9999em; overflow: auto;"></textarea>
+                    style="height: 92px;"></textarea>
+          <textarea class="ui2_textarea" style="position: absolute; left: -9999em; overflow: auto;"></textarea>
           <div class="tips">
 				<span class="buttons">
 					<input type="button" class="ui_button" id="largeSubmit" value="发表"
-                 data-bn-ipg="place-mguide-view-bottom-addComment">
+                 >
 				</span>
             <span class="number"><em class="current">0</em>/<span>500</span>字</span>
           </div>
@@ -94,13 +93,13 @@
         <ul class="comment-lists comment-listsLarge" id="largeComment">
           <li data-id="8795">
             <div class="intro-avatar">
-              <a href="javascript:void(0)" data-bn-ipg="place-mguide-view-bottom-commentUserAvatar">
+              <a href="#" >
                 <img src="http://pic4.qyer.com/avatar/007/91/64/87/1463638830/index/200?v=1463638831">
               </a>
             </div>
             <div class="comment-detail">
               <h2 class="title">
-                <a href="//www.qyer.com/u/7916487" class="name" data-bn-ipg="place-mguide-view-bottom-commentUserName">蓝橙洗漱包</a>
+                <a href="#" class="name">蓝橙洗漱包</a>
                 <em class="time">
                   2016-05-19 15:30
                 </em>
@@ -110,24 +109,24 @@
               </p>
               <div class="replyHandler">
 						<span>
-							<a href="javascript:void(0)" class="comment commentDisabled"
-                 data-bn-ipg="place-mguide-view-bottom-commentReply">回复</a>
+							<a href="#" class="comment commentDisabled"
+                 >回复</a>
 						</span>
                 <span>
-							<a href="javascript:void(0)" class="report" data-bn-ipg="place-mguide-view-bottom-report">举报</a>
+							<a href="#" class="report" >举报</a>
 						</span>
               </div>
             </div>
           </li>
           <li data-id="3230">
             <div class="intro-avatar">
-              <a href="javascript:void(0)" data-bn-ipg="place-mguide-view-bottom-commentUserAvatar">
+              <a href="#" >
                 <img src="http://pic1.qyer.com/avatar/002/72/84/66/index/200?v=">
               </a>
             </div>
             <div class="comment-detail">
               <h2 class="title">
-                <a href="//www.qyer.com/u/2728466" class="name" data-bn-ipg="place-mguide-view-bottom-commentUserName">燊燊812</a>
+                <a href="//www.qyer.com/u/2728466" class="name" >燊燊812</a>
                 <em class="time">
                   2015-02-21 23:53
                 </em>
@@ -137,92 +136,74 @@
               </p>
               <div class="replyHandler">
 						<span>
-							<a href="javascript:void(0)" class="comment commentDisabled"
-                 data-bn-ipg="place-mguide-view-bottom-commentReply">回复</a>
+							<a href="#" class="comment commentDisabled">回复</a>
 						</span>
                 <span>
-							<a href="javascript:void(0)" class="report" data-bn-ipg="place-mguide-view-bottom-report">举报</a>
+							<a href="#" class="report">举报</a>
 						</span>
               </div>
             </div>
           </li>
           <li data-id="3136">
             <div class="intro-avatar">
-              <a href="javascript:void(0)" data-bn-ipg="place-mguide-view-bottom-commentUserAvatar">
+              <a href="#" >
                 <img src="http://pic3.qyer.com/avatar/002/66/52/99/index/200?v=">
               </a>
             </div>
             <div class="comment-detail">
               <h2 class="title">
-                <a href="//www.qyer.com/u/2665299" class="name" data-bn-ipg="place-mguide-view-bottom-commentUserName">Pearl_Deng</a>
-                <em class="time">
-                  2015-02-13 10:18
-                </em>
+                <a href="#" class="name">Pearl_Deng</a>
+                <em class="time">2015-02-13 10:18</em>
               </h2>
               <p class="detail">
                 超级好的推荐啊~
               </p>
               <div class="replyHandler">
 						<span>
-							<a href="javascript:void(0)" class="comment commentDisabled"
-                 data-bn-ipg="place-mguide-view-bottom-commentReply">回复</a>
+							<a href="#" class="comment commentDisabled" >回复</a>
 						</span>
                 <span>
-							<a href="javascript:void(0)" class="report" data-bn-ipg="place-mguide-view-bottom-report">举报</a>
+							<a href="#" class="report" >举报</a>
 						</span>
               </div>
             </div>
           </li>
           <li data-id="3135">
             <div class="intro-avatar">
-              <a href="javascript:void(0)" data-bn-ipg="place-mguide-view-bottom-commentUserAvatar">
+              <a href="#" >
                 <img src="http://pic1.qyer.com/avatar/003/55/25/89/index/200?v=">
               </a>
             </div>
             <div class="comment-detail">
               <h2 class="title">
-                <a href="//www.qyer.com/u/3552589" class="name" data-bn-ipg="place-mguide-view-bottom-commentUserName">128678swj</a>
-                <em class="time">
-                  2015-02-13 10:08
-                </em>
+                <a href="#" class="name" >128678swj</a>
+                <em class="time">2015-02-13 10:08</em>
               </h2>
-              <p class="detail">
-                我爱的玻璃之城，与奢侈品无关
-              </p>
+              <p class="detail">我爱的玻璃之城，与奢侈品无关</p>
               <div class="replyHandler">
-						<span>
-							<a href="javascript:void(0)" class="comment commentDisabled"
-                 data-bn-ipg="place-mguide-view-bottom-commentReply">回复</a>
-						</span>
-                <span>
-							<a href="javascript:void(0)" class="report" data-bn-ipg="place-mguide-view-bottom-report">举报</a>
-						</span>
+						<span><a href="#" class="comment commentDisabled">回复</a></span>
+                <span><a href="#" class="report" >举报</a></span>
               </div>
             </div>
           </li>
           <li data-id="2411">
             <div class="intro-avatar">
-              <a href="javascript:void(0)" data-bn-ipg="place-mguide-view-bottom-commentUserAvatar">
+              <a href="#" >
                 <img src="http://pic1.qyer.com/avatar/001/64/36/04/index/200?v=">
               </a>
             </div>
             <div class="comment-detail">
               <h2 class="title">
-                <a href="//www.qyer.com/u/1643604" class="name" data-bn-ipg="place-mguide-view-bottom-commentUserName">Emily_在路上</a>
-                <em class="time">
-                  2015-01-01 23:53
-                </em>
+                <a href="#" class="name">Emily_在路上</a>
+                <em class="time">2015-01-01 23:53</em>
               </h2>
-              <p class="detail">
-                好有意境的游记~
-              </p>
+              <p class="detail">好有意境的游记~</p>
               <div class="replyHandler">
 						<span>
-							<a href="javascript:void(0)" class="comment commentDisabled"
-                 data-bn-ipg="place-mguide-view-bottom-commentReply">回复</a>
+							<a href="#" class="comment commentDisabled">回复</a>
 						</span>
                 <span>
-							<a href="javascript:void(0)" class="report" data-bn-ipg="place-mguide-view-bottom-report">举报</a>
+							<a href="#" class="report">举报</a>
 						</span>
               </div>
             </div>
@@ -231,18 +212,18 @@
         <!--评论 end-->
       </div>
       <div class="mguide-right">
-        <!--new创建微锦囊-->
+        <!--new创建游记-->
         <div class="mguide-rightWrap">
           <div class="mguide-create">
             <div class="mgCreate">
               <p class="viewMore">
-                <a href="/mguide/introduction/" target="_blank" data-bn-ipg="place-mguide-view-right-more">
+                <a href="#" target="_blank" >
                   了解更多&gt;&gt;
                 </a>
               </p>
               <p class="createBtn">
-                <input type="button" class="ui_buttonA" value="创建微锦囊" onclick="window.open('/mguide/add')"
-                       data-bn-ipg="place-mguide-view-right-add">
+                <input type="button" class="ui_buttonA" value="创建游记" onclick="window.open('/mguide/add')"
+                       >
               </p>
             </div>
           </div>
@@ -250,49 +231,19 @@
         <div class="mguide-rightWrap">
           <div class="mguide-recommend">
             <h2 class="fontYaHei">
-              132人喜欢这个微锦囊
+              132人喜欢这个游记
             </h2>
             <div class="avatars">
-              <a href="//www.qyer.com/u/8686135" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="8686135"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big5.png">
-              </a>
-              <a href="//www.qyer.com/u/8715015" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="8715015"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big1.png">
-              </a>
-              <a href="//www.qyer.com/u/3347543" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="3347543"
-                 target="_blank">
-                <img src="http://pic2.qyer.com/avatar/003/34/75/43/1485230047/index/200?v=1485230047">
-              </a>
-              <a href="//www.qyer.com/u/7112125" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="7112125"
-                 target="_blank">
-                <img src="http://pic.qyer.com/avatar/007/11/21/25/1474602030/index/200?v=1474602030">
-              </a>
-              <a href="//www.qyer.com/u/3169142" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="3169142"
-                 target="_blank">
-                <img src="http://pic1.qyer.com/avatar/003/16/91/42/index/200?v=">
-              </a>
-              <a href="//www.qyer.com/u/8369003" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="8369003"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big1.png">
-              </a>
-              <a href="//www.qyer.com/u/6733024" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="6733024"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big1.png">
-              </a>
-              <a href="//www.qyer.com/u/8158379" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="8158379"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big5.png">
-              </a>
-              <a href="//www.qyer.com/u/873553" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="873553"
-                 target="_blank">
-                <img src="//static.qyer.com/images/user2/avatar/big1.png">
-              </a>
-              <a href="//www.qyer.com/u/7164671" data-bn-ipg="place-mguide-view-right-likeUserAvatar" data-uid="7164671"
-                 target="_blank">
-                <img src="http://pic1.qyer.com/avatar/007/16/46/71/index/200?v=1450182956">
-              </a>
+              <a href="#"><img src="//static.qyer.com/images/user2/avatar/big5.png"></a>
+              <a href="#" ><img src="//static.qyer.com/images/user2/avatar/big1.png"></a>
+              <a href="#"><img src="http://pic2.qyer.com/avatar/003/34/75/43/1485230047/index/200?v=1485230047"></a>
+              <a href="#"><img src="http://pic.qyer.com/avatar/007/11/21/25/1474602030/index/200?v=1474602030"></a>
+              <a href="#"><img src="http://pic1.qyer.com/avatar/003/16/91/42/index/200?v="></a>
+              <a href="#"><img src="//static.qyer.com/images/user2/avatar/big1.png"></a>
+              <a href="#"><img src="//static.qyer.com/images/user2/avatar/big1.png"></a>
+              <a href="#"><img src="//static.qyer.com/images/user2/avatar/big5.png"></a>
+              <a href="#"><img src="//static.qyer.com/images/user2/avatar/big1.png"></a>
+              <a href="#"><img src="http://pic1.qyer.com/avatar/007/16/46/71/index/200?v=1450182956"></a>
             </div>
           </div>
         </div>
@@ -302,7 +253,7 @@
           </h2>
           <div class="mguide-author">
             <p>
-              <a href="">
+              <a href="#">
                 <img src="http://pic3.qyer.com/avatar/001/18/01/05/1485969837/index/200?v=1485969837">
                 <span class="name fontYaHei"><em>微沫</em></span>
                 <span class="level">等级： 版主</span>
@@ -310,7 +261,7 @@
               </a>
             </p>
             <p class="belowpart">
-              <span class="relation follow" data-id="1180105" data-bn-ipg="place-mguide-view-right-authorFollow"></span>
+              <span class="relation follow" data-id="1180105" ></span>
             </p>
           </div>
         </div>
@@ -324,14 +275,14 @@
             </h2>
             <ul>
               <li>
-                <a href="//place.qyer.com/china/" data-bn-ipg="place-mguide-view-right-relatePlace">
+                <a href="#">
                   <img src="https://pic.qyer.com/album/149/5e/2015637/index/80" class="themeImg">
                   <span class="title">中国</span>
                   <em class="comment">630条点评</em>
                 </a>
               </li>
               <li>
-                <a href="//place.qyer.com/hong-kong/" data-bn-ipg="place-mguide-view-right-relatePlace">
+                <a href="#">
                   <img src="https://pic.qyer.com/album/user/370/89/Qk5VShMOaA/index/80" class="themeImg">
                   <span class="title">香港</span>
                   <em class="comment">2121条点评</em>
@@ -343,67 +294,49 @@
         <div class="mguide-rightWrap">
           <div class="mguide-involve">
             <h2 class="fontYaHei">
-              相关微锦囊
+              相关游记
             </h2>
             <ul class="mguide-involve">
               <li>
-                <a href="/mguide/828" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-828">
+                <a href="#">
                   <img src="https://pic.qyer.com/album/user/716/29/RkhTQBMEZA/index/80" class="themeImg">
                   <span class="title2">追寻TVB的足迹</span>
-                  <em class="avatar">
-                    <img src="http://pic3.qyer.com/avatar/001/18/66/53/1484102385/index/48?v=1484102385">
-                    JOEYlulu
-                  </em>
+                  <em class="avatar"><img src="http://pic3.qyer.com/avatar/001/18/66/53/1484102385/index/48?v=1484102385">JOEYlulu</em>
                 </a>
               </li>
               <li>
-                <a href="/mguide/855" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-855">
+                <a href="#">
                   <img src="https://pic.qyer.com/album/153/65/1841653/index/80" class="themeImg">
                   <span class="title2">细数香港值得一去的主题公园</span>
-                  <em class="avatar">
-                    <img src="http://pic4.qyer.com/avatar/000/71/29/84/index/48?v=1397793339">
-                    北京老胖
-                  </em>
+                  <em class="avatar"><img src="http://pic4.qyer.com/avatar/000/71/29/84/index/48?v=1397793339">北京老胖</em>
                 </a>
               </li>
               <li>
-                <a href="/mguide/1367" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-1367">
+                <a href="#" target="_blank" >
                   <img src="https://pic1.qyer.com/album/user/767/42/Rk9SRhgOYQ/index/80" class="themeImg">
                   <span class="title2">《变形金刚4》香港外景地大搜集</span>
-                  <em class="avatar">
-                    <img src="http://pic4.qyer.com/avatar/000/71/29/84/index/48?v=1397793339">
-                    北京老胖
-                  </em>
+                  <em class="avatar"><img src="http://pic4.qyer.com/avatar/000/71/29/84/index/48?v=1397793339">北京老胖</em>
                 </a>
               </li>
               <li>
-                <a href="/mguide/856" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-856">
+                <a href="#" target="_blank" >
                   <img src="https://pic1.qyer.com/album/user/587/82/REFSShgCYQ/index/80" class="themeImg">
                   <span class="title2">慢游香港离岛：长洲+美食</span>
-                  <em class="avatar">
-                    <img src="//static.qyer.com/images/user2/avatar/small2.png">
-                    wormsmiling
-                  </em>
+                  <em class="avatar"><img src="//static.qyer.com/images/user2/avatar/small2.png">wormsmiling</em>
                 </a>
               </li>
               <li>
-                <a href="/mguide/853" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-853">
+                <a href="#" target="_blank" >
                   <img src="https://pic.qyer.com/album/1d4/ae/1841646/index/80" class="themeImg">
                   <span class="title2">香港有趣的3家博物馆</span>
-                  <em class="avatar">
-                    <img src="//static.qyer.com/images/user2/avatar/small3.png">
-                    Megan
-                  </em>
+                  <em class="avatar"><img src="//static.qyer.com/images/user2/avatar/small3.png">Megan</em>
                 </a>
               </li>
               <li>
-                <a href="/mguide/854" target="_blank" data-bn-ipg="place-mguide-view-relatedMguide-854">
+                <a href="#">
                   <img src="https://pic1.qyer.com/album/101/ee/1841649/index/80" class="themeImg">
                   <span class="title2">香港离岛的渔村风情</span>
-                  <em class="avatar">
-                    <img src="//static.qyer.com/images/user2/avatar/small3.png">
-                    Megan
-                  </em>
+                  <em class="avatar"><img src="//static.qyer.com/images/user2/avatar/small3.png">Megan</em>
                 </a>
               </li>
             </ul>
@@ -709,7 +642,7 @@
   .mguide-create .mgCreate {
     border: solid 3px #ececec;
     height: 192px;
-    background: url(http://mguide.qyerstatic.com/project/images/mguideDetail/mg-createBg.gif) no-repeat center top;
+    background: url(/static/images/travels/mg-createBg.jpg) no-repeat center top;
   }
   .detail-imgWrap .waterMark {
     position: absolute;
@@ -892,5 +825,195 @@
     float: left;
     height: 32px;
     margin-right: 10px;
+  }
+</style>
+<style>
+  .mguide-title {
+    font-size: 18px;
+    text-align: left;
+    color: #636363;
+    height: 26px;
+    line-height: 26px;
+    margin: 20px 0px;
+  }
+  .fontYaHei {
+    font-family: "Hiragino Sans GB","Microsoft YaHei",\9ED1\4F53,\5b8b\4f53,sans-serif;
+  }
+  .mguide-title {
+    font-size: 18px;
+    text-align: left;
+    color: #636363;
+    height: 26px;
+    line-height: 26px;
+    margin: 20px 0px;
+  }
+  .mguide-comment {
+    position: relative;
+  }
+  .mguide-comment textarea {
+    min-height: 88px;
+    border: solid 1px #dedede;
+    border-radius: 3px;
+    width: 697px;
+  }
+  .ui2_textarea {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    font-family: Helvetica,Arial,"Hiragino Sans GB",宋体,sans-serif;
+    padding: 2px 5px;
+  }
+  textarea {
+    resize: none;
+  }
+  .mguide-comment .tips {
+    overflow: hidden;
+    padding-top: 10px;
+  }
+  .mguide-comment .tips span {
+    color: #959595;
+  }
+  .mguide-comment .tips .ui_button {
+    float: right;
+    width: 90px;
+  }
+
+  .mguide-comment .tips span {
+    color: #959595;
+  }
+  .ui_button {
+    background-color: #3f9f5f;
+  }
+  .ui_button, .ui_buttonA, .ui_buttonB, .ui_buttonC, .ui_button_warning, .ui_button_disabled, .ui_button_load, .ui_button_cancel {
+    display: inline-block;
+    height: 28px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 3px;
+    overflow: visible;
+    font-size: 14px;
+    line-height: 28px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+  }
+  .comment-listsLarge {
+    border-bottom: none;
+  }
+  .comment-lists {
+    overflow: hidden;
+    border-bottom: solid 1px #ececec;
+  }
+  .comment-listsLarge > li {
+    margin: 20px 0 0 0;
+  }
+  .comment-lists > li {
+    margin: 20px 20px 0;
+  }
+  .comment-listsLarge .intro-avatar, .comment-listsLarge .intro-avatar a {
+    display: block;
+    overflow: hidden;
+    width: 48px;
+    min-height: 75px;
+    border-radius: 0;
+  }
+  .comment-listsLarge .intro-avatar, .comment-listsLarge .intro-avatar a {
+    display: block;
+    overflow: hidden;
+    width: 48px;
+    min-height: 75px;
+    border-radius: 0;
+  }
+  .comment-listsLarge .intro-avatar img {
+    float: left;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .comment-listsLarge .comment-detail .title {
+    margin: 0;
+  }
+  .comment-detail .title {
+    font-size: 12px;
+    color: #0072bc;
+    margin: 3px 0 0 0;
+  }
+  .comment-detail .name {
+    color: #0072bc;
+    padding-right: 8px;
+  }
+  .comment-detail .time {
+    color: #959595;
+  }.comment-listsLarge .detail {
+     margin-top: 0px;
+   }
+   .comment-detail .replyHandler > span {
+     float: right;
+     padding: 0 0 0 15px;
+     overflow: hidden;
+   }
+  .comment-listsLarge .comment-detail div:hover .commentDisabled {
+    background-position: -286px -132px;
+    color: #0073b6;
+  }
+  .comment-detail .replyHandler:hover a {
+    display: inline;
+  }
+  .comment-listsLarge .comment {
+    float: right;
+  }
+  .comment-detail .commentDisabled {
+    background: url(http://mguide.qyerstatic.com/project/images/mguideDetail/icons.png) no-repeat -286px -170px;
+    float: left;
+    padding: 0 0 0 18px;
+    color: #959595;
+  }
+  .comment-detail .comment {
+    background: url(http://mguide.qyerstatic.com/project/images/mguideDetail/icons.png) no-repeat -286px -132px;
+    float: left;
+    padding: 0 0 0 18px;
+  }
+
+  .comment-detail .delete, .comment-detail .report {
+    float: left;
+    display: none;
+  }
+  .comment-detail .replyHandler:hover a {
+    display: inline;
+  }
+  .comment-detail .detail {
+    font-size: 14px;
+    color: #636363;
+    line-height: 20px;
+    margin: 4px 0 0 0;
+  }
+  .comment-listsLarge .comment-detail div {
+    overflow: hidden;
+    color: #959595;
+    padding-top: 10px;
+  }
+  .intro-avatar, .intro-avatar a, .intro-avatar img {
+    float: left;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .intro-avatar, .intro-avatar a, .intro-avatar img {
+    float: left;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .comment-listsLarge .comment-detail {
+    margin-left: 68px;
+  }
+
+  .comment-detail {
+    margin-left: 43px;
+    overflow: hidden;
+    border-bottom: solid 1px #ececec;
+    padding-bottom: 20px;
   }
 </style>

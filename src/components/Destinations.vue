@@ -14,7 +14,7 @@
     </des-hot-des>
     <des-hot-des :tab_title="'当季推荐'" :tabs="monthsTabs" class="des-tabs months-des-tabs">
       <ul v-for="(all,i) in monthsTabs" :slot="`content-${i}`" class="row">
-        <li v-for="sub in all.subtabs" class="all-sub-li row col-3">
+        <li v-for="sub in all.subtabs" class="all-sub-li row">
           <div class="sub-title">{{sub.subtitle}}</div>
           <img :src="sub.img"/>
         </li>
@@ -22,7 +22,7 @@
     </des-hot-des>
     <des-hot-des :tab_title="'主题精选'" :tabs="themesTabs" class="des-tabs months-des-tabs">
       <ul v-for="(all,i) in themesTabs" :slot="`content-${i}`" class="row">
-        <li v-for="sub in all.subtabs" class="all-sub-li row col-3">
+        <li v-for="sub in all.subtabs" class="all-sub-li row">
           <div class="sub-title">{{sub.subtitle}}</div>
           <img :src="sub.img"/>
         </li>
@@ -390,6 +390,13 @@
   }
   .nav-list-li {
     margin: 0 50px;
+  }
+  .months-des-tabs .all-sub-li{
+    width: 23%;
+    margin-left:3px;
+    margin-right:3px;
+    margin-top: 5px;
+    position: relative;
   }
 
   li.all-sub-li a.sub-title {
