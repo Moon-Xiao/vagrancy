@@ -17,7 +17,7 @@
         <tr>
           <td style="width: 25rem;text-align: center">
             <div class="pro-brief-description">
-              <img :src="'http://192.168.1.100:3004/'+productDetail.photo.path"/>
+              <img :src="baseUrl+'/'+productDetail.photo.path"/>
               <p class="pro-brief-description-text">{{productDetail.description}}</p>
             </div>
           </td>

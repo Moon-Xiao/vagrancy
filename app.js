@@ -13,8 +13,10 @@ require('./model/Photo')
 require('./model/Post')
 require('./model/Category')
 require('./model/Scene')
+require('./model/Group')
 const Admin = require('./model/Admin')
 const Post = require('./model/Post')
+const path = require('path')
 // //
 // //
 // // const frontApp = require('./build/dev-server')
@@ -23,10 +25,19 @@ const Post = require('./model/Post')
 //   app.use('/', frontApp)
 // })
 
+// 10.25.19.193
+
 
 const cms = require('/Users/jagger/WebstormProjects/core/cms')
 
 service.use(cms)
+
+service.post('prepare', function (app) {
+  app.use('/', require('express').static('./dist'))
+  app.use('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'dist/index.html'))
+  })
+})
 
 service.start()
   .then(() => {

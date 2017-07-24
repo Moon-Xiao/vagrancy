@@ -32,4 +32,6 @@ Country.add('基本信息', [
 
 ])
 
+Country.group('基本信息')
+
 module.exports = Country

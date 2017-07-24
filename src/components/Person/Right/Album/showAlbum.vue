@@ -28,7 +28,7 @@
         <i v-show="showDelete" class="fa fa-times-circle"></i>
         </span>
           <div class="row-item">
-            <div class="item-img" :style="`background-image: url('http://192.168.1.100:3004/${item.value.photo.path}')`"></div>
+            <div class="item-img" :style="`background-image: url('${baseUrl}/${item.value.photo.path}')`"></div>
             <div>
               <h3>{{item.value.name}}</h3>
             </div>

@@ -27,3 +27,5 @@ Group.add('基本信息',[
   {name: 'intro', label: '介绍', type: Types.TextArea},
   {name: 'photo', label: '图片', type: Types.File, accept: 'image/*'}
 ])
+
+Group.group('用户信息')

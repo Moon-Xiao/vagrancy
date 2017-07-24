@@ -101,7 +101,7 @@
   }
 
   #createAlbum .photo-form input{
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 0.2rem;
     border: 1px solid #eee;
     width: 90%;
@@ -113,7 +113,7 @@
     resize: none;
     border-radius: 0.2rem;
     border: 1px solid #eee;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   #createAlbum .btn-bottom {

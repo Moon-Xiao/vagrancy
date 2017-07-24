@@ -31,4 +31,6 @@ Admin.add([
   {name: 'daterange_test', label: '日期区间测试', type: Types.DateRange}
 ])
 
+Admin.group('用户')
+
 module.exports = Admin

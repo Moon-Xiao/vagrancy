@@ -1,7 +1,7 @@
 <template>
   <div class="product-intro-type">
     <div class="product-intro-left">
-      <img :src="'http://192.168.1.100:3004/'+productDetail.photo.path"/>
+      <img :src="baseUrl+'/'+productDetail.photo.path"/>
       <p class="product-id">产品编号：{{productDetail.id}}</p>
       <div class="collection-div">
         <div @click="clicked=!clicked" :class="['item-div',{active:clicked}]">

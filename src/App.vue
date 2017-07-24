@@ -26,7 +26,9 @@
             <router-link to="/person">
               <div class="nav-item-right" style="display: flex;">
                 <div id="user-profile" :style="`background-image:url(${baseUrl}/${userInfo.avatar.path})`"></div>
-                <div style="margin: 20px 10px 20px 15px;color: black">{{userInfo.nickname}}<button style="margin-left:1rem" @click="api.logoutUser()">退出</button></div>
+                <div style="margin: 20px 10px 0 15px;color: black">{{userInfo.nickname}}
+                  <button style="margin-left:1rem" @click="logOut">退出</button>
+                </div>
               </div>
             </router-link>
           </template>
@@ -101,6 +103,12 @@
     computed: {
       api () {
         return api
+      }
+    },
+    methods: {
+      async logOut () {
+        await api.logoutUser()
+        this.$router.push('/home')
       }
     }
   }

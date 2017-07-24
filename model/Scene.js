@@ -28,4 +28,6 @@ Scene.add('基本信息', [
   {name: 'tag', label: '标签', type: Types.Text}
 ])
 
+Scene.group('基本信息')
+
 module.exports = Scene

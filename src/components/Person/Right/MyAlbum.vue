@@ -272,7 +272,7 @@
   #album .row-item h3 {
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     color: #717171;
     line-height: 3rem;
     /*margin: 0.9rem auto;*/
@@ -281,7 +281,7 @@
   #album .row-item p {
     width: 100%;
     padding: 0 1rem;
-    font-size: 14px;
+    font-size: 12px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -303,7 +303,7 @@
 
   #album.photos .modal-title {
     line-height: 2rem;
-    font-size: 28px;
+    font-size: 18px;
     color: black;
   }
 
@@ -323,6 +323,7 @@
     margin-right: 1rem;
     padding: 0.5rem;
     color: white;
+    font-size: 14px;
   }
 
   #album.photo-top .top-btn span {
@@ -361,7 +362,7 @@
     width: 100%;
     text-align: center;
     /*border: 1px solid black;*/
-    font-size: 18px !important;
+    font-size: 12px !important;
     margin: .2rem auto;
   }
 
@@ -371,7 +372,7 @@
     margin: .5rem auto;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
-    font-size: 14px;
+    font-size: 12px;
     height: 4rem !important;
     text-align: left;
   }

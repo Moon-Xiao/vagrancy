@@ -12,7 +12,7 @@
           <div class="item-info">
             <div class="info-img" :style="'background-image: url('+item.img+')'"></div>
             <div class="info-detail">
-              <p style="color:orange;font-size: 17px">{{item.name}}</p>
+              <p style="color:orange;font-size: 14px">{{item.name}}</p>
               <p style="color: #aaa;font-size: 13px">{{item.time}}</p>
             </div>
           </div>
@@ -83,21 +83,21 @@
   }
 
   #messageBoard .header > span {
-    font-size: 26px;
+    font-size: 16px;
     color: #0275d8;
   }
 
   #messageBoard .header > textarea {
     width: 98%;
     margin: 0.8rem auto 0.5rem;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 0.2rem;
     border-color: #ddd;
   }
 
   #messageBoard .header > button {
     width: 98%;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   /*body*/
@@ -136,7 +136,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     margin: 0.6rem auto;
-    font-size: 16px;
+    font-size: 12px;
     color: #717171;
   }
 
@@ -151,7 +151,7 @@
 
   #messageBoard .item .item-operation {
     margin-right: 0.3rem;
-    font-size: 16px;
+    font-size: 12px;
     color: rgba(27, 174, 222, 0.7);
     text-align: right;
   }

@@ -28,3 +28,5 @@ Category.inverse('posts', {
 })
 
 module.exports = Category
+
+Category.group('基本信息')

@@ -36,3 +36,5 @@ Seller.inverse('products', {
   field: 'seller',
   label: '出售产品'
 })
+
+Seller.group('用户')

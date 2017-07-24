@@ -145,14 +145,14 @@
   }
 
   .article-title {
-    font-size: 28px;
-    color: #717171;
+    font-size: 18px;
+    color: #2196F3;
     text-align: left;
     margin: 1.2rem auto;
   }
 
   .article-nav {
-    font-size: 16px;
+    font-size: 12px;
     color: rgba(51, 51, 51, 0.72);
     text-align: left;
     position: relative;
@@ -175,7 +175,7 @@
   }
 
   .article-bottom span {
-    font-size: 14px;
+    font-size: 12px;
     color: #999999;
     margin-right: 0.5rem;
   }
