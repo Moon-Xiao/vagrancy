@@ -233,31 +233,35 @@
           wantgoCount: '542',
           wentCount: '321',
           cities: [
-            {name: '沈阳', img: '/static/images/des/country/chinalist4.jpg', ecenics: [' 棋盘山,故宫,大帅府,北陵公园,东陵公园,怪坡,世博园']},
+            {
+              name: '沈阳',
+              img: '/static/images/des/country/chinalist4.jpg',
+              info: ' 棋盘山,故宫,大帅府,北陵公园,东陵公园,怪坡,世博园'
+            },
             {
               name: '北京',
               img: '/static/images/des/country/chinalist5.jpg',
-              ecenics: ['故宫博物院,八达岭长城,颐和园,圆明园遗址公园,明十三陵景区,天安门广场']
+              info: '故宫博物院,八达岭长城,颐和园,圆明园遗址公园,明十三陵景区,天安门广场'
             },
             {
               name: '厦门',
               img: '/static/images/des/country/chinalist6.jpg',
-              ecenics: ['鼓浪屿', '厦门大学', '环岛路', '南普陀寺', '曾厝垵', '日光岩', '菽庄花园', '钢琴博物馆']
+              info: '鼓浪屿、厦门大学、环岛路、南普陀寺、曾厝垵、日光岩、菽庄花园、钢琴博物馆'
             },
             {
               name: '杭州',
               img: '/static/images/des/country/chinalist4.jpg',
-              ecenics: ['千岛湖', '西湖', '西溪湿地', '灵隐寺', '钱塘江', '苏堤', '京杭大运河']
+              info: '千岛湖、西湖、西溪湿地、灵隐寺、钱塘江、苏堤、京杭大运河'
             },
             {
               name: '张家界',
               img: '/static/images/des/country/chinalist3.jpg',
-              ecenics: ['张家界国家森林公园', '天子山自然保护区', '索溪峪自然保护区']
+              info: '张家界国家森林公园、天子山自然保护区、索溪峪自然保护区'
             },
             {
-              nema: '香港',
+              name: '香港',
               img: '/static/images/des/country/chinalist1.jpg',
-              ecenics: ['星光大道', '太平山', '维多利亚港', '香港海洋公园', '香港迪士尼乐园', '金紫荆广场', '尖沙咀']
+              info: '星光大道、太平山、维多利亚港、香港海洋公园、香港迪士尼乐园、金紫荆广场、尖沙咀'
             }
           ],
           hotels: [
