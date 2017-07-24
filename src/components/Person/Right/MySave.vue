@@ -2,7 +2,7 @@
   <div id="save">
     <div class="save-top">
       <div class="top-item">
-        在路上
+        青春在路上
       </div>
     </div>
     <paginate-list ref="list" certainList="user" :certainRef="{id: userInfo._id, field: 'collect'}"
@@ -47,10 +47,10 @@
 
   #save .save-top .top-item {
     position: absolute;
-    font-size: 24px;
+    font-size: 20px;
     width: 8rem;
     color: #717171;
     text-align: left;
-    border-bottom: 0.25rem outset rgba(33, 78, 243, 0.14);
+    border-bottom: 0.18rem outset rgba(33, 78, 243, 0.14);
   }
 </style>

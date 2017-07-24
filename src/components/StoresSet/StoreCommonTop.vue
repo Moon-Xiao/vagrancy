@@ -14,8 +14,10 @@
       </div>
       <span>|</span>
       <div class="store-collection-item">
-        <i class="fa fa-heart"></i>
-        <span>我的收藏</span>
+        <router-link to="/person/my-bag">
+          <i class="fa fa-heart"></i>
+          <span style="color: #717171">我的收藏</span>
+        </router-link>
       </div>
     </div>
   </div>

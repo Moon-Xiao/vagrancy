@@ -1,6 +1,6 @@
 <template>
   <div :class="className||''">
-    <slot v-if="ready" name="item" :value="state.originInfo"></slot>
+    <slot v-if="Object.keys(state.originInfo||{}).length>0" name="item" :value="state.originInfo"></slot>
   </div>
 </template>
 
@@ -12,6 +12,11 @@
       certainList: String,
       certainId: String,
       className: String
+    },
+    watch: {
+      certainId () {
+        this.configItem()
+      }
     }
   }
 </script>

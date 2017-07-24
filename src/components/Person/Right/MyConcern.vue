@@ -3,19 +3,22 @@
     <paginate-list class-name="row" certainList="user" :certainRef="{id: userInfo._id, field: 'follow'}"
                    select="avatar nickname level intro">
       <template slot="list-item" scope="item">
-        <div class="col-4" title="点我查看该对象" style="cursor: pointer">
-          <div class="concern-card" :style="'background-color:'+colors[item.index%colors.length]">
-            <div v-if="item.value.avatar" class="card-icon" :style="`background-image:url('${baseUrl}/${item.value.avatar.path}')`">
-            </div>
-            <div class="card-info" style="border-top-right-radius:0.3rem ">
-              <div class="info-items">
-                <div class="info-item"><span>姓名：</span><span>{{item.value.nickname}}</span></div>
-                <div class="info-item"><span>等级：</span><span>{{item.value.level}}</span></div>
-                <div class="info-item"><span>个性：</span><span>{{item.value.intro}}</span></div>
-                <!--<div style="color: #999999;font-size: 14px; padding-top:0.3rem;padding-bottom: 0.6rem">你们共同关注了{{item.sameFansNum}}个对象</div>-->
+        <div class="col-4" style="cursor: pointer">
+          <router-link :to="'/others/'+item.value._id">
+            <div class="concern-card" :style="'background-color:'+colors[item.index%colors.length]">
+              <div v-if="item.value.avatar" class="card-icon"
+                   :style="`background-image:url('${baseUrl}/${item.value.avatar.path}')`">
+              </div>
+              <div class="card-info" style="border-top-right-radius:0.3rem ">
+                <div class="info-items">
+                  <div class="info-item"><span>姓名：</span><span>{{item.value.nickname}}</span></div>
+                  <div class="info-item"><span>等级：</span><span>{{item.value.level}}</span></div>
+                  <div class="info-item"><span>个性：</span><span>{{item.value.intro}}</span></div>
+                  <!--<div style="color: #999999;font-size: 14px; padding-top:0.3rem;padding-bottom: 0.6rem">你们共同关注了{{item.sameFansNum}}个对象</div>-->
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </template>
     </paginate-list>

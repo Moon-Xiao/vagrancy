@@ -21,7 +21,15 @@
           <!--<b-dropdown-item to="#">ES</b-dropdown-item>-->
           <!--<b-dropdown-item to="#">RU</b-dropdown-item>-->
           <!--<b-dropdown-item to="#">FA</b-dropdown-item>-->
-          <!--</b-nav-item-dropdown>-->
+          <!--</b-navitem-dropdown>-->
+          <template >
+            <form v-show="isShow" style="margin-top: 18px;margin-right:50px; ">
+              <input placeholder="nickname" v-model="nickname"/>
+              <input placeholder="password" type="password" v-model="password"/>
+              <button type="button" @click="login">登录</button>
+            </form>
+          </template>
+
           <template v-if="$store.state.user.logged">
             <router-link to="/person">
               <div class="nav-item-right" style="display: flex;">
@@ -33,11 +41,9 @@
             </router-link>
           </template>
           <template v-else>
-            <router-link to="/login">
-              <div style="margin: 20px 18px;color: black">
-                未登录
-              </div>
-            </router-link>
+            <div style="margin: 20px 18px;color: black" @click="isShow=true">
+              未登录
+            </div>
           </template>
 
         </b-nav>
@@ -94,6 +100,9 @@
     data () {
       return {
         links: links,
+        isShow: false,
+        nickname: '',
+        password: '',
         user: {
           uname: 'user1',
           img: '/static/images/services2.jpg'
@@ -109,6 +118,18 @@
       async logOut () {
         await api.logoutUser()
         this.$router.push('/home')
+      },
+      async login () {
+        const {nickname, password} = this
+        await this.$store.dispatch('user/login', {
+          type: 'User',
+          data: {
+            grant_type: 'password',
+            nickname,
+            password
+          }
+        })
+        this.$router.push(this.$route.query.redirect)
       }
     }
   }

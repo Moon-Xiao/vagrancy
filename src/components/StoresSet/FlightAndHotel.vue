@@ -12,10 +12,11 @@
       </template>
     </div>
     <div class="fli-hotel-container">
-      <store-type-choose></store-type-choose>
+      <store-type-choose @change-label="label=$event"></store-type-choose>
       <layout>
-          <store-lists-left slot="left-content"></store-lists-left>
-          <store-lists-right slot="right-sidebar" class="store-right" v-if="showRight" @close="showRight = false"></store-lists-right>
+        <store-lists-left slot="left-content" :label="label"></store-lists-left>
+        <store-lists-right slot="right-sidebar" class="store-right" v-if="showRight"
+                           @close="showRight = false"></store-lists-right>
       </layout>
     </div>
   </div>
@@ -41,7 +42,8 @@
       return {
         selected: 0,
         links: links,
-        showRight: true
+        showRight: true,
+        label: undefined
       }
     }
   }
@@ -73,15 +75,15 @@
     color: #232323;
   }
 
-  .others-nav .barnav-item .barnav-item-link:hover{
+  .others-nav .barnav-item .barnav-item-link:hover {
     color: #00b081;
   }
 
-  .fli-hotel-container{
-    background-color: rgb(245,245,245);
+  .fli-hotel-container {
+    background-color: rgb(245, 245, 245);
   }
 
-  .store-right{
+  .store-right {
     padding: 4.9rem 2rem 1rem 1.2rem;
   }
 </style>

@@ -2,9 +2,8 @@
   <div id="MemorializeAlbum">
     <div class="photo-top">
       <b-dropdown right text="查看模式">
-        <b-dropdown-item to="/show-album">经典模式</b-dropdown-item>
-        <b-dropdown-item to="/memoir-album">回忆录式</b-dropdown-item>
-        <b-dropdown-item to="/carousel-album">轮播模式</b-dropdown-item>
+        <b-dropdown-item :to="'/show-album/'+$route.params.id">经典模式</b-dropdown-item>
+        <b-dropdown-item :to="'/memorialize-album/'+$route.params.id">回忆录式</b-dropdown-item>
       </b-dropdown>
     </div>
 
@@ -12,23 +11,38 @@
       <div class="hard" style="background-color: cornflowerblue"><p class="book-title">{{imgBookName}}</p></div>
       <div class="hard" style="background-color: #eee"></div>
 
+      <!--<paginate-list certain-list="photo" :certain-user="{album: $route.params.id}" select="photo"-->
+                     <!--class-name="row">-->
+        <!--<template slot="list-item" scope="item">-->
+          <!--<div class="img-style"-->
+               <!--:style="`background-image: url('${baseUrl}/${item.value.photo.path}')`">{{item}}-->
+          <!--</div>-->
+        <!--</template>-->
+      <!--</paginate-list>-->
+
       <div class="img-style" v-for="item in imgBookList" :style="'background-image:url('+item.img+')'"></div>
       <div class="hard" style="background-color: #eee"></div>
       <div class="hard" style="background-color: cornflowerblue"></div>
     </div>
+
+
   </div>
 </template>
 
 <script>
   import '../../../../../static/js/turn.min'
+  import PaginateList from '../../../mixins/PaginateList.vue'
   export default {
-    components: {},
+    components: {PaginateList},
     mounted: function () {
       this.loadApp()
     },
+    props: {
+      albumName: String
+    },
     data  () {
       return {
-        imgBookName: '广袤大沙漠',
+        imgBookName: '美好时光',
         imgBookList: [
           {
             img: '/static/images/person/album2/8.jpg',

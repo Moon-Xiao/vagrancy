@@ -1,8 +1,8 @@
 <template>
   <div>
     <div :class="className||''">
-      <slot v-if="ready" v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
-      <slot v-if="ready && state.buffer.length === 0" name="no-content"></slot>
+      <slot v-if="ready && state.buffer" v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
+      <slot v-if="ready && (!state.buffer || state.buffer.length === 0)" name="no-content"></slot>
       <slot v-if="ready" name="pager" :page="state.page" :total="state.total" :perPage="state.perPage"
             :pages="pages"></slot>
     </div>
@@ -26,6 +26,11 @@
     methods: {
       changePage (page) {
         this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref})
+      },
+      refresh () {
+        console.log('refresh')
+        const {page, perPage, select, ref} = this
+        this.switchPage({page, perPage, select, ref})
       }
     },
     watch: {
@@ -37,6 +42,12 @@
         this.$nextTick(function () {
           this.$emit('update')
         }.bind(this))
+      },
+      certainUser () {
+        this.refresh()
+      },
+      certainList () {
+        this.refresh()
       }
     },
     computed: {
