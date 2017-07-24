@@ -1,42 +1,62 @@
 <template>
-  <div id="travelsComponent">
-    <!--<div class="row" v-for="item in articleList">-->
-
-        <div class="row">
-          <div class="col-3">
-            <div class="article-img" :style="`background-image: url('${baseUrl}/${item.value.photo.path}')`"></div>
+  <div id="travels">
+    <div>
+      <div class="travel-top" style="width: 100%;position: relative">
+        <div class="top-name">游记列表</div>
+        <div class="top-nav">
+          <div class="top-item" style="width: 5rem;">
+            <span>{{travlesNum}}</span>
+            </br>
+            <span>游记</span>
           </div>
-          <div class="col-9">
-            <h3 class="article-title">{{item.value.title}}</h3>
-            <p class="article-nav">{{item.value.intro}} </p>
-            <div class="article-bottom">
-              <span><i class="fa fa-map-marker"></i>
-                <span v-for="scene in (item.value.footprint || [])">{{scene.name}}</span>
-                <span v-if="!item.value.footprint || item.value.footprint.length === 0">无足迹</span>
-              </span>
-              <span><i class="fa fa-eye"></i>{{item.value.visited}}</span>
-              <span><i class="fa fa-thumbs-up"></i>{{item.value.favor_count}}</span>
-              <span><i class="fa fa-eye"></i>{{formatDate(item.value.modifiedDate)}}</span>
-            </div>
+          <div class="top-item">
+            <span>{{readPeopleNum}}</span></br>
+            <span>总阅读人数</span>
           </div>
         </div>
-    <!--</div>-->
+      </div>
+    </div>
+
+
+    <div class="travels-nav" style="clear: both">
+      <paginate-list ref="list" certainList="post" :certainUser="{author: info._id}"
+                     select="photo title intro visited footprint favor_count modifiedDate" :perPage="1">
+        <template scope="item" slot="list-item">
+          <travels-component :item="item"></travels-component>
+        </template>
+        <template slot="no-content">
+          <p>No content</p>
+        </template>
+        <template slot="pager" scope="pager">
+          <paging :page="pager.page" :per-page="pager.perPage" :total="pager.total" :pages="pager.pages"
+                  @switch="$refs.list.changePage(pager.page+$event)"
+          ></paging>
+        </template>
+      </paginate-list>
+      <!--<paging></paging>-->
+    </div>
+
   </div>
+
 </template>
 
 <script>
-  import PaginateList from '../../../mixins/PaginateList.vue'
-  import Paging from '../../Bottom/Paging.vue'
+  import Paging from '../Bottom/Paging.vue'
+  import TravelsComponent from '../Right/MyTravels/travelsComponent.vue'
+  import PaginateList from '../../mixins/PaginateList.vue'
   export default {
     components: {
-      PaginateList,
-      Paging
+      Paging,
+      TravelsComponent,
+      PaginateList
     },
     props: {
-      item: Object
+      info: Object
     },
     data () {
       return {
+        travlesNum: 10,
+        readPeopleNum: 666,
         articleList: [
           {
             link: '/manage-info',
@@ -114,75 +134,41 @@
   }
 </script>
 
-<style scoped>
-  /*travel-nav*/
-  .row {
-    box-shadow: 0 0 0.2rem #eee;
-    border-radius: 0.2rem;
-    margin: 0 0 1.5rem;
-    padding: 0;
-    height: 14rem;
-  }
-
-  .row .col-3 {
-    padding: 0;
-    margin: 0;
-  }
-
-  .row .col-9 {
-    padding: 0 1rem;
-    margin: 0;
-  }
-
-  .article-img {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-origin: content-box;
-    width: 100%;
-    /*border: 1px solid black;*/
-    padding: 1.2rem;
-  }
-
-  .article-title {
-    font-size: 18px;
-    color: #2196F3;
-    text-align: left;
-    margin: 1.2rem auto;
-  }
-
-  .article-nav {
-    font-size: 12px;
-    color: rgba(51, 51, 51, 0.72);
-    text-align: left;
-    position: relative;
-    height: 6rem;
-    width: 100%;
-    overflow: hidden;
-    /*white-space: nowrap;*/
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-  }
-
-  /*nav-bottom*/
-  .article-bottom {
+<style>
+  /*top*/
+  #travels .top-nav {
     display: flex;
-    right: 2%;
-    bottom: 4%;
-    position: absolute;
+    height: 4.2rem;
+    padding: .3rem;
+    float: right;
+    /*border: 1px solid grey;*/
+    margin-bottom: 1rem;
   }
 
-  .article-bottom span {
-    font-size: 12px;
-    color: #999999;
-    margin-right: 0.5rem;
+  #travels .top-name {
+    float: left;
+    margin-left: 1rem;
+    line-height: 3.5rem;
+    font-size: 20px;
+    color: rgba(76, 175, 80, 0.69);
   }
 
-  .article-bottom span i {
-    margin-right: .5rem;
+  #travels .top-item {
+    height: 100%;
     font-size: 14px;
-    color: cornflowerblue;
+    color: #717171;
+    border-right: 1px inset #eee;
+  }
+
+  #travels .top-item:last-child {
+    border: none;
+    width: 8rem;
+  }
+
+  #travels .btn-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+    font-size: 14px;
   }
 </style>

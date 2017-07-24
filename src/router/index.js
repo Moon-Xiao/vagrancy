@@ -17,6 +17,7 @@ import CountryCity from '@/components/DestinationsSet/Country/CountryCity.vue'
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
 
+import Others from '@/components/Person/Others.vue'
 import Person from '@/components/Person/Person.vue'
 import ShowAlbum from '@/components/Person/Right/Album/showAlbum.vue'
 import MemorializeAlbum from '@/components/Person/Right/Album/MemorializeAlbum.vue'
@@ -56,6 +57,10 @@ let routes = [
     path: '/home',
     name: '主页',
     component: Home
+  },
+  {
+    path: '/others/:id',
+    component: Others
   },
   {
     path: '/destinations',
@@ -241,7 +246,7 @@ let routes = [
     component: ShowAlbum
   },
   {
-    path: '/memorialize-album',
+    path: '/memorialize-album/:id',
     component: MemorializeAlbum
   },
   {

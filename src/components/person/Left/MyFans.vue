@@ -9,7 +9,6 @@
         </a>
       </div>
     </section>
-    <paging></paging>
   </div>
 </template>
 <script>
@@ -49,7 +48,7 @@
   #fans {
     position: relative;
     width: 18rem;
-    height: 14rem;
+    height: 10rem;
     border: 1px dotted #5f9afa;
     box-shadow: 0 0 0.3rem #eee;
     border-radius: 0.3rem;

@@ -13,14 +13,15 @@
         </b-btn>
 
         <b-dropdown right text="查看模式">
-          <b-dropdown-item to="/show-album">经典模式</b-dropdown-item>
-          <b-dropdown-item to="/memorialize-album">回忆录式</b-dropdown-item>
-          <b-dropdown-item to="/carousel-album">轮播模式</b-dropdown-item>
+          <b-dropdown-item :to="'/show-album/'+$route.params.id">经典模式</b-dropdown-item>
+          <b-dropdown-item :to="'/memorialize-album/'+$route.params.id">回忆录式</b-dropdown-item>
         </b-dropdown>
+
       </div>
     </div>
 
-    <paginate-list certain-list="photo" :certain-user="{album: $route.params.id}" class-name="row">
+    <paginate-list certain-list="photo" :certain-user="{album: $route.params.id}" select="name intro photo"
+                   class-name="row">
       <template slot="list-item" scope="item">
         <!-- With image -->
         <div class="col-md-2 col-sm-3 col-xs-4">
@@ -79,9 +80,10 @@
 <script>
   import AddPhoto from './AddPhoto.vue'
   import PaginateList from '../../../mixins/PaginateList.vue'
+  import Item from '../../../mixins/Item.vue'
   export default {
     components: {
-      AddPhoto, PaginateList
+      AddPhoto, PaginateList, Item
     },
     data () {
       return {
@@ -234,7 +236,7 @@
     color: white;
   }
 
-  #showAlbum .photo-top .top-btn:hover{
+  #showAlbum .photo-top .top-btn:hover {
     background-color: rgba(195, 100, 211, 0.9);
     box-shadow: 0 0 8px rgba(156, 39, 176, 0.42)
   }
@@ -284,7 +286,7 @@
   #showAlbum .remove-style > i {
     color: white;
     background-color: rgba(41, 133, 255, 0.83);
-    font-size: 14px;
+    font-size: 12px;
     box-shadow: 2px 1px 3px rgba(57, 128, 255, 0.67);
     border-radius: 50%;
     overflow: hidden;
@@ -332,7 +334,7 @@
   #showAlbum .row-item h3 {
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
     color: #717171;
     line-height: 2.8rem;
     /*margin: 0.9rem auto;*/
@@ -341,7 +343,7 @@
   #showAlbum .row-item p {
     width: 100%;
     padding: 0 1rem;
-    font-size: 14px;
+    font-size: 12px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -354,30 +356,36 @@
   }
 
   /*addphoto model*/
-  #showAlbum .modal-header{
+  #showAlbum .modal-header {
     font-size: 18px;
     color: cornflowerblue;
   }
+
   #showAlbum .form-nav {
     margin: 0 auto;
     border: none !important;
-    box-shadow:none !important;
+    box-shadow: none !important;
     width: 100% !important;
     height: 22rem !important;
   }
-  #showAlbum .form-nav .img-back{
+
+  #showAlbum .form-nav .img-back {
     margin: 0 auto;
   }
-  #showAlbum .form-nav .img-info{
+
+  #showAlbum .form-nav .img-info {
     margin: 0 auto 1rem;
     width: 100% !important;
   }
-  #showAlbum .form-nav .img-info input{
+
+  #showAlbum .form-nav .img-info input {
     width: 18rem !important;
   }
-  #showAlbum .form-nav .img-info textarea{
+
+  #showAlbum .form-nav .img-info textarea {
     width: 18rem !important;
   }
+
   /*#showAlbum .btn-bottom .btn{*/
   /*margin: 0 auto;*/
   /*}*/
@@ -404,7 +412,7 @@
     width: 100%;
     margin: 1rem auto;
     line-height: 2rem;
-    padding:0 0.5rem;
+    padding: 0 0.5rem;
   }
 
   #addPhoto .photo-form .img-info textarea {
@@ -414,7 +422,7 @@
     border: 1px solid #eee;
     font-size: 14px;
     margin: 0 auto;
-    padding:0 0.5rem;
+    padding: 0 0.5rem;
   }
 
   #addPhoto .img-back {
