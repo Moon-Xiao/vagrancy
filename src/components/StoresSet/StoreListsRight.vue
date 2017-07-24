@@ -41,28 +41,6 @@
     data () {
       return {
         closed: true,
-        statistics: [
-          {
-            icon: 'heart',
-            user: '花开花落不相见',
-            description: '香港/澳门直飞帕劳5-6天往返含税机票(秒杀+暑期直降2千元+太平洋优质包机航空+可订制酒店）'
-          },
-          {
-            icon: 'plane',
-            user: '露露',
-            description: '北京直飞柬埔寨吴哥5-6天自由行（赠送三日精华游）'
-          },
-          {
-            icon: 'heart',
-            user: '梦璃',
-            description: '上海/杭州直飞香港4-5天往返含税机票（正点直飞航班）'
-          },
-          {
-            icon: 'heart',
-            user: '花开花落不相见',
-            description: '香港/澳门直飞帕劳5-6天往返含税机票(秒杀+暑期直降2千元+太平洋优质包机航空+可订制酒店）'
-          }
-        ],
         saleItems: [
           {
             description: '香港/澳门直飞帕劳5-6天往返含税机票(秒杀+暑期直降2千元+太平洋优质包机航空+可订制酒店）',

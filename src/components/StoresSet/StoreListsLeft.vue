@@ -5,7 +5,8 @@
            v-for="(item,index) in chooseTab">{{item.title}}
       </div>
     </div>
-    <paginate-list certain-list="product" select="photo description label soldNum country price travelTime">
+    <paginate-list certain-list="product" :certain-user="filter"
+                   select="photo description label soldNum country price travelTime">
       <template slot="list-item" scope="iproduct">
         <div class="product-description">
           <img class="product-img" :src="baseUrl+'/'+iproduct.value.photo.path"/>
@@ -126,6 +127,18 @@
           }
         ]
       }
+    },
+    props: {
+      label: String
+    },
+    computed: {
+      filter () {
+        if (this.label) {
+          return {label: this.label}
+        } else {
+          return {}
+        }
+      }
     }
   }
 </script>
@@ -223,7 +236,7 @@
     font-weight: bold;
   }
 
-  .pro-price-unit{
+  .pro-price-unit {
     color: rgb(120, 120, 120);
     font-size: 0.9rem;
   }

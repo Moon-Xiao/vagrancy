@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     switchPage ({page, perPage, ...rest}) {
-      if (Object.keys({}).length === 0 && page === this.page && perPage === this.perPage) {
+      if (Object.keys(rest).length === 0 && page === this.page && perPage === this.perPage) {
         return
       }
       let {where} = this

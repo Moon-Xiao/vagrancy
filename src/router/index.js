@@ -13,6 +13,7 @@ import Country from '@/components/DestinationsSet/Country/Country.vue'
 import CountryIndex from '@/components/DestinationsSet/Country/CountryIndex.vue'
 import CountrySurvey from '@/components/DestinationsSet/Country/CountrySurvey.vue'
 import CountryCity from '@/components/DestinationsSet/Country/CountryCity.vue'
+import CountryList from '@/components/DestinationsSet/Country/CountryList.vue'
 
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
@@ -308,6 +309,10 @@ let routes = [
   {
     path: '/pay',
     component: Paymethod
+  },
+  {
+    path: '/countrylist',
+    component: CountryList
   }
 ]
 const router = new Router({
