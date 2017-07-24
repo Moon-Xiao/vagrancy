@@ -17,7 +17,8 @@
   import InterestSection from './Home/InterestSection.vue'
   import TravelsSection from './Home/TravelsSection.vue'
   import Cooperator from './Home/Cooperator.vue'
-  import StoreSection from './Home/StoreSection.vue'
+//  import StoreSection from './Home/StoreSection.vue'
+  import StoreSection from './Home/HomeStore.vue'
   import Counter from './Home/Counter.vue'
   export default{
     components: {

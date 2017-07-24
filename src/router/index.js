@@ -16,7 +16,7 @@ import CountryCity from '@/components/DestinationsSet/Country/CountryCity.vue'
 
 import About from '@/components/About'
 import Stores from '@/components/Stores.vue'
-
+import AdTemp from '@/components/Home/AdTemp.vue'
 import Person from '@/components/Person/Person.vue'
 import ShowAlbum from '@/components/Person/Right/Album/showAlbum.vue'
 import MemorializeAlbum from '@/components/Person/Right/Album/MemorializeAlbum.vue'
@@ -168,6 +168,10 @@ let routes = [
         path: '/stores/product/:id',
         name: '',
         component: Product
+      },
+      {
+        path: '/stores/ad',
+        component: AdTemp
       }
     ]
   },

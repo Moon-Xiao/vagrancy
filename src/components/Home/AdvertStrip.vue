@@ -2,7 +2,7 @@
   <div class="advert-strip">
     <ul class="inline-ul">
       <li>
-        <img src="/static/images/adv1.jpg"/>
+        <a href="/stores/ad"><img src="/static/images/adv1.jpg"/></a>
       </li>
       <li>
         <img src="/static/images/adv2.jpg"/>

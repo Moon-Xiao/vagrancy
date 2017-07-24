@@ -5,8 +5,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="kd-modrentitle thememargin">
-            <h3>游记</h3>
+          <div class="kd-modrentitle thememargin" style="color: #008ABC;font-size: 22px">
+            <h3>游 记</h3>
             <div class="kd-divider">
               <div class="short-seprator"><span><i class="fa fa-globe"></i></span></div>
             </div>
@@ -176,7 +176,7 @@
   .kd-loadmorebtn {
     font-weight: bold;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px 40px;
     background-color: #FFA500;
   }
 
