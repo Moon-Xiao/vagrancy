@@ -32,6 +32,11 @@
       ready () {
         console.log('aweewvfwef', this.certainRef, this.select)
         this.switchPage({page: 1, perPage: this.perPage || 8, select: this.select, ref: this.ref})
+      },
+      'state.buffer' () {
+        this.$nextTick(function () {
+          this.$emit('update')
+        }.bind(this))
       }
     },
     computed: {

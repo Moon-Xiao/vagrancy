@@ -4,22 +4,36 @@
     <div class="group-items">
       <div class="pre-item" @click="preItem"><span class="fa fa-chevron-left"></span></div>
       <div class="next-item" @click="nextItem"><span class="fa fa-chevron-right"></span></div>
-      <template v-for="item in groupList">
-        <div class="item">
-          <a :href="item.link">
-            <div class="back-img" :style="'background-image: url('+item.img+')'"></div>
-            <p>{{item.name}}</p>
-          </a>
-        </div>
-      </template>
+
+      <paginate-list @update="init" certainList="group" :certainUser="{mate:userInfo._id}">
+        <template slot="list-item" scope="item" >
+          <div class="item">
+            <router-link :to="'1'">
+              <div class="back-img" :style="`background-image: url('${baseUrl}/${item.value.photo.path}')`"></div>
+              <p>{{item.value.title}}</p>
+            </router-link>
+          </div>
+        </template>
+      </paginate-list>
+      <!--<template v-for="item in groupList">-->
+        <!--<div class="item">-->
+          <!--<a :href="item.link">-->
+            <!--<div class="back-img" :style="'background-image: url('+item.img+')'"></div>-->
+            <!--<p>{{item.name}}</p>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</template>-->
+
     </div>
   </div>
 
 </template>
 
 <script>
+  import PaginateList from '../../mixins/PaginateList.vue'
   export default {
     name: 'MyGroup',
+    components: {PaginateList},
     mounted: function () {
       this.init()
     },
@@ -40,6 +54,7 @@
     },
     methods: {
       init: function () {
+        console.log('123')
         let groupItems = window.$('.group-items')
         let items = window.$('.item')
         this.len = items.length
