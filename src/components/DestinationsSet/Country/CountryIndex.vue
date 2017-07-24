@@ -15,25 +15,10 @@
                     <span class="number">1</span>
                     <img :src="city.img" class="photo lazy" style="display: block;"></a></p>
                 <div class="bottom">
-                  <h3 class="title fontYaHei"><a href="#">香港</a></h3>
+                  <h3 class="title fontYaHei"><a href="#">{{city.name}}</a></h3>
                   <div class="info pois">
-                    <a v-for="scenic in city.scenics" href="#" target="_blank">scenic</a>、													<a
-                    href="//place.qyer.com/poi/V2wJYFFnBzVTZQ/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">维多利亚港</a>、														<a
-                    href="//place.qyer.com/poi/V2EJalFmBzFTZA/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">香港海洋公园</a>、														<a
-                    href="//place.qyer.com/poi/V2EJalFmBzBTbA/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">香港迪士尼乐园</a>、														<a
-                    href="//place.qyer.com/poi/V2wJalFuBz9TZQ/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">金紫荆广场</a>、														<a
-                    href="//place.qyer.com/poi/V2EJalFmBzJTYw/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">尖沙咀</a>、														<a
-                    href="//place.qyer.com/poi/V2cJZFFgBz5TYg/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">弥敦道</a>、														<a
-                    href="//place.qyer.com/poi/V2cJZVFjBzdTZw/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">中银大厦</a>、														<a
-                    href="//place.qyer.com/poi/V20JZ1FiBzZTYA/" target="_blank"
-                    data-bn-ipg="place-country-hotcity-relapoi">兰桂坊</a></div>
+                    <a >{{city.info}}</a>
+                    </div>
                 </div>
               </li>
             </ul>

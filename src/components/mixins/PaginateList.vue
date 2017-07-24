@@ -26,6 +26,11 @@
     methods: {
       changePage (page) {
         this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref})
+      },
+      refresh () {
+        console.log('refresh')
+        const {page, perPage, select, ref} = this
+        this.switchPage({page, perPage, select, ref})
       }
     },
     watch: {
@@ -37,6 +42,12 @@
         this.$nextTick(function () {
           this.$emit('update')
         }.bind(this))
+      },
+      certainUser () {
+        this.refresh()
+      },
+      certainList () {
+        this.refresh()
       }
     },
     computed: {

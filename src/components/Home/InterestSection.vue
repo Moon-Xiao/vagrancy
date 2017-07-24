@@ -27,6 +27,10 @@
           </li>
         </ul>
       </div>
+      <div class="kd-loadsection" style="margin: 10px auto;">
+        <a href="/home" class="kd-loadmorebtn" style="padding: 10px 40px">
+        更 多
+      </a></div>
     </div>
   </div>
 </template>
@@ -73,28 +77,28 @@
             city: '新西兰城市',
             info: 'Lake tekapo',
             count: 9526,
-            img: '/static/images/services1.jpg'
+            img: '/static/images/services5.jpg'
           },
           {
             title: '张弼士故居',
             city: '槟城景点',
             info: 'Cheong Fatt Tze Mansion',
             count: 9526,
-            img: '/static/images/services2.jpg'
+            img: '/static/images/services6.jpg'
           },
           {
             title: '尼泊尔',
             city: '薇薇安在旅途',
             info: '在色彩的王国体味春天的气息',
             count: 9526,
-            img: '/static/images/services3.jpg'
+            img: '/static/images/services7.jpg'
           },
           {
             title: '巴黎',
             city: '法国最大城市',
             info: '拍的就是这种Freestyle~',
             count: 9526,
-            img: '/static/images/services4.jpg'
+            img: '/static/images/services8.jpg'
           }
 
         ]
