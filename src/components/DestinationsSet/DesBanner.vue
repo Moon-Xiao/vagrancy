@@ -14,18 +14,15 @@
               <p class="fa fa-search"></p>
             </b-btn>
           </b-input-group-button>
-
         </b-input-group>
-
-
       </div>
       <div class="header-crumbs-wrapper">
         <ul class="inline-ul">
           <span class="fa  fa-map-marker"></span>
-          <li><a href="">泰国</a></li>
+          <li><a href="">印度</a></li>
           <span>&gt;</span>
           <li>
-            <a href="">苏梅岛</a>
+            <a href="">瓦拉纳西</a>
           </li>
           <span>&gt;</span>
           <li>

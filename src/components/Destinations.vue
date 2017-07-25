@@ -7,7 +7,7 @@
         <li v-for="sub in all.subtabs" class="all-sub-li row col-6">
           <a class="sub-title col-4">{{sub.subtitle}}</a>
           <div class="sub-list-ul col-8">
-            <a v-for="list in sub.deslist">{{list}}</a>
+            <a v-for="list in sub.deslist" style="margin-right: 5px">{{list}}</a>
           </div>
         </li>
       </ul>
@@ -402,9 +402,11 @@
   li.all-sub-li a.sub-title {
     color: #333333!important;
   }
+  li.all-sub-li:hover {
 
+  }
   li.all-sub-li:hover .sub-title{
-    color: #ec971f!important;
+    color: white!important;
     flex-direction: column;
   }
 

@@ -1,6 +1,3 @@
-/**
- * Created by jagger on 2017/7/12.
- */
 
 export async function init ({dispatch}) {
   await dispatch('user/init')
