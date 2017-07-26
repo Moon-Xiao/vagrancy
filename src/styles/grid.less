@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  flex-direction: row;
+
+  .generate-cols(1);
+
+  .generate-cols(@counter, @max: 24) when (@counter <= @max) {
+    .generate-cols((@counter + 1));
+    & > .col-@{counter} {
+      width: 100% / @max * @counter;
+      box-sizing: border-box;
+    }
+  }
+}
