@@ -1,5 +1,4 @@
-// require('./check-versions')()
-console.log('123')
+require('./check-versions')()
 
 var config = require('../config')
 if (!process.env.NODE_ENV) {
@@ -71,7 +70,6 @@ var readyPromise = new Promise(resolve => {
 })
 
 console.log('> Starting dev server...')
-
 devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
   // when env is testing, don't need open it
@@ -80,11 +78,8 @@ devMiddleware.waitUntilValid(() => {
   }
   _resolve()
 })
-//
-// var server = app.listen(port, function (err) {
-//   console.error(err, 13)
-// })
-//
+// //
+// var server = app.listen(port)
 //
 // module.exports = {
 //   ready: readyPromise,

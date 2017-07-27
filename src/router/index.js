@@ -91,7 +91,7 @@ let routes = [
         ]
       },
       {
-        path: 'country',
+        path: 'country/:country_id',
         component: Country,
         children: [
           {
@@ -103,7 +103,7 @@ let routes = [
             component: CountrySurvey
           },
           {
-            path: 'city',
+            path: 'city/:city_id',
             component: CountryCity
           }
         ]

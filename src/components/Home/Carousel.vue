@@ -1,12 +1,12 @@
 <template>
 
   <div id="mainbanner" class="row">
-    <swiper ref="horizontalSwiper" :options="horizontalOptions" class="banner-horizontal col-10">
+    <swiper ref="horizontalSwiper" :options="horizontalOptions" class="banner-horizontal col-11">
       <swiper-slide v-for="banner in banners">
         <img :src="banner.image">
       </swiper-slide>
     </swiper>
-    <swiper ref="verticalSwiper" :options="verticalOptions" class="banner-vertical col-2">
+    <swiper ref="verticalSwiper" :options="verticalOptions" class="banner-vertical col-1">
       <swiper-slide class="slider" style="background-size: cover; background-position: center;" :style="`background-image: url('${banner.image}')`" v-for="banner in banners">
       </swiper-slide>
     </swiper>
@@ -195,13 +195,31 @@
         ],
         banners: [
           {
-            image: './static/images/banner3.jpg'
+            image: './static/images/banner/1.jpg'
           },
           {
-            image: './static/images/banner2.jpg'
+            image: './static/images/banner/2.jpg'
           },
           {
-            image: './static/images/banner4.jpg'
+            image: './static/images/banner/3.jpg'
+          },
+          {
+            image: './static/images/banner/4.jpg'
+          },
+          {
+            image: './static/images/banner/5.jpg'
+          },
+          {
+            image: './static/images/banner/6.jpg'
+          },
+          {
+            image: './static/images/banner/7.jpg'
+          },
+          {
+            image: './static/images/banner/8.jpg'
+          },
+          {
+            image: './static/images/banner/9.jpg'
           }
         ],
         selectedIndex: 1,
@@ -217,7 +235,7 @@
       verticalOptions () {
         return {
           direction: 'vertical',
-          slidesPerView: 2,
+          slidesPerView: 4,
           autoplay: 3500,
           loop: true,
           onSlideChangeStart: (swiper) => {

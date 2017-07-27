@@ -8,12 +8,12 @@
             <li v-for="travel in travels">
               <a href="#" title="如果在香港遇见了你" target="_blank">
                 <p class="photo">
-                  <img :src="travel.img" width="310" height="200" alt="" class="lazy" style="display: block;"></p>
+                  <img :src="'/'+travel.img" width="310" height="200" alt="" class="lazy" style="display: block;"></p>
                 <p class="photoMask"></p>
                 <p class="pois">12</p>
                 <div class="content">
                   <p class="face">
-                    <img :src="travel.authorImg" width="80" height="80" alt=""></p>
+                    <img :src="'/'+travel.authorImg" width="80" height="80" alt=""></p>
                   <p class="userName">{{travel.author}}</p>
                   <h3 class="title fontYaHei">{{travel.title}}</h3>
                   <blockquote class="text">{{travel.info}}</blockquote>
@@ -35,32 +35,33 @@
   export default {
     data () {
       return {
-        travels: [
-          {
-            img: '/static/images/travels/travel1.jpg',
-            title: '成都美食',
-            author: 'cddddd',
-            authorImg: '/static/images/travels/author1.jpg',
-            info: '生活之城，休闲之都。成都人无论走得多远，一顿火锅，一道麻辣川菜，就能轻易唤起她的思乡之情。成都美食，可以串联起几乎所有关于成都的记忆与故事。成都美食也有一段传奇的成长经历。'
-          },
-          {
-            img: '/static/images/travels/travel2.jpg',
-            title: '一起去厦门看海吧',
-            author: 'weiweimo',
-            authorImg: '/static/images/travels/author2.jpg',
-            info: '每次在夜里降落这座城市，满目灯火如繁星闪耀，也会觉得这片水泥森林好像是个浪漫的地方。世人皆语此地纸醉金迷，欲望杂生，但也总有一些小细节会让人看到简单爱情的影子。所以，如果有一天，你在香港遇见了TA。'
-          },
-          {
-            img: '/static/images/travels/travel3.jpg',
-            title: '如果在香港遇见了你',
-            author: '香港观光局',
-            authorImg: '/static/images/travels/author3.jpg',
-            info: '每次在夜里降落这座城市，满目灯火如繁星闪耀，也会觉得这片水泥森林好像是个浪漫的地方。世人皆语此地纸醉金迷，欲望杂生，但也总有一些小细节会让人看到简单爱情的影子。所以，如果有一天，你在香港遇见了TA。'
-          }
-        ]
+        //        travels: [
+        //          {
+        //            img: '/static/images/travels/travel1.jpg',
+        //            title: '成都美食',
+        //            author: 'cddddd',
+        //            authorImg: '/static/images/travels/author1.jpg',
+        //            info: '生活之城，休闲之都。成都人无论走得多远，一顿火锅，一道麻辣川菜，就能轻易唤起她的思乡之情。成都美食，可以串联起几乎所有关于成都的记忆与故事。成都美食也有一段传奇的成长经历。'
+        //          },
+        //          {
+        //            img: '/static/images/travels/travel2.jpg',
+        //            title: '一起去厦门看海吧',
+        //            author: 'weiweimo',
+        //            authorImg: '/static/images/travels/author2.jpg',
+        //            info: '每次在夜里降落这座城市，满目灯火如繁星闪耀，也会觉得这片水泥森林好像是个浪漫的地方。世人皆语此地纸醉金迷，欲望杂生，但也总有一些小细节会让人看到简单爱情的影子。所以，如果有一天，你在香港遇见了TA。'
+        //          },
+        //          {
+        //            img: '/static/images/travels/travel3.jpg',
+        //            title: '如果在香港遇见了你',
+        //            author: '香港观光局',
+        //            authorImg: '/static/images/travels/author3.jpg',
+        //            info: '每次在夜里降落这座城市，满目灯火如繁星闪耀，也会觉得这片水泥森林好像是个浪漫的地方。世人皆语此地纸醉金迷，欲望杂生，但也总有一些小细节会让人看到简单爱情的影子。所以，如果有一天，你在香港遇见了TA。'
+        //          }
+        //        ]
       }
     },
     props: {//      travels: Array
+      travels: Array
     }
   }
 </script>

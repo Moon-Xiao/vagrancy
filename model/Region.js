@@ -21,7 +21,9 @@ const Region = service.list('Region', {
 Region.add('基本信息', [
   {name: 'name', label: '名字', type: Types.Text},
   {name: 'en-name', label: '英文名', type: Types.Text},
+  {name: 'intro', label: '简介', type: Types.Text},
   {name: 'country', label: '国家', type: Types.Reference, ref: require('./Country')},
+  {name: 'main-photo', label: '主要图片', type: Types.File, accept: 'image/*'},
   {name: 'photo1', label: '图片', type: Types.File, accept: 'image/*'},
   {name: 'photo2', label: '图片', type: Types.File, accept: 'image/*'},
   {name: 'photo3', label: '图片', type: Types.File, accept: 'image/*'},

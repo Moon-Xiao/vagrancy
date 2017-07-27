@@ -1,8 +1,8 @@
 <template>
   <div>
     <div :class="className||''">
-      <slot v-if="ready && state.buffer" v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
-      <slot v-if="ready && (!state.buffer || state.buffer.length === 0)" name="no-content"></slot>
+      <slot v-if="ready" v-for="(i,index) in state.buffer" name="list-item" :value="i" :index="index"></slot>
+      <slot v-if="ready && state.buffer.length === 0" name="no-content"></slot>
       <slot v-if="ready" name="pager" :page="state.page" :total="state.total" :perPage="state.perPage"
             :pages="pages"></slot>
     </div>
@@ -20,34 +20,24 @@
       certainRef: Object,
       perPage: Number,
       className: String,
-      select: String
+      select: String,
+      sort: String
     },
     mixins: [ListsMixin],
     methods: {
       changePage (page) {
-        this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref})
-      },
-      refresh () {
-        console.log('refresh')
-        const {page, perPage, select, ref} = this
-        this.switchPage({page, perPage, select, ref})
+        this.switchPage({page, perPage: this.state.perPage, select: this.select, ref: this.ref, sort: this.sort})
       }
     },
     watch: {
       ready () {
         console.log('aweewvfwef', this.certainRef, this.select)
-        this.switchPage({page: 1, perPage: this.perPage || 8, select: this.select, ref: this.ref})
+        this.switchPage({page: 1, perPage: this.perPage || 8, select: this.select, ref: this.ref, sort: this.sort})
       },
       'state.buffer' () {
         this.$nextTick(function () {
-          this.$emit('update')
+          this.$emit('update', this.state.buffer)
         }.bind(this))
-      },
-      certainUser () {
-        this.refresh()
-      },
-      certainList () {
-        this.refresh()
       }
     },
     computed: {

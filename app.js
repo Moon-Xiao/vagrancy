@@ -21,10 +21,9 @@ const path = require('path')
 // //
 const frontApp = require('./build/dev-server')
 
-service.pre('app:config', function (app) {
+service.post('prepare', function (app) {
   app.use('/', frontApp)
 })
-
 
 // 10.25.19.193
 
@@ -32,7 +31,7 @@ service.pre('app:config', function (app) {
 const cms = require('/Users/jagger/WebstormProjects/core/cms')
 
 service.use(cms)
-
+//
 // service.post('prepare', function (app) {
 //   app.use('/', require('express').static('./dist'))
 //   app.use('/*', function (req, res) {

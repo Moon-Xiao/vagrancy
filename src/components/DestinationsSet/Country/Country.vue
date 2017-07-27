@@ -1,5 +1,17 @@
 <template>
   <div class="country">
+    <item certainList="country" :certainId="$route.params.country_id" @refresh="refresh">
+      <template slot="item">
+        <paginate-list certainList="region"
+                       :certainUser="{country: $route.params.country_id}"
+                       :perPage="6"
+                       select="name main-photo intro"
+                       @update="updateList"></paginate-list>
+      </template>
+    </item>
+    <paginate-list certainList="post" sort="-top" @update="updatePost" :perPage="3"
+                   select="title intro author photo"
+    ></paginate-list>
     <country-head :desHref="countryHref" :des="country"></country-head>
     <div class="country-nav">
       <div class="plcMenuBarHolder placeNavBar">
@@ -7,7 +19,7 @@
           <div class="plcMenuBar countryBar">
             <ul class="placeNav clearfix fontYaHei">
               <li class="menu">
-                <router-link :to="`/destinations/country/${country._id}/survey`" class="text">城市指南</router-link>
+                <router-link to="/destinations/country/survey" class="text">城市指南</router-link>
                 <span class="tab"></span>
                 <div class="menuList">
                   <div class="poiMenuBarLay">
@@ -123,7 +135,7 @@
                             <a href="#">医疗</a>
 
                             <span>｜</span>
-                            <a href="#">中国驻该城市使领馆</a>
+                            <a href="#">{{country.name}}驻该城市使领馆</a>
                           </p>
                         </li>
                       </ul>
@@ -184,9 +196,9 @@
                 <a href="#" class="text"> 问答结伴</a>
                 <span class="tab"></span>
                 <ul class="menuList menuNormal">
-                  <li class="normalItem"><a href="#">瓦拉纳西结伴</a></li>
+                  <li class="normalItem"><a href="#">{{country.name}}结伴</a></li>
                   <li class="normalItem"><a href="#">旅行问答</a></li>
-                  <li class="normalItem"><a href="#">瓦拉纳西照片</a></li>
+                  <li class="normalItem"><a href="#">{{country.name}}照片</a></li>
                 </ul>
               </li>
               <li class="line"></li>
@@ -222,8 +234,11 @@
 </template>
 <script>
   import CountryHead from '../Common/DesHead.vue'
+  import Item from '../../mixins/Item.vue'
+  import PaginateList from '../../mixins/PaginateList.vue'
+
   export default {
-    components: {CountryHead},
+    components: {CountryHead, Item, PaginateList},
     data () {
       return {
         countryHref: '/destinations/country',
@@ -233,35 +248,31 @@
           wantgoCount: '542',
           wentCount: '321',
           cities: [
-            {
-              name: '沈阳',
-              img: '/static/images/des/country/chinalist4.jpg',
-              info: ' 棋盘山,故宫,大帅府,北陵公园,东陵公园,怪坡,世博园'
-            },
+            {name: '沈阳', img: '/static/images/des/country/chinalist4.jpg', ecenics: [' 棋盘山,故宫,大帅府,北陵公园,东陵公园,怪坡,世博园']},
             {
               name: '北京',
               img: '/static/images/des/country/chinalist5.jpg',
-              info: '故宫博物院,八达岭长城,颐和园,圆明园遗址公园,明十三陵景区,天安门广场'
+              ecenics: ['故宫博物院,八达岭长城,颐和园,圆明园遗址公园,明十三陵景区,天安门广场']
             },
             {
               name: '厦门',
               img: '/static/images/des/country/chinalist6.jpg',
-              info: '鼓浪屿、厦门大学、环岛路、南普陀寺、曾厝垵、日光岩、菽庄花园、钢琴博物馆'
+              ecenics: ['鼓浪屿', '厦门大学', '环岛路', '南普陀寺', '曾厝垵', '日光岩', '菽庄花园', '钢琴博物馆']
             },
             {
               name: '杭州',
               img: '/static/images/des/country/chinalist4.jpg',
-              info: '千岛湖、西湖、西溪湿地、灵隐寺、钱塘江、苏堤、京杭大运河'
+              ecenics: ['千岛湖', '西湖', '西溪湿地', '灵隐寺', '钱塘江', '苏堤', '京杭大运河']
             },
             {
               name: '张家界',
               img: '/static/images/des/country/chinalist3.jpg',
-              info: '张家界国家森林公园、天子山自然保护区、索溪峪自然保护区'
+              ecenics: ['张家界国家森林公园', '天子山自然保护区', '索溪峪自然保护区']
             },
             {
-              name: '香港',
+              nema: '香港',
               img: '/static/images/des/country/chinalist1.jpg',
-              info: '星光大道、太平山、维多利亚港、香港海洋公园、香港迪士尼乐园、金紫荆广场、尖沙咀'
+              ecenics: ['星光大道', '太平山', '维多利亚港', '香港海洋公园', '香港迪士尼乐园', '金紫荆广场', '尖沙咀']
             }
           ],
           hotels: [
@@ -276,9 +287,7 @@
             {nema: '感受恒河边生命的轮回'}
           ],
           mainImgs: [
-            '/static/images/des/country/china1 680x400.jpg',
-            '/static/images/des/country/china2 680x400.jpg',
-            '/static/images/des/country/china3 680x400.jpg'
+            'about:blank'
           ],
           experiences: [
             {
@@ -310,7 +319,6 @@
     },
     methods: {
       refresh (info) {
-        this.country._id = info._id
         this.country.name = info.name
         this.country['ename'] = info['en-name']
         if (info.photo1) {
@@ -347,6 +355,11 @@
           console.log(123, this.country.travers)
         }
       }
+      // img: '/static/images/travels/travel3.jpg',
+      //            title: '如果在香港遇见了你',
+      //            author: '香港观光局',
+      //            authorImg: '/static/images/travels/author3.jpg',
+      //            info
     }
   }
 </script>

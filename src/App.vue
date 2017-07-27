@@ -22,7 +22,7 @@
           <!--<b-dropdown-item to="#">RU</b-dropdown-item>-->
           <!--<b-dropdown-item to="#">FA</b-dropdown-item>-->
           <!--</b-navitem-dropdown>-->
-          <template >
+          <template v-if="!$store.state.user.logged">
             <form v-show="isShow" style="margin-top: 18px;margin-right:50px; ">
               <input placeholder="nickname" v-model="nickname"/>
               <input placeholder="password" type="password" v-model="password"/>
@@ -45,7 +45,9 @@
               未登录
             </div>
           </template>
-
+          <div style="margin: 20px 18px;color: black" @click="toCMS">
+            后台管理系统
+          </div>
         </b-nav>
       </b-collapse>
     </b-navbar>
@@ -116,7 +118,7 @@
     },
     methods: {
       async logOut () {
-        await api.logoutUser()
+        await this.$store.logout()
         this.$router.push('/home')
       },
       async login () {
@@ -130,6 +132,9 @@
           }
         })
         this.$router.push(this.$route.query.redirect)
+      },
+      toCMS () {
+        window.location.replace('/core')
       }
     }
   }

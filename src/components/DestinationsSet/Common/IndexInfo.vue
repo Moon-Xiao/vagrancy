@@ -6,7 +6,7 @@
         <ul class="plcFocusPhotoList">
           <li v-for="(img,index) in des.mainImgs" style="position: absolute;"
               :style="nowImgIndex===index?'left: 0;':'left: 100%;'">
-            <a href="#"><img :src="img[0] === '/' ? img : '/' + img" width="680" height="400"></a>
+            <a href="#"><img :src="'/' + img" width="680" height="400"></a>
           </li>
         </ul>
         <p class="prev" title="上一张" @click="nowImgIndex= nowImgIndex>0?nowImgIndex-1:des.mainImgs.length-1"></p>

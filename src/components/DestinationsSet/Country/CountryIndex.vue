@@ -4,21 +4,21 @@
 
     <div class="plcContainer">
       <div class="qyWrap">
-        <h2 class="bigTitle fontYaHei">热门城市</h2>
+        <h2 class="bigTitle fontYaHei">中国热门城市</h2>
 
         <div class="plcHotCityContent">
           <div class="plcHotCityLists">
             <ul class="plcHotCityList clearfix">
               <li v-for="city in country.cities">
                 <p class="top">
-                  <router-link to="/destinations/city">
+                  <a href="#" target="_blank">
                     <span class="number">1</span>
-                    <img :src="'/'+city.img" class="photo lazy" style="display: block;"></router-link></p>
+                    <img :src="'/'+city.img" class="photo lazy" style="display: block;"></a></p>
                 <div class="bottom">
                   <h3 class="title fontYaHei"><a href="#">{{city.name}}</a></h3>
                   <div class="info pois">
-                    <a >{{city.info}}</a>
-                    </div>
+                    <a v-for="scenic in city.ecenics" href="#" target="_blank">{{scenic}}</a>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -27,7 +27,7 @@
         <p class="plcHotCityAll"><a href="#" class="bigBtnViewAll fontYaHei" target="_blank">查看全部城市（41）</a></p>
       </div>
     </div>
-    <travel-list></travel-list>
+    <travel-list :travels="country.travers"></travel-list>
 
     <div class="plcContainer">
       <div class="qyWrap">
@@ -159,8 +159,6 @@
   import TravelList from '../Common/TravelList.vue'
   export default {
     components: {CountryIndexInfo, TravelList},
-    data () {
-    },
     props: {
       country: Object
     }
