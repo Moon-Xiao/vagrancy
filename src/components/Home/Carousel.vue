@@ -211,15 +211,6 @@
           },
           {
             image: './static/images/banner/6.jpg'
-          },
-          {
-            image: './static/images/banner/7.jpg'
-          },
-          {
-            image: './static/images/banner/8.jpg'
-          },
-          {
-            image: './static/images/banner/9.jpg'
           }
         ],
         selectedIndex: 1,
