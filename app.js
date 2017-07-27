@@ -31,7 +31,7 @@ service.pre('app:config', function (app) {
 const cms = require('/Users/jagger/WebstormProjects/core/cms')
 
 service.use(cms)
-//
+
 // service.post('prepare', function (app) {
 //   app.use('/', require('express').static('./dist'))
 //   app.use('/*', function (req, res) {

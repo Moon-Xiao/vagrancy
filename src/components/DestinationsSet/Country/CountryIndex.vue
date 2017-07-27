@@ -4,16 +4,16 @@
 
     <div class="plcContainer">
       <div class="qyWrap">
-        <h2 class="bigTitle fontYaHei">中国热门城市</h2>
+        <h2 class="bigTitle fontYaHei">热门城市</h2>
 
         <div class="plcHotCityContent">
           <div class="plcHotCityLists">
             <ul class="plcHotCityList clearfix">
               <li v-for="city in country.cities">
                 <p class="top">
-                  <a href="#" target="_blank">
+                  <router-link to="/destinations/city">
                     <span class="number">1</span>
-                    <img :src="city.img" class="photo lazy" style="display: block;"></a></p>
+                    <img :src="'/'+city.img" class="photo lazy" style="display: block;"></router-link></p>
                 <div class="bottom">
                   <h3 class="title fontYaHei"><a href="#">{{city.name}}</a></h3>
                   <div class="info pois">

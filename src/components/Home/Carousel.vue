@@ -70,9 +70,11 @@
                @mouseleave="focused--" @mouseenter="focused++">
             <div class="placesearch_history_box"></div>
             <div class="history-title">
-              <span>热门城市</span>
+              <span>热门地区</span>
             </div>
             <div class="history-cont">
+              <router-link style="color: #1baede" to="/destinations/country/59741ba28f037bab32d9a3b3">中国</router-link>
+              <router-link style="color: #1baede" to="/destinations/country/5974a520da81a2b77db7618d">印度</router-link>
               <a href="#">香港</a>
               <a href="#">曼谷</a>
               <a href="#">东京</a>
@@ -102,7 +104,7 @@
               <span>热门搜索</span>
             </div>
             <div class="history-cont">
-              <a href="#">【穷游独家】清迈厨艺学校体验</a>
+              <a href="#">【Vagrancy 独家】清迈厨艺学校体验</a>
               <a href="#">日本 城市</a>
               <a href="#">清迈 门票/一日游</a>
               <a href="#">瑞士铁路通票</a>
@@ -117,7 +119,7 @@
               <a href="#">日韩邮轮</a>
               <a href="#">美国 交通卡</a>
               <a href="#">日本JR PASS</a>
-              <a href="#">穷游CITYWALK</a>
+              <a href="#">Vagrancy CITYWALK</a>
             </div>
           </div>
           <div v-else-if="selectedIndex === 4" v-bind:class="['q-layer', 'q-layer-hotelsearch',{show:focused>0}]"

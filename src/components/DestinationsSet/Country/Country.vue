@@ -7,7 +7,7 @@
           <div class="plcMenuBar countryBar">
             <ul class="placeNav clearfix fontYaHei">
               <li class="menu">
-                <router-link to="/destinations/country/survey" class="text">城市指南</router-link>
+                <router-link :to="`/destinations/country/${country._id}/survey`" class="text">城市指南</router-link>
                 <span class="tab"></span>
                 <div class="menuList">
                   <div class="poiMenuBarLay">
@@ -303,7 +303,48 @@
             title: '香港有记',
             author: 'sherylll',
             amount: 154759
-          }
+          },
+          travers: []
+        }
+      }
+    },
+    methods: {
+      refresh (info) {
+        this.country._id = info._id
+        this.country.name = info.name
+        this.country['ename'] = info['en-name']
+        if (info.photo1) {
+          this.country.mainImgs = [
+            info.photo1.path,
+            info.photo2.path,
+            info.photo3.path
+          ]
+        }
+      },
+      updateList (list) {
+        console.log(list)
+        if (list && list.length > 0) {
+          this.country.cities = list.map(city => ({
+            name: city.name,
+            img: city['main-photo'] ? city['main-photo'].path : 'about:blank',
+            ecenics: [city.intro]
+          }))
+        }
+      },
+      updatePost (posts) {
+        console.log(posts)
+        if (posts && posts.length > 0) {
+          this.country.travers = posts.map(post => {
+            console.log(post)
+            return {
+              img: post.photo.path,
+              title: post.title,
+              author: post.author.nickname,
+              authorImg: post.author.avatar.path,
+              info: post.intro
+            }
+          })
+          console.log(123, this.country.travers)
         }
       }
     }

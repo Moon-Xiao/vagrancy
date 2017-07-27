@@ -192,7 +192,7 @@ let routes = [
       },
       {
         path: '/travel/note-grid',
-        name: '热门国家'
+        name: '热门地区'
       }
     ],
     children: [
