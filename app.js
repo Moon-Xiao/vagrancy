@@ -28,7 +28,7 @@ service.post('prepare', function (app) {
 // 10.25.19.193
 
 
-const cms = require('/Users/jagger/WebstormProjects/core/cms')
+const cms = require('cms')
 
 service.use(cms)
 //
